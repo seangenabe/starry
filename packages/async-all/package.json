@@ -1,0 +1,21 @@
+{
+  "name": "starry.async-all",
+  "version": "0.0.1",
+  "description": "Member of the starry suite—modular functions for iterable objects.",
+  "homepage": "https://github.com/seangenabe/starry",
+  "author": "Sean Genabe <seangenabe@outlook.com>",
+  "repository": "seangenabe/starry",
+  "license": "MIT",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "main": "async-all.js",
+  "keywords": [
+    "starry-modularized",
+    "iterable",
+    "iterator"
+  ],
+  "dependencies": {
+    "starry._async-operation": "0.0.1"
+  }
+}

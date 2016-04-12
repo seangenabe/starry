@@ -1,0 +1,25 @@
+{
+  "name": "starry",
+  "version": "0.0.1",
+  "description": "Modular functions for iterable objects.",
+  "homepage": "https://github.com/seangenabe/starry",
+  "author": "Sean Genabe <seangenabe@outlook.com>",
+  "repository": "seangenabe/starry",
+  "license": "MIT",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "main": "starry.js",
+  "keywords": [
+    "starry-modularized",
+    "iterable",
+    "iterator"
+  ],
+  "dependencies": {
+    "starry.async-all": "0.0.1",
+    "starry.async-race": "0.0.1",
+    "starry.count": "0.0.1",
+    "starry.every": "0.0.1",
+    "starry.filter": "0.0.1"
+  }
+}

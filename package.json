@@ -1,0 +1,35 @@
+{
+  "version": "0.0.0",
+  "private": true,
+  "description": "Modular functions for iterable objects",
+  "scripts": {
+    "test": "ava",
+    "compile-npm": "babel-node build/compile-npm.js"
+  },
+  "homepage": "https://github.com/seangenabe/starry",
+  "author": "Sean Genabe <seangenabe@outlook.com>",
+  "repository": "seangenabe/starry",
+  "license": "MIT",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "main": "lib/starry.js",
+  "keywords": [
+    "iterable",
+    "iterator"
+  ],
+  "devDependencies": {
+    "ava": "^0.14.0",
+    "babel-cli": "^6.7.5",
+    "babel-plugin-transform-async-to-generator": "^6.7.4",
+    "globby": "^4.0.0",
+    "lerna": "^1.1.2",
+    "mkdirp-promise": "^1.0.4",
+    "pify": "^2.3.0"
+  },
+  "babel": {
+    "plugins": [
+      "transform-async-to-generator"
+    ]
+  }
+}

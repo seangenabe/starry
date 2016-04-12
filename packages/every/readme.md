@@ -1,0 +1,1 @@
+See the [homepage](https://github.com/seangenabe/starry) for usage instructions.
