@@ -13,7 +13,7 @@ async function run() {
       let moduleDir = `npm/${moduleName}`
       await new Promise((resolve, reject) => {
         let cp = ChildProcess.exec(
-          `cd ${moduleDir} && npm ls`,
+          `cd ${moduleDir} && npm publish`,
           function(err, stdout, stderr) {
 
           resolve()
