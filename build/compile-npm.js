@@ -14,7 +14,7 @@ async function run() {
     await asyncAll(paths, async path => {
       let moduleName = Path.basename(path, '.js')
       let realpath = `lib/${path}`
-      let moduleDir = `packages/${moduleName}`
+      let moduleDir = `npm/${moduleName}`
       await mkdirp(moduleDir)
       // Get JS file.
       let contentsjs = await FS.readFile(realpath, 'utf8')

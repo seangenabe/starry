@@ -1,10 +1,11 @@
 {
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "description": "Modular functions for iterable objects",
   "scripts": {
     "test": "ava",
-    "compile-npm": "babel-node build/compile-npm.js"
+    "compile-npm": "babel-node build/compile-npm.js",
+    "publish-all": "babel-node build/publish-all"
   },
   "homepage": "https://github.com/seangenabe/starry",
   "author": "Sean Genabe <seangenabe@outlook.com>",
