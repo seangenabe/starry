@@ -44,6 +44,26 @@ Calls the function `asyncAction` asynchronously for each element, and resolves w
 * `asyncAction`: `Function`: The function to call for each element. Called with the following argument:
   * `element`: The element in the current iteration.
 
+### bound(fn)
+
+Wraps the function into a virtual function that calls the input function passing the context of the output function as the first argument. Useful for [function bind syntax](https://github.com/zenparsing/es-function-bind).
+
+* `fn`: `Function`: The function to wrap.
+
+Returns:
+* `Function`
+
+Example:
+```javascript
+const bound = require('starry.bound')
+const size = bound(require('starry.size'))
+
+['a', 'b', 'c']::size() // experimental function bind syntax
+//> 3
+size.call(['a', 'b', 'c'])
+//> 3
+```
+
 ### every(iterable, predicate)
 
 Determines whether all elements in an iterable satisfy a condition. Returns `true` if the iterable is empty.
