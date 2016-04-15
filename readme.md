@@ -16,6 +16,15 @@ const every = require('starry').every
 
 Or just get the functions you want as [separate modules](https://www.npmjs.com/browse/keyword/starry-modularized).
 
+### any(iterable)
+
+Determines whether an iterable has any elements (i.e. not empty).
+
+* `iterable`: `Iterable`: The iterable to process.
+
+Returns:
+* `Boolean`
+
 ### asyncAll(iterable, asyncAction)
 
 Calls the function `asyncAction` asynchronously for each element in parallel. See `Promise.all`.
