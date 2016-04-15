@@ -2,29 +2,38 @@
 
 const mkdirp = require('mkdirp-promise')
 const globby = require('globby')
-const asyncAll = require('../lib/async-all')
 const Path = require('path')
 const pify = require('pify')
 const FS = pify(require('fs'))
 const rootPkg = require('../package')
+const src = 'dist'
+const dest = 'npm'
+const asyncAll = require(`../${src}/async-all`)
 
 async function run() {
   try {
-    let paths = await globby('*.js', { cwd: 'lib' })
+    let paths = await globby('*.js', { cwd: src })
     await asyncAll(paths, async path => {
       let moduleName = Path.basename(path, '.js')
-      let realpath = `lib/${path}`
-      let moduleDir = `npm/${moduleName}`
+      let realpath = `${src}/${path}`
+      let moduleDir = `${dest}/${moduleName}`
       await mkdirp(moduleDir)
       // Get JS file.
       let contentsjs = await FS.readFile(realpath, 'utf8')
       // Replace local requires with modular requires.
-      let deps = []
+      let localDeps = []
+      let thirdPartyDeps = []
       contentsjs = contentsjs.replace(
-        /(require\(['"])(\.\/)([^'"]*)(['"]\))/g,
+        /(require\(['"])(\.\/)?([^'"]*)(['"]\))/g,
         (match, s1, s2, s3, s4) => {
-          deps.push(s3)
-          return `${s1}starry.${s3}${s4}`
+          if (s2 && s2.length) {
+            localDeps.push(s3)
+            return `${s1}starry.${s3}${s4}`
+          }
+          else {
+            thirdPartyDeps.push(s3)
+            return `${s1}${s3}${s4}`
+          }
         }
       )
       await FS.writeFile(`${moduleDir}/${path}`, contentsjs, 'utf8')
@@ -41,13 +50,22 @@ async function run() {
         repository: rootPkg.repository,
         license: rootPkg.license,
         engines: rootPkg.engines,
-        main: path,
-        keywords: ['starry-modularized'].concat(rootPkg.keywords)
+        main: path
       }
-      if (deps.length) {
+      let keywords = moduleName === 'starry' ? [] : ['starry-modularized']
+      keywords = keywords.concat(rootPkg.keywords)
+      pkg.keywords = keywords
+      if (localDeps.length) {
         pkg.dependencies = {}
-        for (let d of deps) {
+        for (let d of localDeps) {
           pkg.dependencies[`starry.${d}`] = rootPkg.version
+        }
+      }
+      if (thirdPartyDeps.length) {
+        pkg.dependencies = pkg.dependencies || {}
+        for (let d of thirdPartyDeps) {
+          let version = rootPkg.dependencies[d] || 'latest'
+          pkg.dependencies[d] = version
         }
       }
       await FS.writeFile(
