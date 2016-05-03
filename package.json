@@ -27,7 +27,7 @@
     "ava": "^0.14.0",
     "babel-cli": "^6.7.5",
     "babel-plugin-transform-async-to-generator": "^6.7.4",
-    "babel-plugin-transform-es2015-parameters": "^6.7.0",
+    "babel-plugin-transform-es2015-parameters": "^6.8.0",
     "babel-plugin-transform-strict-mode": "^6.6.5",
     "babel-register": "^6.7.2",
     "globby": "^4.0.0",
