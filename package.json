@@ -1,13 +1,7 @@
 {
-  "version": "0.2.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Modular functions for iterable objects",
-  "scripts": {
-    "test": "ava",
-    "compile": "babel --out-dir dist lib",
-    "compile-npm": "babel-node build/compile-npm.js",
-    "publish-all": "babel-node build/publish-all"
-  },
   "homepage": "https://github.com/seangenabe/starry",
   "author": "Sean Genabe <seangenabe@outlook.com>",
   "repository": "seangenabe/starry",
@@ -20,35 +14,30 @@
     "iterable",
     "iterator"
   ],
-  "dependencies": {
-    "lodash.includes": "^4.1.2"
+  "scripts": {
+    "test": "ava",
+    "build": "npm run lerna:bootstrap",
+    "lerna:bootstrap": "lerna bootstrap"
   },
   "devDependencies": {
-    "ava": "^0.14.0",
+    "ava": "^0.16.0",
     "babel-cli": "^6.7.5",
     "babel-plugin-transform-async-to-generator": "^6.7.4",
     "babel-plugin-transform-es2015-parameters": "^6.7.0",
     "babel-plugin-transform-strict-mode": "^6.6.5",
-    "babel-register": "^6.7.2",
-    "globby": "^4.0.0",
-    "lerna": "^1.1.2",
-    "mkdirp-promise": "^1.0.4",
-    "pify": "^2.3.0"
+    "lerna": "2.0.0-beta.27",
+    "lodash.includes": "^4.1.2",
+    "lodash.camelcase": "latest"
   },
   "babel": {
     "plugins": [
       "transform-async-to-generator",
-      "transform-strict-mode",
-      "transform-es2015-parameters"
+      "transform-strict-mode"
     ]
   },
   "ava": {
     "files": [
-      "test/*.test.js"
-    ],
-    "require": [
-      "babel-register"
-    ],
-    "timeout": "10s"
+      "packages/*/test.js"
+    ]
   }
 }

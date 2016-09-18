@@ -1,0 +1,7 @@
+{
+  "name": "starry",
+  "version": "1.0.0",
+  "description": "Modular functions for iterable objects.",
+  "license": "MIT",
+  "main": "./index.js"
+}

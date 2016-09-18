@@ -1,0 +1,13 @@
+{
+  "name": "starry._set-types",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "main": "./index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "dependencies": {
+    "starry.map": "^1.0.0"
+  }
+}

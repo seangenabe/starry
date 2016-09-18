@@ -1,0 +1,12 @@
+{
+  "name": "starry._set-types",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "starry.every": "^1.0.0",
+    "starry.filter": "^1.0.0",
+    "starry.includes": "^1.0.0"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "starry.filter",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "starry.map": "^1.0.0"
+  }
+}

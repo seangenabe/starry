@@ -1,0 +1,7 @@
+{
+  "name": "starry._same-value-zero",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "main": "./index.js"
+}
