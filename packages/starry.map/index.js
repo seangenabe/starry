@@ -1,4 +1,4 @@
-module.exports = function* map(iterable, callback, thisArg) {
+module.exports = function* map(iterable, callback) {
   if (typeof iterable[Symbol.iterator] !== 'function') {
     throw new TypeError("`iterable` is not iterable.")
   }
@@ -6,6 +6,6 @@ module.exports = function* map(iterable, callback, thisArg) {
     throw new TypeError("`callback` is not a function.")
   }
   for (let element of iterable) {
-    yield callback.call(thisArg, element, iterable)
+    yield callback(element, iterable)
   }
 }

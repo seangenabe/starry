@@ -8,6 +8,7 @@ const monorepoPkg = require(monorepoPkgPath)
 const assert = require('assert')
 const { EOL } = require('os')
 const sortPackageJson = require('sort-package-json')
+const encode = require('encody')
 
 async function run() {
   try {
@@ -65,6 +66,8 @@ function setupIndividualPackages(packages) {
 
 async function setupPackage(packageName) {
   let packageDir = `${__dirname}/../packages/${packageName}`
+  let p = []
+  const memberOfThe = `Member of the starry suite—modular functions for iterable objects.`
 
   // `name` must be equal to the directory name.
   let packageJsonPath = require.resolve(`${packageDir}/package`)
@@ -72,7 +75,7 @@ async function setupPackage(packageName) {
   packageJson.name = packageName
 
   // Set description.
-  packageJson.description = `Member of the starry suite—modular functions for iterable objects.`
+  packageJson.description = memberOfThe
 
   // Set homepage.
   packageJson.homepage = monorepoPkg.homepage
@@ -94,11 +97,41 @@ async function setupPackage(packageName) {
   packageJson = sortPackageJson(packageJson)
 
   // Commit package.json
-  await FS.writeFile(
+  p.push(FS.writeFile(
     packageJsonPath,
     JSON.stringify(packageJson, null, 2),
     'utf8'
-  )
+  ))
+
+  // Build readme
+  let shields = [
+    ['npm', encode`npm/v/${packageName}`, encode`https://www.npmjs.com/package/${packageName}`],
+    ['Dependency Status', encode`david/${packageName}`, encode`https://david-dm.org/${packageName}`],
+    ['devDependency Status', encode`david/dev/${packageName}`, encode`https://david-dm.org/${packageName}#info=devDependencies`],
+    ['node', encode`node/v/${packageName}`, 'https://nodejs.org/en/download/']
+  ]
+  let shields2 = [
+    ['Build Status', encode`travis/${monorepoPkg.repository}`, encode`https://travis-ci.org/${monorepoPkg.repository}`],
+    ['Coverage Status', encode`coveralls/${monorepoPkg.repository}`, encode`https://coveralls.io/github/${monorepoPkg.repository}`]
+  ]
+  let doc = await FS.readFile(`${packageDir}/doc.md`)
+  let readmeMd = `# ${packageName}
+
+${memberOfThe}
+
+${shields.map((title, img, link) => `[![${title}](https://img.shields.io/${img}.svg?style=flat-square)](${link})`).join(' ')}
+
+## Status
+
+Applies to the whole suite.
+
+${shields2.map((title, img, link) => `[![${title}](https://img.shields.io/${img}.svg?style=flat-square)](${link})`).join(' ')}
+
+## Usage
+
+${doc}
+
+`
 }
 
 if (require.main === module) {
