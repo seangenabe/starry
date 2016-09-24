@@ -1,7 +1,18 @@
 {
-  "name": "starry._set-types",
+  "name": "starry.first",
   "version": "1.0.0",
-  "description": "",
+  "description": "Member of the starry suite—modular functions for iterable objects.",
+  "keywords": [
+    "iterable",
+    "iteration",
+    "iterator",
+    "starry-modularized"
+  ],
+  "homepage": "https://github.com/seangenabe/starry",
   "license": "MIT",
-  "main": "./index.js"
+  "main": "./index.js",
+  "repository": "seangenabe/starry",
+  "engines": {
+    "node": ">=6.0.0"
+  }
 }

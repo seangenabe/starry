@@ -1,13 +1,24 @@
 {
-  "name": "starry._set-types",
+  "name": "starry.async-race",
   "version": "1.0.0",
-  "description": "",
+  "description": "Member of the starry suite—modular functions for iterable objects.",
+  "keywords": [
+    "iterable",
+    "iteration",
+    "iterator",
+    "starry-modularized"
+  ],
+  "homepage": "https://github.com/seangenabe/starry",
   "license": "MIT",
   "main": "./index.js",
+  "repository": "seangenabe/starry",
   "scripts": {
     "test": "ava"
   },
   "dependencies": {
     "starry.map": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
   }
 }
