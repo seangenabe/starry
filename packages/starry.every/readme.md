@@ -22,5 +22,3 @@ Parameters:
 
 Returns: `Boolean`
 
-
-  

@@ -14,5 +14,3 @@ Applies to the whole suite.
 
 A set containing all of the array types (`Array`, `%TypedArray%`).
 
-
-  

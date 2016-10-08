@@ -17,5 +17,3 @@ Returns a new iterable that only contains the elements from `iterable` that sati
 Parameters:
 * iterable: `Iterable`
 
-
-  

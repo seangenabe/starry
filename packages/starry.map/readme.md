@@ -23,5 +23,3 @@ Parameters:
 
 Returns: `TOut`
 
-
-  

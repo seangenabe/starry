@@ -4,6 +4,7 @@ Modular functions for iterable objects
 
 [![npm](https://img.shields.io/npm/v/starry.svg?style=flat-square)](https://www.npmjs.com/package/starry)
 [![Build Status](https://img.shields.io/travis/seangenabe/starry/master.svg?style=flat-square)](https://travis-ci.org/seangenabe/starry)
+[![Coverage Status](https://img.shields.io/coveralls/seangenabe/starry.svg?style=flat-square)](https://coveralls.io/github/seangenabe/starry)
 [![devDependency Status](https://img.shields.io/david/dev/seangenabe/starry.svg?style=flat-square)](https://david-dm.org/seangenabe/starry#info=devDependencies)
 
 ## Usage

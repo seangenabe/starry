@@ -27,5 +27,3 @@ Promise.all([].map(async function() { ... }))
 
 But with iterable support. ☺
 
-
-  

@@ -14,5 +14,3 @@ Applies to the whole suite.
 
 A set containing the set types (`Set`, `WeakSet`).
 
-
-  

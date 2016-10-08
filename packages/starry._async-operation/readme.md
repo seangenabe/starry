@@ -14,5 +14,3 @@ Applies to the whole suite.
 
 See `map`.
 
-
-  

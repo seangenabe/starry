@@ -19,5 +19,3 @@ Parameters:
 
 Returns: `Number`
 
-
-  
