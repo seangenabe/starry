@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "test": "ava",
-    "build": "npm run build:setup && lerna bootstrap",
+    "build": "npm run setup && lerna bootstrap",
     "setup": "babel-node build/setup",
     "pub": "lerna publish --only-explicit-updates"
   },
