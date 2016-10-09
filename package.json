@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "build": "npm run setup && lerna bootstrap",
-    "setup": "babel-node build/setup",
+    "setup": "babel-node build/setup && cp ./readme.md ./packages/starry/",
     "test": "nyc ava",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "pub": "lerna publish --only-explicit-updates"
