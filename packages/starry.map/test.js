@@ -10,10 +10,9 @@ t(t => {
   let o = {}
   let result = map(
     x,
-    function(element, iterable) {
+    (element, iterable) => {
       t.is(iterable, x)
       t.truthy(element >= 4 && element <= 6)
-      t.is(this, o)
       return element - 3
     },
     o
