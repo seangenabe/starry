@@ -6,7 +6,7 @@ t(t => {
     yield 1
     yield 2
     yield 3
-  }))
+  })())
   t.is(result, 3)
 })
 

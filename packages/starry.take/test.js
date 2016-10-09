@@ -1,7 +1,10 @@
-const _setTypes = require('.')
+const take = require('.')
 const t = require('ava')
 
 t(t => {
-  t.truthy(_setTypes.has(Set))
-  t.truthy(_setTypes.has(WeakSet))
+  let s = 'abcd'
+  t.deepEqual([...take(s)], ['a'])
+  t.deepEqual([...take([])], [])
+  t.deepEqual([...take(s, 2)], ['a', 'b'])
+  t.deepEqual([...take(s, 30)], ['a', 'b', 'c', 'd'])
 })

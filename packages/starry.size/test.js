@@ -1,18 +1,22 @@
 const size = require('.')
 const t = require('ava')
 
-t(t => {
-  t.is(size((function*() {
-    yield 'a'
-    yield 'b'
-    yield 'c'
-  })(), 3))
+function* letters() {
+  yield 'a'
+  yield 'b'
+  yield 'c'
+}
+
+t('generator size', t => {
+  let result = size(letters())
+  t.is(result, 3)
 })
 
-t(t => {
+t('array size', t => {
   t.is(size([]), 0)
+  t.is(size(['a', 'b', 'c']), 3)
 })
 
-t(t => {
+t('set size', t => {
   t.is(size(new Set(['a', 'b', 'c'])), 3)
 })

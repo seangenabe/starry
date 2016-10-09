@@ -2,7 +2,7 @@ const every = require('.')
 const t = require('ava')
 
 t('true, 2 params', t => {
-  t.truthy(every(['foo', ''][Symbol.iterator], x => typeof x === 'string'))
+  t.truthy(every(['foo', ''], x => typeof x === 'string'))
 })
 
 t('true, 1 param', t => {

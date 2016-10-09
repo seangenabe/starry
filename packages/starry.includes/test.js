@@ -1,7 +1,16 @@
-const _setTypes = require('.')
+const includes = require('.')
 const t = require('ava')
 
+function* nums() {
+  yield 1
+  yield 2
+  yield 3
+}
+
 t(t => {
-  t.truthy(_setTypes.has(Set))
-  t.truthy(_setTypes.has(WeakSet))
+  t.truthy(includes(nums(), 1))
+  t.truthy(includes(nums(), 2))
+  t.truthy(includes(nums(), 3))
+  t.falsy(includes(nums(), 4))
+  t.falsy(includes(nums(), undefined))
 })

@@ -2,7 +2,7 @@ const filter = require('.')
 const t = require('ava')
 
 t('empty', t => {
-  t.is(filter([]).length, 0)
+  t.is([...filter([])].length, 0)
 })
 
 function* nums() {
@@ -17,6 +17,6 @@ t('even only', t => {
 })
 
 t('default predicate', t => {
-  let result = filter([false, true, false, true])
+  let result = [...filter([false, true, false, true])]
   t.deepEqual(result, [true, true])
 })
