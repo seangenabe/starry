@@ -11,9 +11,5 @@ t(t => {
 })
 
 t(t => {
-  t.is(last(), undefined)
-})
-
-t(t => {
   t.is(last(Uint32Array.from([1, 2, 3])), 3)
 })
