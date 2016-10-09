@@ -6,7 +6,7 @@ module.exports = function* take(iterable, count = 1) {
   }
   if (count <= 0) { return }
   if (arrayTypes.has(iterable.constructor)) {
-    return iterable.slice(0, count)
+    yield* iterable.slice(0, count)
   }
   let i = 0
   let iterator = iterable[Symbol.iterator]()

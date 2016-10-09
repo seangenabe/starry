@@ -30,6 +30,7 @@
     "lodash.camelcase": "latest",
     "lodash.includes": "^4.1.2",
     "node-puff": "^1.0.1",
+    "nyc": "^8.3.1",
     "sort-package-json": "^1.4.0"
   },
   "ava": {
@@ -37,5 +38,10 @@
       "packages/*/test.js"
     ],
     "failFast": true
+  },
+  "nyc": {
+    "exclude": [
+      "packages/*/test.js"
+    ]
   }
 }

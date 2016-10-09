@@ -1,9 +1,6 @@
 const arrayTypes = require('starry._array-types')
 
-module.exports = function size(iterable) {
-  if (iterable == null) {
-    throw new TypeError("`iterable` is not defined")
-  }
+module.exports = function size(iterable = []) {
   let C = iterable.constructor
   if (arrayTypes.has(C)) {
     return iterable.length

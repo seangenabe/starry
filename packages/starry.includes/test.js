@@ -13,4 +13,5 @@ t(t => {
   t.truthy(includes(nums(), 3))
   t.falsy(includes(nums(), 4))
   t.falsy(includes(nums(), undefined))
+  t.truthy(includes(new Set([1, 2]), 1))
 })

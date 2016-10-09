@@ -1,4 +1,4 @@
-module.exports = function* map(iterable, callback) {
+module.exports = function* map(iterable = [], callback = x => x) {
   if (typeof iterable[Symbol.iterator] !== 'function') {
     throw new TypeError("Argument `iterable` is not iterable.")
   }

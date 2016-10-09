@@ -1,6 +1,6 @@
 const arrayTypes = require('starry._array-types')
 
-module.exports = function last(iterable) {
+module.exports = function last(iterable = []) {
   if (arrayTypes.has(iterable.constructor)) {
     let len = iterable.length
     if (len === 0) { return undefined }

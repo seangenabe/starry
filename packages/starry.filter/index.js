@@ -1,4 +1,4 @@
-module.exports = function* filter(iterable, predicate = x => x) {
+module.exports = function* filter(iterable = [], predicate = x => x) {
   if (typeof iterable[Symbol.iterator] !== 'function') {
     throw new TypeError("`iterable` is not iterable.")
   }
