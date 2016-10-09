@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
   "dependencies": {
-    "starry.some": "^1.0.0"
+    "starry.map": "^1.0.0"
   }
 }
