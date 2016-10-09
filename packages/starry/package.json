@@ -5,19 +5,19 @@
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
-    "starry.any": "1.0.0",
-    "starry.async-all": "1.0.0",
-    "starry.async-race": "1.0.0",
-    "starry.bound": "1.0.0",
-    "starry.every": "1.0.0",
-    "starry.filter": "1.0.0",
-    "starry.first": "1.0.0",
-    "starry.includes": "1.0.0",
-    "starry.intersection": "1.0.0",
-    "starry.last": "1.0.0",
-    "starry.map": "1.0.0",
-    "starry.size": "1.0.0",
-    "starry.some": "1.0.0",
-    "starry.take": "1.0.0"
+    "starry.any": "^1.0.0",
+    "starry.async-all": "^1.0.0",
+    "starry.async-race": "^1.0.0",
+    "starry.bound": "^1.0.0",
+    "starry.every": "^1.0.0",
+    "starry.filter": "^1.0.0",
+    "starry.first": "^1.0.0",
+    "starry.includes": "^1.0.0",
+    "starry.intersection": "^1.0.0",
+    "starry.last": "^1.0.0",
+    "starry.map": "^1.0.0",
+    "starry.size": "^1.0.0",
+    "starry.some": "^1.0.0",
+    "starry.take": "^1.0.0"
   }
 }
