@@ -8,3 +8,8 @@ t(t => {
   t.deepEqual([...take(s, 2)], ['a', 'b'])
   t.deepEqual([...take(s, 30)], ['a', 'b', 'c', 'd'])
 })
+
+t(t => {
+  t.throws(() => take([1, 2], Infinity))
+  t.throws(() => take([1, 2], NaN))
+})
