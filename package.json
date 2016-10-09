@@ -17,15 +17,17 @@
     "iteration"
   ],
   "scripts": {
-    "test": "ava",
     "build": "npm run setup && lerna bootstrap",
     "setup": "babel-node build/setup",
+    "test": "ava",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "pub": "lerna publish --only-explicit-updates"
   },
   "devDependencies": {
     "ava": "^0.16.0",
     "babel-cli": "^6.7.5",
     "babel-plugin-transform-async-to-generator": "^6.7.4",
+    "coveralls": "^2.11.14",
     "lerna": "2.0.0-beta.30",
     "lodash.camelcase": "latest",
     "lodash.includes": "^4.1.2",
