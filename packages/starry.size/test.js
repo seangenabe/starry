@@ -22,5 +22,5 @@ t('set size', t => {
 })
 
 t('map size', t => {
-  t.is(size(new Map([['a', 1], ['b', 2]]), 2))
+  t.is(size(new Map([['a', 1], ['b', 2]])), 2)
 })
