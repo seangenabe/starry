@@ -51,7 +51,7 @@ async function extractPackageInfo(require_id) {
 }
 
 async function setupContainerPackage(packages) {
-  let devDependencies = {}
+  let dependencies = {}
   let indexExports = []
   let p = []
   let public_docs = []
@@ -71,7 +71,7 @@ async function setupContainerPackage(packages) {
       continue
     }
 
-    // Add package to devDependencies
+    // Add package to dependencies
     let version
     try {
       version = require(package_json_path).version
@@ -87,7 +87,7 @@ async function setupContainerPackage(packages) {
         version = '0'
       }
     }
-    devDependencies[require_id] = version
+    dependencies[require_id] = version
 
     // Add to exports
     indexExports.push([fn_name, require_id])
@@ -96,9 +96,9 @@ async function setupContainerPackage(packages) {
     public_docs.push({ fn_name, doc_md })
   }
 
-  // Commit devDependencies
-  containerPkg.devDependencies =
-    Object.assign({}, containerPkg.devDependencies, devDependencies)
+  // Commit dependencies
+  containerPkg.dependencies =
+    Object.assign({}, containerPkg.dependencies, dependencies)
   p.push(FS.writeFile(containerPkgPath, outputJSON(containerPkg), 'utf8'))
 
   // Commit index.js

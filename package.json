@@ -19,8 +19,8 @@
   "scripts": {
     "build": "npm run setup && lerna bootstrap",
     "setup": "babel-node build/setup",
-    "test": "ava",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "test": "nyc ava",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "pub": "lerna publish --only-explicit-updates"
   },
   "devDependencies": {
