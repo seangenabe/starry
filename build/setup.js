@@ -32,8 +32,8 @@ async function extractPackageInfo(require_id) {
   let is_private = require_base.startsWith('_')
   let fn_name = camelCase(require_base)
   let require_path = `${__dirname}/../packages/${require_id}`
-  let package_json_path = require.resolve(`${require_path}/package`)
-  let package_json = require(package_json_path)
+  let package_json_path = `${require_path}/package.json`
+  let package_src_json_path = `${require_path}/package-src.json`
   let doc_md_path = `${require_path}/doc.md`
   let doc_md = denormalizeEOL(await FS.readFile(doc_md_path, 'utf8'))
 
@@ -43,8 +43,8 @@ async function extractPackageInfo(require_id) {
     is_private,
     fn_name,
     require_path,
-    package_json,
     package_json_path,
+    package_src_json_path,
     doc_md_path,
     doc_md
   }
@@ -57,18 +57,40 @@ async function setupContainerPackage(packages) {
   let public_docs = []
 
   for (let info of packages) {
-    let { require_base, is_private, package_json_path, doc_md, fn_name } = info
+    let {
+      require_base,
+      is_private,
+      package_json_path,
+      package_src_json_path,
+      doc_md,
+      fn_name,
+      require_id
+    } = info
 
     if (is_private) {
       continue
     }
 
     // Add package to devDependencies
-    let package_json = require(package_json_path)
-    devDependencies[require_base] = package_json.version
+    let version
+    try {
+      version = require(package_json_path).version
+      if (!version) {
+        throw new Error()
+      }
+    }
+    catch (err) {
+      try {
+        version = require(package_src_json_path).version
+      }
+      catch (err) {
+        version = '0'
+      }
+    }
+    devDependencies[require_id] = version
 
     // Add to exports
-    indexExports.push([fn_name, require_base])
+    indexExports.push([fn_name, require_id])
 
     // Add to publicly-shown docs
     public_docs.push({ fn_name, doc_md })
@@ -81,7 +103,7 @@ async function setupContainerPackage(packages) {
 
   // Commit index.js
   let indexjs = `module.exports = {
-${indexExports.map(([fn_name, require_base]) => `${JSON.stringify(fn_name)}: require.resolve(${JSON.stringify(require_base)})`).join(`,\n`)}
+${indexExports.map(([fn_name, require_id]) => `${JSON.stringify(fn_name)}: require.resolve(${JSON.stringify(require_id)})`).join(`,\n`)}
 }`
   p.push(FS.writeFile(`${__dirname}/../packages/starry/index.js`, normalizeEOLEOF(indexjs), 'utf8'))
 
@@ -107,12 +129,16 @@ function setupIndividualPackages(packages) {
   }))
 }
 
-async function setupPackage({ package_json, package_json_path, require_id, require_path, doc_md }) {
+async function setupPackage({ package_json_path, package_src_json_path, require_id, require_path, doc_md }) {
   const memberOfThe = `Member of the starry suite—modular functions for iterable objects.`
 
   async function setupPackageJson() {
+    let package_json = {}
+
     // `name` must be equal to the directory name.
     package_json.name = require_id
+
+    package_json.main = './index.js'
 
     // Set description.
     package_json.description = memberOfThe
@@ -135,6 +161,16 @@ async function setupPackage({ package_json, package_json_path, require_id, requi
 
     // package.json consistency FTW!
     package_json = sortPackageJson(package_json)
+
+    // merge package-src.json
+    let package_src_json
+    try {
+      package_src_json = require(package_src_json_path)
+    }
+    catch (err) {
+      package_src_json = {}
+    }
+    package_json = Object.assign({}, package_json, package_src_json)
 
     // Commit package.json
     await FS.writeFile(
