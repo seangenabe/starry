@@ -85,6 +85,18 @@ Returns a new iterable that only contains the elements from `iterable` that sati
 Parameters:
 * iterable: `Iterable`
 
+## find
+
+`find(iterable, predicate)`
+
+Returns the first element in the iterable that satisfies the predicate.
+
+Parameters:
+* iterable: `Iterable<T>`
+* predicate: `Function<T, Boolean>`
+
+Returns: `T`
+
 ## first
 
 `first(iterable)`
@@ -156,6 +168,18 @@ Parameters:
 
 Returns: `Number`
 
+## skip
+
+`skip(iterable, count=1)`
+
+Skips `count` number of elements from the iterable.
+
+Parameters:
+* iterable - `Iterable<T>`
+* count - `Number`. Default: `1`
+
+Returns: `Iterable<T>`
+
 ## some
 
 `some(iterable, predicate = x => x)`
@@ -177,4 +201,6 @@ Returns `count` number of elements from the beginning of the iterable.
 Parameters:
 * iterable - `Iterable<T>`
 * count - `Number`. Default: `1`
+
+Returns: `Iterable<T>`
 
