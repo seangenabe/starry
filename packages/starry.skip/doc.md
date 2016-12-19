@@ -1,0 +1,9 @@
+`skip(iterable, count=1)`
+
+Skips `count` number of elements from the iterable.
+
+Parameters:
+* iterable - `Iterable<T>`
+* count - `Number`. Default: `1`
+
+Returns: `Iterable<T>`
