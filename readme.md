@@ -7,15 +7,27 @@ Modular functions for iterable objects
 [![Coverage Status](https://img.shields.io/coveralls/seangenabe/starry.svg?style=flat-square)](https://coveralls.io/github/seangenabe/starry)
 [![devDependency Status](https://img.shields.io/david/dev/seangenabe/starry.svg?style=flat-square)](https://david-dm.org/seangenabe/starry#info=devDependencies)
 
+## Intro
+
+This is a combination of some methods inspired from `lodash` as well as some utilities for asynchronous tasks, but tailored for JS iterables in general.
+
+(An [iterable][es2015-iterables] is any object that has a `Symbol.iterator` function property.)
+
+[es2015-iterables]: http://www.ecma-international.org/ecma-262/6.0/#sec-iterable-interface
+
 ## Usage
 
-Just export the function you want:
+Either export the function you want:
 
 ```javascript
 const every = require('starry').every
 ```
 
-Or just get the functions you want as [separate modules](https://www.npmjs.com/browse/keyword/starry-modularized).
+Or get the functions you want as [separate modules](https://www.npmjs.com/browse/keyword/starry-modularized):
+
+```javascript
+const every = require('starry.every')
+```
 
 ### API
 
