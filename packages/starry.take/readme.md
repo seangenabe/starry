@@ -18,3 +18,5 @@ Parameters:
 * iterable - `Iterable<T>`
 * count - `Number`. Default: `1`
 
+Returns: `Iterable<T>`
+
