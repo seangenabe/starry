@@ -87,7 +87,7 @@ async function setupContainerPackage(packages) {
         version = '0'
       }
     }
-    dependencies[require_id] = version
+    dependencies[require_id] = `^${version}`
 
     // Add to exports
     indexExports.push([fn_name, require_id])
