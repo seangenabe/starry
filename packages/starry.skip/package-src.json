@@ -1,8 +1,7 @@
 {
-  "version": "1.0.0",
-  "dependencies": {
-    "starry._array-types": "^1.0.0",
-    "starry.iterator-to-iterable": "^1.0.0",
-    "starry.take": "^1.0.1"
-  }
+  "_dependencies": [
+    "starry._array-types",
+    "starry.iterator-to-iterable",
+    "starry.take"
+  ]
 }

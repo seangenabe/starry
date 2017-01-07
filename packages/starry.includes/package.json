@@ -14,8 +14,8 @@
   "repository": "seangenabe/starry",
   "dependencies": {
     "starry._array-types": "^1.0.0",
-    "starry._set-types": "^1.0.0",
     "starry._same-value-zero": "^1.0.0",
+    "starry._set-types": "^1.0.0",
     "starry.some": "^1.0.0"
   },
   "engines": {

@@ -1,6 +1,3 @@
 {
-  "version": "1.0.1",
-  "dependencies": {
-    "starry._array-types": "^1.0.0"
-  }
+  "_dependencies": ["starry._array-types"]
 }

@@ -1,9 +1,8 @@
 {
-  "version": "1.0.1",
-  "dependencies": {
-    "starry._array-types": "^1.0.0",
-    "starry._set-types": "^1.0.0",
-    "starry._same-value-zero": "^1.0.0",
-    "starry.some": "^1.0.0"
-  }
+  "_dependencies": [
+    "starry._array-types",
+    "starry._set-types",
+    "starry._same-value-zero",
+    "starry.some"
+  ]
 }

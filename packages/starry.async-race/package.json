@@ -13,7 +13,7 @@
   "main": "./index.js",
   "repository": "seangenabe/starry",
   "dependencies": {
-    "starry.map": "^1.0.0"
+    "starry.map": "^1.1.0"
   },
   "engines": {
     "node": ">=6.0.0"
