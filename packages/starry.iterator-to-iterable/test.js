@@ -27,6 +27,16 @@ test('rest', t => {
   t.is(iterator.value, 3)
 })
 
+test('throw if iterator is not an iterator', t => {
+  t.throws(() => iteratorToIterable({ next: null }))
+})
+
+test('return iterator.next when next is called', t => {
+  let iterator = new IncrementMaster()
+  let iterable = iteratorToIterable(iterator)
+  t.deepEqual(iterable.next(), { done: false, value: 0 })
+})
+
 class IncrementMaster {
 
   constructor() {
