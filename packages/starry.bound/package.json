@@ -1,6 +1,6 @@
 {
   "name": "starry.bound",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
