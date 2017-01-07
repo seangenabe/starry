@@ -19,3 +19,16 @@ t(t => {
   )
   t.deepEqual([...result], [1, 2, 3])
 })
+
+t('iterable must be iterable', t => {
+  t.throws(() => {
+    map({ [Symbol.iterator]: null }, x => x)
+  })
+  t.throws(() => {
+    map(1, x => x)
+  })
+})
+
+t('callback must be a function', t => {
+  t.throws(() => map('abc', NaN))
+})
