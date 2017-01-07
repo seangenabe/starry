@@ -1,6 +1,6 @@
 {
   "name": "starry",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Modular functions for iterable objects.",
   "license": "MIT",
   "main": "./index.js",
@@ -9,7 +9,7 @@
     "starry.async-all": "^1.1.1",
     "starry.async-race": "^1.1.1",
     "starry.bound": "^1.1.1",
-    "starry.concat": "^0.0.0",
+    "starry.concat": "^1.2.0",
     "starry.every": "^1.1.1",
     "starry.filter": "^1.1.1",
     "starry.find": "^1.1.1",
