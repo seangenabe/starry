@@ -9,6 +9,7 @@ module.exports = function* take(iterable, count = 1) {
   }
   if (arrayTypes.has(iterable.constructor)) {
     yield* iterable.slice(0, count)
+    return
   }
 
   let iterator = iterable[Symbol.iterator]()
