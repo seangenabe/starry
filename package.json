@@ -40,8 +40,7 @@
   "ava": {
     "files": [
       "packages/*/test.js"
-    ],
-    "timeout": "10s"
+    ]
   },
   "nyc": {
     "exclude": [
