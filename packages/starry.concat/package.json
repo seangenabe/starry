@@ -1,0 +1,19 @@
+{
+  "name": "starry.concat",
+  "version": "0.0.0",
+  "description": "Member of the starry suite—modular functions for iterable objects.",
+  "keywords": [
+    "iterable",
+    "iteration",
+    "iterator",
+    "starry-modularized"
+  ],
+  "homepage": "https://github.com/seangenabe/starry",
+  "license": "MIT",
+  "main": "./index.js",
+  "repository": "seangenabe/starry",
+  "dependencies": {},
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}
