@@ -11,16 +11,16 @@
     "starry.bound": "^1.0.0",
     "starry.every": "^1.0.0",
     "starry.filter": "^1.1.0",
+    "starry.find": "^1.1.0",
     "starry.first": "^1.0.0",
     "starry.includes": "^1.1.0",
     "starry.intersection": "^1.0.0",
+    "starry.iterator-to-iterable": "^1.1.0",
     "starry.last": "^1.1.0",
     "starry.map": "^1.1.0",
     "starry.size": "^1.0.0",
-    "starry.some": "^1.0.0",
-    "starry.take": "^1.1.0",
-    "starry.find": "^1.1.0",
     "starry.skip": "^1.1.0",
-    "starry.iterator-to-iterable": "^1.1.0"
+    "starry.some": "^1.0.0",
+    "starry.take": "^1.1.0"
   }
 }
