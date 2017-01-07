@@ -22,12 +22,8 @@ t('default predicate', t => {
 })
 
 t('iterable must be iterable', t => {
-  t.throws(() => {
-    filter({ [Symbol.iterator]: null }, x => x)
-  })
-  t.throws(() => {
-    filter(1, x => x)
-  })
+  t.throws(() => [...filter({ [Symbol.iterator]: null }, x => x)])
+  t.throws(() => [...filter(1, x => x)])
 })
 
 t('callback must be a function', t => {

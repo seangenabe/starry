@@ -21,12 +21,8 @@ t(t => {
 })
 
 t('iterable must be iterable', t => {
-  t.throws(() => {
-    map({ [Symbol.iterator]: null }, x => x)
-  })
-  t.throws(() => {
-    map(1, x => x)
-  })
+  t.throws(() => [...map(NaN, x => x)])
+  t.throws(() => [...map({ [Symbol.iterator]: null }, x => x)])
 })
 
 t('callback must be a function', t => {
