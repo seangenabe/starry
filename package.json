@@ -41,7 +41,6 @@
     "files": [
       "packages/*/test.js"
     ],
-    "failFast": true,
     "timeout": "10s"
   },
   "nyc": {

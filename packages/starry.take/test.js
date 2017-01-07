@@ -8,7 +8,8 @@ let tests = [
   ['take 0 values', [s, 0], []],
   ['take without count argument', [s], ['a']],
   ['take some values', [s, 2], ['a', 'b']],
-  ['take more than length', [s, 30], ['a', 'b', 'c', 'd']]
+  ['take more than length', [s, 30], ['a', 'b', 'c', 'd']],
+  ['array slice', [['a', 'b', 'c', 'd'], 2], ['a', 'b']]
 ]
 
 for (let [testName, args, expected] of tests) {
