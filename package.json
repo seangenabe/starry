@@ -17,6 +17,7 @@
     "iteration"
   ],
   "scripts": {
+    "ava": "ava",
     "build": "npm run setup && lerna bootstrap",
     "setup": "babel-node build/setup && cp ./readme.md ./packages/starry/",
     "test": "nyc ava",
@@ -40,7 +41,8 @@
     "files": [
       "packages/*/test.js"
     ],
-    "failFast": true
+    "failFast": true,
+    "timeout": "10s"
   },
   "nyc": {
     "exclude": [

@@ -1,13 +1,13 @@
 const find = require('.')
 const t = require('ava')
 
-t('find', t => {
-  t.is([...find([])].length, 0)
+t('empty array', t => {
+  t.is(find([]), undefined)
 })
 
-t(t => {
+t('find with predicate', t => {
   let arr = [7, 8, 6, 70]
-  t.equals(find(arr, x => x % 2 === 0), 8)
-  t.equals(find(arr, x => x % 2 === 1), 1)
-  t.equals(find(arr, x => x > 100), undefined)
+  t.is(find(arr, x => x % 2 === 0), 8)
+  t.is(find(arr, x => x % 2 === 1), 7)
+  t.is(find(arr, x => x > 100), undefined)
 })
