@@ -1,15 +1,26 @@
 const skip = require('.')
-const t = require('ava')
+const test = require('ava')
 
-t(t => {
-  let s = 'abcd'
-  t.deepEqual([...skip(s)], ['bcd'])
-  t.deepEqual([...skip([])], [])
-  t.deepEqual([...skip(s, 2)], ['c', 'd'])
-  t.deepEqual([...skip(s, 30)], [])
-})
+let s = 'abcd'
 
-t('throws error when not finite', t => {
+let tests = [
+  ['empty', [[]], []],
+  ['skip without count argument', [s], ['b', 'c', 'd']],
+  ['skip 0 values', [s, 0], ['a', 'b', 'c', 'd']],
+  ['skip some values', [s, 2], ['c', 'd']],
+  ['skip more than length', [s, 30], []],
+  ['array slice', [['a', 'b', 'c', 'd'], 2], ['c', 'd']]
+]
+
+for (let [testName, args, expected]) {
+  test(testName, t => {
+    let arr = [...skip(...args)]
+    t.deepEquals(arr, expected)
+  })
+}
+
+test('throws error on non-finite count values', t => {
+  t.throws(() => [...skip([1, 2], -Infinity)])
   t.throws(() => [...skip([1, 2], Infinity)])
   t.throws(() => [...skip([1, 2], NaN)])
 })

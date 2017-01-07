@@ -19,7 +19,8 @@
     "starry.size": "^1.0.0",
     "starry.some": "^1.0.0",
     "starry.take": "^1.0.1",
-    "starry.find": "^1.0.0",
-    "starry.skip": "^1.0.0"
+    "starry.find": "^1.0.1",
+    "starry.skip": "^1.0.0",
+    "starry.iterator-to-iterable": "^1.0.0"
   }
 }

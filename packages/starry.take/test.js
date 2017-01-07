@@ -1,15 +1,25 @@
 const take = require('.')
-const t = require('ava')
+const test = require('ava')
 
-t(t => {
-  let s = 'abcd'
-  t.deepEqual([...take(s)], ['a'])
-  t.deepEqual([...take([])], [])
-  t.deepEqual([...take(s, 2)], ['a', 'b'])
-  t.deepEqual([...take(s, 30)], ['a', 'b', 'c', 'd'])
-})
+let s = 'abcd'
 
-t('throws error when not finite', t => {
+let tests = [
+  ['empty', [[]], []],
+  ['take 0 values', [s, 0], []],
+  ['take without count argument', [s], ['a']],
+  ['take some values', [s, 2], ['a', 'b']],
+  ['take more than length', [s, 30], ['a', 'b', 'c', 'd']]
+]
+
+for (let [testName, args, expected] of tests) {
+  test(testName, t => {
+    let arr = [...take(...args)]
+    t.deepEqual(arr, expected)
+  })
+}
+
+test('throws error when not finite', t => {
   t.throws(() => [...take([1, 2], Infinity)])
+  t.throws(() => [...take([1, 2], -Infinity)])
   t.throws(() => [...take([1, 2], NaN)])
 })

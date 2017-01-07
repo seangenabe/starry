@@ -1,28 +1,24 @@
 const arrayTypes = require('starry._array-types')
+const take = require('starry.take')
+const iteratorToIterable = require('starry.iterator-to-iterable')
 
 module.exports = function* skip(iterable, count = 1) {
   if (!Number.isFinite(count)) {
-    throw new TypeError("count must be a finite number")
+    throw new Error("Argument `count` must be finite.")
   }
   if (count <= 0) { return }
+
   if (arrayTypes.has(iterable.constructor)) {
     yield* iterable.slice(count)
-  }
-  let i = 0
-  let iterator = iterable[Symbol.iterator]()
-  let iteratorCurrent = iterator.next()
-  for (
-    ;
-    i < count && !iteratorCurrent.done;
-    iteratorCurrent = iterator.next(), i++
-  ) {
+    return
   }
 
-  for (
-    ;
-    !iteratorCurrent.done;
-    iteratorCurrent = iterator.next
-  ) {
-    yield iteratorCurrent.value
-  }
+  let iterator = iterable[Symbol.iterator]()
+  let iterableWrap = iteratorToIterable(iterator)
+
+  let a = take(iterableWrap, count)
+  console.error('[...a]', require('util').inspect([...a], { colors: true })) // DEBUG
+
+  console.error('[...iterableWrap]', require('util').inspect([...iterableWrap], { colors: true })) // DEBUG
+  yield* iterableWrap
 }
