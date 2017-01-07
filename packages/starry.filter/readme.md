@@ -15,5 +15,8 @@ Applies to the whole suite.
 Returns a new iterable that only contains the elements from `iterable` that satisfies `predicate`.
 
 Parameters:
-* iterable: `Iterable`
+* iterable: `Iterable<T>`
+* predicate: `Function<T, Boolean>`
+
+Returns: `Iterable<T>`
 
