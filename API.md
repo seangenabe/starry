@@ -194,6 +194,9 @@ Parameters:
 
 Returns: `Iterable<T>`
 
+Throws:
+* `TypeError` - when `count` is not a finite number.
+
 ## some
 
 `some(iterable, predicate = x => x)`
@@ -217,4 +220,7 @@ Parameters:
 * count - `Number`. Default: `1`
 
 Returns: `Iterable<T>`
+
+Throws:
+* `TypeError` - when `count` is not a finite number.
 

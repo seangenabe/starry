@@ -20,3 +20,6 @@ Parameters:
 
 Returns: `Iterable<T>`
 
+Throws:
+* `TypeError` - when `count` is not a finite number.
+
