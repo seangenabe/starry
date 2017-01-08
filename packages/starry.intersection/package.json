@@ -1,6 +1,6 @@
 {
   "name": "starry.intersection",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
@@ -14,7 +14,7 @@
   "repository": "seangenabe/starry",
   "dependencies": {
     "starry.every": "^1.1.1",
-    "starry.filter": "^1.1.1",
+    "starry.filter": "^1.2.1",
     "starry.includes": "^1.1.1"
   },
   "engines": {
