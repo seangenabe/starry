@@ -1,6 +1,7 @@
 const arrayTypes = require('starry._array-types')
-const take = require('starry.take')
+const generatorToIterable = require('starry.generator-to-iterable')
 const iteratorToIterable = require('starry.iterator-to-iterable')
+const take = require('starry.take')
 
 module.exports = function skip(iterable, count = 1) {
   if (!Number.isFinite(count)) {
@@ -13,12 +14,12 @@ module.exports = function skip(iterable, count = 1) {
     return iterable.slice(count)
   }
 
-  return (function* skipGenerator() {
+  return generatorToIterable(function* skipGenerator() {
     let iterator = iterable[Symbol.iterator]()
     let iterableWrap = iteratorToIterable(iterator)
 
     for (let skippedValue of take(iterableWrap, count)) {}
 
     yield* iterableWrap
-  })()
+  })
 }

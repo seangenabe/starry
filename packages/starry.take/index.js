@@ -1,24 +1,26 @@
 const arrayTypes = require('starry._array-types')
+const generatorToIterable = require('starry.generatorToIterable')
 
-module.exports = function* take(iterable, count = 1) {
+module.exports = function take(iterable, count = 1) {
   if (!Number.isFinite(count)) {
     throw new TypeError("Argument `count` is not a finite number.")
   }
   if (count <= 0) {
-    return
+    return []
   }
   if (arrayTypes.has(iterable.constructor)) {
-    yield* iterable.slice(0, count)
-    return
+    return iterable.slice(0, count)
   }
 
-  let iterator = iterable[Symbol.iterator]()
-  while (count > 0) {
-    let iteration = iterator.next()
-    if (iteration.done) {
-      return
+  return generatorToIterable(function* takeGenerator() {
+    let iterator = iterable[Symbol.iterator]()
+    while (count > 0) {
+      let iteration = iterator.next()
+      if (iteration.done) {
+        return
+      }
+      yield iteration.value
+      count--
     }
-    yield iteration.value
-    count--
-  }
+  })
 }

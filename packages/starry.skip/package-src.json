@@ -2,6 +2,7 @@
   "_dependencies": [
     "starry._array-types",
     "starry.iterator-to-iterable",
-    "starry.take"
+    "starry.take",
+    "starry.generator-to-iterable"
   ]
 }

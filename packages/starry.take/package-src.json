@@ -1,5 +1,6 @@
 {
   "_dependencies": [
-    "starry._array-types"
+    "starry._array-types",
+    "starry.generator-to-iterable"
   ]
 }
