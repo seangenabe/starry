@@ -31,6 +31,8 @@
     "babel-plugin-transform-async-to-generator": "^6.7.4",
     "coveralls": "^2.11.14",
     "encody": "^1.0.0",
+    "eslint": "^3.13.0",
+    "eslint-config-mirage": "^2.1.0",
     "lerna": "^2.0.0-beta.31",
     "lodash.assign": "^4.2.0",
     "lodash.camelcase": "latest",
