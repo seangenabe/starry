@@ -82,12 +82,7 @@ async function setupContainerPackage(packages) {
       }
     }
     catch (err) {
-      try {
-        version = require(package_src_json_path).version
-      }
-      catch (err) {
-        version = '0'
-      }
+      version = '0'
     }
     dependencies[require_id] = `^${version}`
 
@@ -187,9 +182,15 @@ async function setupPackage({ package_json_path, package_src_json_path, require_
       package_src_json = {}
     }
 
+    let existing_package_json = {}
+    try {
+      existing_package_json = require(package_json_path)
+    }
+    catch (err) {}
+
     package_json = assign(
       { version: '0.0.0' },
-      require(package_json_path),
+      existing_package_json,
       package_json,
       package_src_json
     )

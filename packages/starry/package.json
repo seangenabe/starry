@@ -14,6 +14,7 @@
     "starry.filter": "^1.1.1",
     "starry.find": "^1.1.1",
     "starry.first": "^1.1.1",
+    "starry.generator-to-iterable": "^0.0.0",
     "starry.includes": "^1.1.1",
     "starry.intersection": "^1.1.1",
     "starry.iterator-to-iterable": "^1.1.1",
