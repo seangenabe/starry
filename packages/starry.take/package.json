@@ -13,7 +13,8 @@
   "main": "./index.js",
   "repository": "seangenabe/starry",
   "dependencies": {
-    "starry._array-types": "^1.1.1"
+    "starry._array-types": "^1.1.1",
+    "starry.generator-to-iterable": "^0.0.0"
   },
   "engines": {
     "node": ">=6.0.0"

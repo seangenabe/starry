@@ -14,6 +14,7 @@
   "repository": "seangenabe/starry",
   "dependencies": {
     "starry._array-types": "^1.1.1",
+    "starry.generator-to-iterable": "^0.0.0",
     "starry.iterator-to-iterable": "^1.1.1",
     "starry.take": "^1.1.1"
   },
