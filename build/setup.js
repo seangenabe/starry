@@ -6,7 +6,6 @@ const containerPkgPath =
 const containerPkg = require(containerPkgPath)
 const monorepoPkgPath = require.resolve(`${root}/package`)
 const monorepoPkg = require(monorepoPkgPath)
-const assert = require('assert')
 const { EOL } = require('os')
 const sortPackageJson = require('sort-package-json')
 const encode = require('encody')
@@ -60,10 +59,8 @@ async function setupContainerPackage(packages) {
 
   for (let info of packages) {
     let {
-      require_base,
       is_private,
       package_json_path,
-      package_src_json_path,
       doc_md,
       fn_name,
       require_id
@@ -126,7 +123,14 @@ function setupIndividualPackages(packages) {
   }))
 }
 
-async function setupPackage({ package_json_path, package_src_json_path, require_id, require_path, doc_md }) {
+async function setupPackage({
+    package_json_path,
+    package_src_json_path,
+    require_id,
+    require_path,
+    doc_md
+  }) {
+
   const memberOfThe = `Member of the starry suite—modular functions for iterable objects.`
 
   async function setupPackageJson() {
@@ -172,6 +176,7 @@ async function setupPackage({ package_json_path, package_src_json_path, require_
           }
         }
         catch (err) {
+          // invalid package; skip
         }
       }
       if (Object.keys(newDeps).length) {
@@ -186,7 +191,9 @@ async function setupPackage({ package_json_path, package_src_json_path, require_
     try {
       existing_package_json = require(package_json_path)
     }
-    catch (err) {}
+    catch (err) {
+      // package.json does not exist yet.
+    }
 
     package_json = assign(
       { version: '0.0.0' },

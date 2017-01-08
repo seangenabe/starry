@@ -18,7 +18,9 @@ module.exports = function skip(iterable, count = 1) {
     let iterator = iterable[Symbol.iterator]()
     let iterableWrap = iteratorToIterable(iterator)
 
-    for (let skippedValue of take(iterableWrap, count)) {}
+    for (let skippedValue of take(iterableWrap, count)) {
+      // consume values
+    }
 
     yield* iterableWrap
   })

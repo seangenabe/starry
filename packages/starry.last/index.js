@@ -9,6 +9,8 @@ module.exports = function last(iterable = []) {
     return iterable[iterable.length - 1]
   }
   let item
-  for (item of iterable) {}
+  for (item of iterable) {
+    // consume items
+  }
   return item
 }
