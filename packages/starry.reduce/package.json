@@ -1,6 +1,6 @@
 {
-  "name": "starry.async-all",
-  "version": "1.1.1",
+  "name": "starry.reduce",
+  "version": "0.0.0",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
@@ -13,7 +13,7 @@
   "main": "./index.js",
   "repository": "seangenabe/starry",
   "dependencies": {
-    "starry.map": "^1.2.1"
+    "starry.iterator-to-iterable": "^1.1.1"
   },
   "engines": {
     "node": ">=6.0.0"

@@ -13,8 +13,8 @@
   "main": "./index.js",
   "repository": "seangenabe/starry",
   "dependencies": {
-    "starry.filter": "^1.1.1",
-    "starry.first": "^1.1.1"
+    "starry.filter": "^1.2.1",
+    "starry.first": "^1.2.1"
   },
   "engines": {
     "node": ">=6.0.0"

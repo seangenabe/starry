@@ -15,7 +15,7 @@
   "dependencies": {
     "starry._array-types": "^1.1.1",
     "starry._same-value-zero": "^1.1.1",
-    "starry._set-types": "^1.1.1",
+    "starry._set-types": "^1.2.1",
     "starry.some": "^1.1.1"
   },
   "engines": {
