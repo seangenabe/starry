@@ -2,6 +2,7 @@
   "_dependencies": [
     "starry.every",
     "starry.filter",
-    "starry.includes"
+    "starry.includes",
+    "starry.generator-to-iterable"
   ]
 }

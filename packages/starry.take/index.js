@@ -1,5 +1,5 @@
 const arrayTypes = require('starry._array-types')
-const generatorToIterable = require('starry.generatorToIterable')
+const generatorToIterable = require('starry.generator-to-iterable')
 
 module.exports = function take(iterable, count = 1) {
   if (!Number.isFinite(count)) {
