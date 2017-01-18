@@ -19,6 +19,7 @@
   "scripts": {
     "ava": "ava",
     "build": "npm run setup && lerna bootstrap",
+    "lerna-bootstrap": "lerna bootstrap",
     "setup": "babel-node build/setup && cp ./readme.md ./packages/starry/",
     "test": "nyc ava",
     "nyc:html": "nyc report --reporter=html",
