@@ -1,6 +1,6 @@
 {
   "name": "starry",
-  "version": "1.3.0",
+  "version": "1.3.2",
   "description": "Modular functions for iterable objects.",
   "license": "MIT",
   "main": "./index.js",
@@ -23,7 +23,7 @@
     "starry.map": "^1.2.1",
     "starry.reduce": "^1.3.0",
     "starry.size": "^1.1.1",
-    "starry.skip": "^1.2.1",
+    "starry.skip": "^1.3.2",
     "starry.some": "^1.3.0",
     "starry.take": "^1.3.1"
   }
