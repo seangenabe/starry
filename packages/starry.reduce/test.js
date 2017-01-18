@@ -13,3 +13,7 @@ test('reduce with accumulator', t => {
 test('accumulator must be a function', t => {
   t.throws(() => reduce('abc', NaN))
 })
+
+test('reduce empty', t => {
+  t.throws(() => reduce([], (x, y) => x + y))
+})
