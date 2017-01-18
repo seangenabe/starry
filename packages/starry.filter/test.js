@@ -20,3 +20,12 @@ t('default predicate', t => {
   let result = [...filter([false, true, false, true])]
   t.deepEqual(result, [true, true])
 })
+
+t('iterable must be iterable', t => {
+  t.throws(() => [...filter({ [Symbol.iterator]: null }, x => x)])
+  t.throws(() => [...filter(1, x => x)])
+})
+
+t('callback must be a function', t => {
+  t.throws(() => filter('abc', NaN))
+})

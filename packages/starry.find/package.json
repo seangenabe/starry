@@ -1,0 +1,22 @@
+{
+  "name": "starry.find",
+  "version": "1.3.0",
+  "description": "Member of the starry suite—modular functions for iterable objects.",
+  "keywords": [
+    "iterable",
+    "iteration",
+    "iterator",
+    "starry-modularized"
+  ],
+  "homepage": "https://github.com/seangenabe/starry",
+  "license": "MIT",
+  "main": "./index.js",
+  "repository": "seangenabe/starry",
+  "dependencies": {
+    "starry.filter": "^1.2.1",
+    "starry.first": "^1.2.1"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}

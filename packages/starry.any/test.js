@@ -1,15 +1,10 @@
 const any = require('.')
-const t = require('ava')
+const test = require('ava')
 
-t(t => {
-  let result = any((function*() {
-  })())
-  t.false(result)
+test('empty', t => {
+  t.false(any([]))
 })
 
-t(t => {
-  let result = any((function*() {
-    yield ''
-  })())
-  t.true(result)
+test('non-empty', t => {
+  t.true(any('abcd'))
 })

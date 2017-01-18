@@ -18,3 +18,8 @@ Parameters:
 * iterable - `Iterable<T>`
 * count - `Number`. Default: `1`
 
+Returns: `Iterable<T>`
+
+Throws:
+* `TypeError` - when `count` is not a finite number.
+

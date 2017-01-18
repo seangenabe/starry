@@ -1,18 +1,19 @@
 const FS = require('node-puff/fs')
 const camelCase = require('lodash.camelcase')
+const root = `${__dirname}/..`
 const containerPkgPath =
-  require.resolve(`${__dirname}/../packages/starry/package`)
+  require.resolve(`${root}/packages/starry/package`)
 const containerPkg = require(containerPkgPath)
-const monorepoPkgPath = require.resolve(`${__dirname}/../package`)
+const monorepoPkgPath = require.resolve(`${root}/package`)
 const monorepoPkg = require(monorepoPkgPath)
-const assert = require('assert')
 const { EOL } = require('os')
 const sortPackageJson = require('sort-package-json')
 const encode = require('encody')
+const assign = require('lodash.assign')
 
 async function run() {
   try {
-    let packages = (await FS.readdir(`${__dirname}/../packages`)) // Get all packages
+    let packages = (await FS.readdir(`${root}/packages`)) // Get all packages
       .filter(x => x !== 'starry') // Exclude "container" package (`starry`)
 
     packages = await Promise.all(packages.map(p => extractPackageInfo(p)))
@@ -22,7 +23,7 @@ async function run() {
     ])
   }
   catch (err) {
-    console.error(err.message)
+    console.error(err.stack)
     process.exit(1)
   }
 }
@@ -31,7 +32,7 @@ async function extractPackageInfo(require_id) {
   let require_base = require_id.replace(/^starry\./, '')
   let is_private = require_base.startsWith('_')
   let fn_name = camelCase(require_base)
-  let require_path = `${__dirname}/../packages/${require_id}`
+  let require_path = `${root}/packages/${require_id}`
   let package_json_path = `${require_path}/package.json`
   let package_src_json_path = `${require_path}/package-src.json`
   let doc_md_path = `${require_path}/doc.md`
@@ -58,10 +59,8 @@ async function setupContainerPackage(packages) {
 
   for (let info of packages) {
     let {
-      require_base,
       is_private,
       package_json_path,
-      package_src_json_path,
       doc_md,
       fn_name,
       require_id
@@ -80,14 +79,9 @@ async function setupContainerPackage(packages) {
       }
     }
     catch (err) {
-      try {
-        version = require(package_src_json_path).version
-      }
-      catch (err) {
-        version = '0'
-      }
+      version = '0'
     }
-    dependencies[require_id] = version
+    dependencies[require_id] = `^${version}`
 
     // Add to exports
     indexExports.push([fn_name, require_id])
@@ -116,7 +110,7 @@ ${public_docs.map(({ fn_name, doc_md }) => {
 
 ${doc_md}`
     }).join('')}`
-    await FS.writeFile(`${__dirname}/../API.md`, normalizeEOLEOF(api_md), 'utf8')
+    await FS.writeFile(`${root}/API.md`, normalizeEOLEOF(api_md), 'utf8')
   }
   p.push(buildApiMd())
 
@@ -129,7 +123,14 @@ function setupIndividualPackages(packages) {
   }))
 }
 
-async function setupPackage({ package_json_path, package_src_json_path, require_id, require_path, doc_md }) {
+async function setupPackage({
+    package_json_path,
+    package_src_json_path,
+    require_id,
+    require_path,
+    doc_md
+  }) {
+
   const memberOfThe = `Member of the starry suite—modular functions for iterable objects.`
 
   async function setupPackageJson() {
@@ -159,18 +160,50 @@ async function setupPackage({ package_json_path, package_src_json_path, require_
     // Set repository
     package_json.repository = monorepoPkg.repository
 
-    // package.json consistency FTW!
-    package_json = sortPackageJson(package_json)
-
     // merge package-src.json
     let package_src_json
     try {
       package_src_json = require(package_src_json_path)
+      // Merge dependencies
+      let { _dependencies = [] } = package_src_json
+      delete package_src_json._dependencies
+      let newDeps = {}
+      for (let depString of _dependencies) {
+        try {
+          let dep_package_json = require(`${root}/packages/${depString}/package.json`)
+          if (dep_package_json.version) {
+            newDeps[depString] = `^${dep_package_json.version}`
+          }
+        }
+        catch (err) {
+          // invalid package; skip
+        }
+      }
+      if (Object.keys(newDeps).length) {
+        package_src_json.dependencies = newDeps
+      }
     }
     catch (err) {
       package_src_json = {}
     }
-    package_json = Object.assign({}, package_json, package_src_json)
+
+    let existing_package_json = {}
+    try {
+      existing_package_json = require(package_json_path)
+    }
+    catch (err) {
+      // package.json does not exist yet.
+    }
+
+    package_json = assign(
+      { version: '0.0.0' },
+      existing_package_json,
+      package_json,
+      package_src_json
+    )
+
+    // package.json consistency FTW!
+    package_json = sortPackageJson(package_json)
 
     // Commit package.json
     await FS.writeFile(
@@ -218,7 +251,7 @@ function renderShields(shields) {
 }
 
 function outputJSON(obj) {
-  return normalizeEOLEOF(JSON.stringify(obj, null, 2))
+  return normalizeEOLEOF(JSON.stringify(sortPackageJson(obj), null, 2))
 }
 
 function normalizeEOLEOF(str) {
