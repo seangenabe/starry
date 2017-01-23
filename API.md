@@ -261,6 +261,17 @@ Parameters:
 
 Returns: `Boolean`
 
+## sum
+
+`sum(iterable)`
+
+Adds the elements of `iterable`.
+
+Parameters:
+* iterable - `Iterable<Number>`
+
+Returns: `Number`
+
 ## take
 
 `take(iterable, count = 1)`
