@@ -1,6 +1,6 @@
 {
   "name": "starry.sum",
-  "version": "0.0.0",
+  "version": "1.4.0",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
@@ -13,7 +13,7 @@
   "main": "./index.js",
   "repository": "seangenabe/starry",
   "dependencies": {
-    "starry.reduce": "^1.3.0"
+    "starry.reduce": "^1.4.0"
   },
   "engines": {
     "node": ">=6.0.0"
