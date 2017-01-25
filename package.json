@@ -35,7 +35,7 @@
     "encody": "^1.0.0",
     "eslint": "^3.13.0",
     "eslint-config-mirage": "^2.1.0",
-    "lerna": "2.0.0-beta.32",
+    "lerna": "2.0.0-beta.33",
     "lodash.assign": "^4.2.0",
     "lodash.camelcase": "latest",
     "lodash.includes": "^4.1.2",
