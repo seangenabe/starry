@@ -6,7 +6,7 @@ module.exports = function last(iterable = []) {
     if (len === 0) {
       return undefined
     }
-    return iterable[iterable.length - 1]
+    return iterable[len - 1]
   }
   let item
   for (item of iterable) {
