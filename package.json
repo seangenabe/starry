@@ -41,7 +41,7 @@
     "lodash.includes": "^4.1.2",
     "node-puff": "^1.0.1",
     "nyc": "^10.0.0",
-    "sort-package-json": "^1.4.0"
+    "sort-package-json": "^1.6.0"
   },
   "ava": {
     "files": [
