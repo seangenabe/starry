@@ -1,5 +1,7 @@
 # starry
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/seangenabe/starry.svg)](https://greenkeeper.io/)
+
 Modular functions for iterable objects
 
 [![npm](https://img.shields.io/npm/v/starry.svg?style=flat-square)](https://www.npmjs.com/package/starry)
