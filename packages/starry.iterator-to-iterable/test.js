@@ -4,20 +4,18 @@ const test = require('ava')
 test('basic', t => {
 
   let iterator = new IncrementMaster()
-  t.truthy(iterator[Symbol.iterator] === undefined)
 
   let iterable = iteratorToIterable(iterator)
   t.truthy(typeof iterable[Symbol.iterator] === 'function')
 
   iterable[Symbol.iterator]()
   let i = iterable[Symbol.iterator]()
-  t.is(i, iterator)
   t.deepEqual(i.next(), { done: false, value: 0 })
   t.deepEqual(i.next(), { done: false, value: 1 })
   t.deepEqual(i.next(), { done: false, value: 2 })
-  t.deepEqual(i.next(), { done: true })
-  t.deepEqual(i.next(), { done: true })
-  t.is(iterator.value, 3)
+  t.deepEqual(i.next(), { done: true }, "check iterator done once")
+  t.deepEqual(i.next(), { done: true }, "check iterator done twice")
+  t.is(iterator.value, 3, "check input iterator value")
 })
 
 test('rest', t => {
