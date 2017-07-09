@@ -1,6 +1,6 @@
 {
   "name": "starry",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Modular functions for iterable objects.",
   "license": "MIT",
   "main": "./index.js",
@@ -28,6 +28,6 @@
     "starry.some": "^1.4.1",
     "starry.sum": "^1.4.1",
     "starry.take": "^1.4.1",
-    "starry.zip": "^0.0.0"
+    "starry.zip": "^1.6.0"
   }
 }
