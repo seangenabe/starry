@@ -136,7 +136,7 @@ Returns: `T`
 
 ## generatorToIterable
 
-`iteratorFnToIterable(generatorFn)`
+`generatorToIterable(generatorFn)`
 
 Wraps a generator function, or any function that returns an iterator, into an iterable such that `#[Symbol.iterator]()` runs the function.
 
@@ -223,6 +223,17 @@ Parameters:
 
 Returns: `TOut|Tin`
 
+## setEquals
+
+`setEquals(...iterables)`
+
+Returns whether the given sets hold set equality with each other. If a given input is not an instance of `Set`, it is converted into one.
+
+Parameters:
+* iterables - `Array<Iterable<T>>`
+
+Returns: `boolean`
+
 ## size
 
 `size(iterable)`
@@ -286,4 +297,17 @@ Returns: `Iterable<T>`
 
 Throws:
 * `TypeError` - when `count` is not a finite number.
+
+## zip
+
+`zip(...iterables)`
+
+Returns an iterable that yields grouped elements, the first of which contains the first elements of the input iterables, the second of which contains the second elements of the given iterables, and so on.
+
+If the iterables do not have the same number of elements, elements from shorter iterables are filled with `undefined` when they are exhausted. (Consistent with `lodash.zip`)
+
+Parameters:
+* ...iterables: `Array<Iterable>`
+
+Returns: `Iterable<Array>`
 

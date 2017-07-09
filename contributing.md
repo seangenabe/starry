@@ -18,6 +18,7 @@ The build script contains code that modifies all of the packages under the `pack
 * For each individual submodule:
   * `readme.md` is compiled. This process includes transcluding `doc.md` into it.
   * `package.json` is compiled from `package-src.json`.
+  * `.npmignore` is set.
 
 ## Test
 

@@ -1,4 +1,4 @@
-const FS = require('node-puff/fs')
+const FS = require('mz/fs')
 const camelCase = require('lodash.camelcase')
 const root = `${__dirname}/..`
 const containerPkgPath =
@@ -97,7 +97,7 @@ async function setupContainerPackage(packages) {
 
   // Commit index.js
   let indexjs = `module.exports = {
-${indexExports.map(([fn_name, require_id]) => `${JSON.stringify(fn_name)}: require.resolve(${JSON.stringify(require_id)})`).join(`,\n`)}
+${indexExports.map(([fn_name, require_id]) => `${JSON.stringify(fn_name)}: require(${JSON.stringify(require_id)})`).join(`,${EOL}`)}
 }`
   p.push(FS.writeFile(`${__dirname}/../packages/starry/index.js`, normalizeEOLEOF(indexjs), 'utf8'))
 
@@ -237,12 +237,20 @@ ${renderShields(shields2)}
 ## Usage
 
 ${doc_md}`
-    await FS.writeFile(`${require_path}/readme.md`, normalizeEOLEOF(readmeMd), 'utf8')
+    await FS.writeFile(`${require_path}/readme.md`, normalizeEOLEOF(readmeMd))
+  }
+
+  async function setupNpmignore() {
+    // These files are not actually required in the published version.
+    const content = `doc.md
+package-src.json`
+    await FS.writeFile(`${require_path}/.npmignore`, content)
   }
 
   await Promise.all([
     setupPackageJson(),
-    setupReadme()
+    setupReadme(),
+    setupNpmignore()
   ])
 }
 

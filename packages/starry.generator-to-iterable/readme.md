@@ -10,7 +10,7 @@ Applies to the whole suite.
 
 ## Usage
 
-`iteratorFnToIterable(generatorFn)`
+`generatorToIterable(generatorFn)`
 
 Wraps a generator function, or any function that returns an iterator, into an iterable such that `#[Symbol.iterator]()` runs the function.
 
