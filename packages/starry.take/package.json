@@ -1,6 +1,6 @@
 {
   "name": "starry.take",
-  "version": "1.4.1",
+  "version": "1.6.1",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
@@ -14,7 +14,7 @@
   "repository": "seangenabe/starry",
   "dependencies": {
     "starry._array-types": "^1.4.1",
-    "starry.generator-to-iterable": "^1.4.1"
+    "starry.generator-to-iterable": "^1.6.1"
   },
   "engines": {
     "node": ">=6.0.0"

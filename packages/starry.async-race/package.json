@@ -1,6 +1,6 @@
 {
   "name": "starry.async-race",
-  "version": "1.4.1",
+  "version": "1.6.1",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
@@ -13,7 +13,7 @@
   "main": "./index.js",
   "repository": "seangenabe/starry",
   "dependencies": {
-    "starry.map": "^1.4.1"
+    "starry.map": "^1.6.1"
   },
   "engines": {
     "node": ">=6.0.0"
