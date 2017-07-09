@@ -1,6 +1,6 @@
 {
   "name": "starry.skip",
-  "version": "1.3.2",
+  "version": "1.4.1",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
@@ -13,10 +13,10 @@
   "main": "./index.js",
   "repository": "seangenabe/starry",
   "dependencies": {
-    "starry._array-types": "^1.1.1",
-    "starry.generator-to-iterable": "^1.2.1",
-    "starry.iterator-to-iterable": "^1.1.1",
-    "starry.take": "^1.3.1"
+    "starry._array-types": "^1.4.1",
+    "starry.generator-to-iterable": "^1.4.1",
+    "starry.iterator-to-iterable": "^1.4.1",
+    "starry.take": "^1.4.1"
   },
   "engines": {
     "node": ">=6.0.0"

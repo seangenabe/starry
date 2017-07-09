@@ -1,6 +1,6 @@
 {
   "name": "starry._set-types",
-  "version": "1.2.1",
+  "version": "1.4.1",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
