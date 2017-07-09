@@ -1,14 +1,8 @@
-import reduce from 'starry.reduce'
+import reduce = require('starry.reduce')
 
-export default function sum(
+export = function sum(
   iterable: Iterable<number>
 ): number {
 
-  return reduce(
-    iterable,
-    function sumAccumulator(a, b) {
-      return a + Number(b)
-    },
-    0
-  )
+  return reduce<number, number>(iterable, (a, b) => a + Number(b), 0)
 }

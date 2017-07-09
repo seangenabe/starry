@@ -1,9 +1,9 @@
-import arrayTypes from 'starry._array-types'
-import generatorToIterable from 'starry.generator-to-iterable'
-import iteratorToIterable from 'starry.iterator-to-iterable'
-import take from 'starry.take'
+import arrayTypes = require('starry._array-types')
+import generatorToIterable = require('starry.generator-to-iterable')
+import iteratorToIterable = require('starry.iterator-to-iterable')
+import take = require('starry.take')
 
-export default function skip<T>(
+export = function skip<T>(
   iterable: Iterable<T>,
   count: number = 1
 ): Iterable<T> {

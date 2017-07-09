@@ -1,11 +1,5 @@
-const reduce = require('starry.reduce')
-
+"use strict";
+const reduce = require("starry.reduce");
 module.exports = function sum(iterable) {
-  return reduce(
-    iterable,
-    function sumAccumulator(a, b) {
-      return a + Number(b)
-    },
-    0
-  )
-}
+    return reduce(iterable, (a, b) => a + Number(b), 0);
+};

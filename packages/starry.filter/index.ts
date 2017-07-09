@@ -1,6 +1,6 @@
-import generatorToIterable from 'starry.generator-to-iterable'
+import generatorToIterable = require('starry.generator-to-iterable')
 
-export default function filter<T>(
+export = function filter<T>(
   iterable: Iterable<T>,
   predicate: (T) => boolean = x => x
 ): Iterable<T> {

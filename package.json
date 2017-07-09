@@ -25,7 +25,8 @@
     "nyc:html": "nyc report --reporter=html",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "pub": "npm run build && lerna publish",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "tsc": "lerna run tsc"
   },
   "devDependencies": {
     "ava": "^0.18.0",
@@ -39,9 +40,11 @@
     "lodash.assign": "^4.2.0",
     "lodash.camelcase": "latest",
     "lodash.includes": "^4.1.2",
+    "lodash.merge": "^4.6.0",
     "mz": "^2.6.0",
     "nyc": "^11.0.1",
-    "sort-package-json": "^1.4.0"
+    "sort-package-json": "^1.4.0",
+    "typescript": "^2.4.1"
   },
   "ava": {
     "files": [

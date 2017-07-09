@@ -1,9 +1,9 @@
-import filter from 'starry.filter'
-import first from 'starry.first'
+import filter = require('starry.filter')
+import first = require('starry.first')
 
-export default function find<T>(
+export = function find<T>(
   iterable: Iterable<T>,
   predicate: (T) => boolean
-): T | void {
+): T | undefined {
   return first(filter(iterable, predicate))
 }

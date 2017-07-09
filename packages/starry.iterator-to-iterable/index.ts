@@ -1,4 +1,4 @@
-export default function iteratorToIterable<T>(
+export = function iteratorToIterable<T>(
     iterator: Iterator<T>
   ): IterableIterator<T> {
 

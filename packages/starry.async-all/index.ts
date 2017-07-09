@@ -1,6 +1,6 @@
-import map from 'starry.map'
+import map = require('starry.map')
 
-export default function asyncAll<T, U>(
+export = function asyncAll<T, U>(
   iterable: Iterable<T>,
   asyncAction: (T) => PromiseLike<U>
 ): Promise<U[]> {

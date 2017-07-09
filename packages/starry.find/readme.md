@@ -14,9 +14,11 @@ Applies to the whole suite.
 
 Returns the first element in the iterable that satisfies the predicate.
 
+Returns `undefined` if no element satisfies the predicate.
+
 Parameters:
 * iterable: `Iterable<T>`
-* predicate: `Function<T, Boolean>`
+* predicate: `(T) => boolean`
 
-Returns: `T`
+Returns: `T | undefined`
 

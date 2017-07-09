@@ -1,7 +1,7 @@
-import arrayTypes from 'starry._array-types'
-import generatorToIterable from 'starry.generator-to-iterable'
+import arrayTypes = require('starry._array-types')
+import generatorToIterable = require('starry.generator-to-iterable')
 
-export default function take<T>(
+export = function take<T>(
   iterable: Iterable<T>,
   count: number = 1
 ): Iterable<T> {

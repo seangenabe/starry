@@ -18,5 +18,5 @@ Parameters:
 * iterable - `Iterable<T>`
 * value - `T`
 
-Returns: `Boolean`
+Returns: `boolean`
 

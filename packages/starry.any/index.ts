@@ -1,4 +1,4 @@
-export default function any<T>(iterable: Iterable<T> = []): boolean {
+export = function any<T>(iterable: Iterable<T> = []): boolean {
 
   for (let item of iterable) {
     return true

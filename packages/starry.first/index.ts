@@ -1,6 +1,6 @@
-export default function first<T>(
+export = function first<T>(
   iterable: Iterable<T> = []
-): T | void {
+): T | undefined {
 
   for (let item of iterable) {
     return item

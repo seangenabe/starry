@@ -1,6 +1,6 @@
-import map from 'starry.map'
+import map = require('starry.map')
 
-export default function every<T>(
+export = function every<T>(
   iterable: Iterable<T>,
   predicate: (T) => boolean = x => x
 ): boolean {

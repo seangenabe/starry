@@ -1,8 +1,7 @@
 const FS = require('mz/fs')
 const camelCase = require('lodash.camelcase')
 const root = `${__dirname}/..`
-const containerPkgPath =
-  require.resolve(`${root}/packages/starry/package`)
+const containerPkgPath = require.resolve(`${root}/packages/starry/package`)
 const containerPkg = require(containerPkgPath)
 const monorepoPkgPath = require.resolve(`${root}/package`)
 const monorepoPkg = require(monorepoPkgPath)
@@ -10,6 +9,8 @@ const { EOL } = require('os')
 const sortPackageJson = require('sort-package-json')
 const encode = require('encody')
 const assign = require('lodash.assign')
+const merge = require('lodash.merge')
+const Path = require('path')
 
 async function run() {
   try {
@@ -160,6 +161,15 @@ async function setupPackage({
     // Set repository
     package_json.repository = monorepoPkg.repository
 
+    package_json.scripts = {}
+
+    // Set scripts.tsc
+    if ((await FS.readdir(`${require_path}`))
+      .some(file => Path.extname(file) === '.ts')) {
+
+      package_json.scripts.tsc = 'tsc'
+    }
+
     // merge package-src.json
     let package_src_json
     try {
@@ -195,7 +205,7 @@ async function setupPackage({
       // package.json does not exist yet.
     }
 
-    package_json = assign(
+    package_json = merge(
       { version: '0.0.0' },
       existing_package_json,
       package_json,
@@ -247,10 +257,31 @@ package-src.json`
     await FS.writeFile(`${require_path}/.npmignore`, content)
   }
 
+  async function setupTypescript() {
+    let files = await FS.readdir(`${require_path}`)
+    if (files.some(file => Path.extname(file) === '.ts')) {
+      const tsconfigJson = {
+        "compilerOptions": {
+          "module": "commonjs",
+          "alwaysStrict": true,
+          "declaration": true,
+          "strictNullChecks": true,
+          "target": "ES2017",
+          "sourceMap": true
+        }
+      }
+      await FS.writeFile(
+        `${require_path}/tsconfig.json`,
+        JSON.stringify(tsconfigJson, null, 2)
+      )
+    }
+  }
+
   await Promise.all([
     setupPackageJson(),
     setupReadme(),
-    setupNpmignore()
+    setupNpmignore(),
+    setupTypescript()
   ])
 }
 

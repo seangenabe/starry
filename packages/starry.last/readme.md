@@ -14,8 +14,10 @@ Applies to the whole suite.
 
 Returns the last element of iterable.
 
+Returns `undefined` if the iterable has no elements.
+
 Parameters:
 * iterable - `Iterable<T>`
 
-Returns: `T`
+Returns: `T|undefined`
 

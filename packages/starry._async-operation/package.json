@@ -12,6 +12,7 @@
   "license": "MIT",
   "main": "./index.js",
   "repository": "seangenabe/starry",
+  "scripts": {},
   "engines": {
     "node": ">=6.0.0"
   }

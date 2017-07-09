@@ -19,6 +19,7 @@ The build script contains code that modifies all of the packages under the `pack
   * `readme.md` is compiled. This process includes transcluding `doc.md` into it.
   * `package.json` is compiled from `package-src.json`.
   * `.npmignore` is set.
+  * `tsconfig.json` is added when a `.ts` file is detected.
 
 ## Test
 

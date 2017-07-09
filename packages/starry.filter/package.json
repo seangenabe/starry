@@ -12,6 +12,9 @@
   "license": "MIT",
   "main": "./index.js",
   "repository": "seangenabe/starry",
+  "scripts": {
+    "tsc": "tsc"
+  },
   "dependencies": {
     "starry.generator-to-iterable": "^1.6.1"
   },

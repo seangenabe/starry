@@ -1,8 +1,8 @@
-import generatorToIterable from 'starry.generator-to-iterable'
+import generatorToIterable = require('starry.generator-to-iterable')
 
-export default function delimit<TItem, TDelimiter>(
-  iterable: Iterable<TItem>, delimiter: TDelimiter
-): Iterable<TItem | TDelimiter> {
+export = function delimit<T, U>(
+  iterable: Iterable<T>, delimiter: U
+): Iterable<T | U> {
 
   return generatorToIterable(function* delimitGenerator() {
     let firstRead = false

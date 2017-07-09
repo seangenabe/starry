@@ -1,4 +1,4 @@
-export default function sameValueZero(
+export = function sameValueZero(
   x: any,
   y: any
 ): boolean {

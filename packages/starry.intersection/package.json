@@ -12,6 +12,9 @@
   "license": "MIT",
   "main": "./index.js",
   "repository": "seangenabe/starry",
+  "scripts": {
+    "tsc": "tsc"
+  },
   "dependencies": {
     "starry.every": "^1.6.1",
     "starry.filter": "^1.6.1",

@@ -1,17 +1,9 @@
-import iteratorToIterable from 'starry.iterator-to-iterable'
+import iteratorToIterable = require('starry.iterator-to-iterable')
 
-export default function reduce<T>(
-  iterable: Iterable<T>,
-  accumulator: (previousValue: T, currentValue: T) => T
-): T;
+function reduce<T>(iterable: Iterable<T>, accumulator: (previousValue: T, currentValue: T) => T): T
+function reduce<T, U>(iterable: Iterable<T>, accumulator: (previousValue: U, currentValue: T) => U, initialValue: U): U
 
-export default function reduce<T, U>(
-  iterable: Iterable<T>,
-  accumulator: (previousValue: U, currentValue: T) => U,
-  initialValue: U
-): U;
-
-export default function reduce<T, U>(
+function reduce<T, U>(
   iterable: Iterable<T>,
   accumulator: (previousValue: T | U, currentValue: T) => U,
   ...a: U[]
@@ -21,7 +13,7 @@ export default function reduce<T, U>(
     throw new TypeError("Argument `accumulator` is not a function.")
   }
 
-  let currentValue: T | U
+  let currentValue: T | U | undefined
   let iterator: Iterator<T> = iterable[Symbol.iterator]()
   let iterableWrap = iteratorToIterable(iterator)
   if (a.length) {
@@ -40,8 +32,10 @@ export default function reduce<T, U>(
   }
 
   for (let element of iterableWrap) {
-    currentValue = accumulator(currentValue, element)
+    currentValue = accumulator(currentValue as T | U, element)
   }
 
-  return currentValue
+  return currentValue as T | U
 }
+
+export = reduce

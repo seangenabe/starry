@@ -1,3 +1,7 @@
-export type SetType = SetConstructor | WeakSetConstructor
+namespace SetTypes {
+  export type SetType = SetConstructor | WeakSetConstructor
+}
 
-export default new Set([Set, WeakSet]) as Set<SetType>
+const SetTypes = new Set([Set, WeakSet]) as Set<SetTypes.SetType>
+
+export = SetTypes

@@ -1,6 +1,6 @@
-import map from 'starry.map'
+import map = require('starry.map')
 
-export default function some<T>(
+export = function some<T>(
   iterable: Iterable<T>,
   predicate: (T) => boolean = x => x as boolean
 ): boolean {

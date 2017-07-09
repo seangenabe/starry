@@ -1,16 +1,16 @@
-import every from 'starry.every'
-import filter from 'starry.filter'
-import generatorToIterable from 'starry.generator-to-iterable'
-import includes from 'starry.includes'
+import every = require('starry.every')
+import filter = require('starry.filter')
+import generatorToIterable = require('starry.generator-to-iterable')
+import includes = require('starry.includes')
 
-export default function intersection<T>(
+function intersection<T>(
   ...iterables: Iterable<T>[]
 ): Iterable<T> {
 
   if (!iterables.length) {
     return []
   }
-  let first = iterables.shift()
+  let first = iterables.shift() as Iterable<T>
   return generatorToIterable(function* intersectionGenerator() {
     yield* filter(first, element1 => {
       return every(iterables, iterable => {
@@ -19,3 +19,5 @@ export default function intersection<T>(
     })
   })
 }
+
+export = intersection
