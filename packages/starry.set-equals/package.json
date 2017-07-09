@@ -1,6 +1,6 @@
 {
   "name": "starry.set-equals",
-  "version": "0.0.0",
+  "version": "1.5.0",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
