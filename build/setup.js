@@ -97,7 +97,7 @@ async function setupContainerPackage(packages) {
 
   // Commit index.js
   let indexjs = `module.exports = {
-${indexExports.map(([fn_name, require_id]) => `${JSON.stringify(fn_name)}: require(${JSON.stringify(require_id)})`).join(`,\n`)}
+${indexExports.map(([fn_name, require_id]) => `${JSON.stringify(fn_name)}: require(${JSON.stringify(require_id)})`).join(`,${EOL}`)}
 }`
   p.push(FS.writeFile(`${__dirname}/../packages/starry/index.js`, normalizeEOLEOF(indexjs), 'utf8'))
 

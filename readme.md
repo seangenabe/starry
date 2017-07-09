@@ -31,7 +31,7 @@ const every = require('starry.every')
 
 ### API
 
-See the [API](API.md).
+See the [API](./API.md).
 
 ## Why call it `starry`?
 
