@@ -27,6 +27,7 @@
     "starry.skip": "^1.4.1",
     "starry.some": "^1.4.1",
     "starry.sum": "^1.4.1",
-    "starry.take": "^1.4.1"
+    "starry.take": "^1.4.1",
+    "starry.zip": "^0.0.0"
   }
 }
