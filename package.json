@@ -24,7 +24,7 @@
     "test": "nyc ava",
     "nyc:html": "nyc report --reporter=html",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "pub": "lerna publish",
+    "pub": "npm run build && lerna publish",
     "lint": "eslint ."
   },
   "devDependencies": {
