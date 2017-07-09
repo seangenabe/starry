@@ -39,7 +39,7 @@
     "lodash.assign": "^4.2.0",
     "lodash.camelcase": "latest",
     "lodash.includes": "^4.1.2",
-    "node-puff": "^1.0.1",
+    "mz": "^2.6.0",
     "nyc": "^11.0.1",
     "sort-package-json": "^1.4.0"
   },
