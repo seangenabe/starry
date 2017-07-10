@@ -22,6 +22,7 @@ test(t => {
   tests.forEach(x => t.false(x))
 })
 
-test(t => {
+test.only(t => {
   t.throws(() => setEquals(NaN))
+  t.throws(() => setEquals(NaN, NaN))
 })

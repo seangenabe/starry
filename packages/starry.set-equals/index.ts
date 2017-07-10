@@ -6,7 +6,14 @@ function setEquals<T>(
   ...iterables: Iterable<T>[]
 ): boolean {
 
-  if (iterables.length <= 1) {
+  if (iterables.length === 0) {
+    return true
+  }
+
+  if (iterables.length === 1) {
+    if (typeof iterables[Symbol.iterator] !== 'function') {
+      throw new TypeError("Argument `iterables[0]` is not iterable.")
+    }
     return true
   }
 
