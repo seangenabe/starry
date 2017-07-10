@@ -36,10 +36,10 @@ test('return iterator.next when next is called', t => {
 })
 
 test('error', t => {
-  t.throws(() => iteratorToIterable(NaN), 'should throw if not an iterator')
-  t.throws(() => iteratorToIterable())
-  t.throws(() => iteratorToIterable(undefined))
-  t.throws(() => iteratorToIterable(null))
+  t.throws(() => [...iteratorToIterable(NaN)], TypeError)
+  t.throws(() => [...iteratorToIterable()], TypeError)
+  t.throws(() => [...iteratorToIterable(undefined)], TypeError)
+  t.throws(() => [...iteratorToIterable(null)], TypeError)
 })
 
 class IncrementMaster {

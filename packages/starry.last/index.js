@@ -1,6 +1,6 @@
 "use strict";
 const arrayTypes = require("starry._array-types");
-module.exports = function last(iterable) {
+function last(iterable = []) {
     if (arrayTypes.has(iterable.constructor)) {
         let len = iterable.length;
         if (len === 0) {
@@ -13,4 +13,5 @@ module.exports = function last(iterable) {
         // consume items
     }
     return item;
-};
+}
+module.exports = last;

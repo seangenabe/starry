@@ -1,2 +1,2 @@
-declare const _default: <T>(iterable: Iterable<T>) => T | undefined;
-export = _default;
+declare function last<T>(iterable: Iterable<T>): T | undefined;
+export = last;
