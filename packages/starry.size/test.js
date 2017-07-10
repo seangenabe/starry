@@ -24,3 +24,7 @@ t('set size', t => {
 t('map size', t => {
   t.is(size(new Map([['a', 1], ['b', 2]])), 2)
 })
+
+t('empty arg', t => {
+  t.is(size(), 0)
+})
