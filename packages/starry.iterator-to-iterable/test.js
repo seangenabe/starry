@@ -35,6 +35,13 @@ test('return iterator.next when next is called', t => {
   t.deepEqual(iterable.next(), { done: false, value: 0 })
 })
 
+test('error', t => {
+  t.throws(() => iteratorToIterable(NaN), 'should throw if not an iterator')
+  t.throws(() => iteratorToIterable())
+  t.throws(() => iteratorToIterable(undefined))
+  t.throws(() => iteratorToIterable(null))
+})
+
 class IncrementMaster {
 
   constructor() {
