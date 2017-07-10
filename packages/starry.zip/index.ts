@@ -3,6 +3,7 @@ import generatorToIterable = require('starry.generator-to-iterable')
 function zip<T1>(iterable: Iterable<T1>): Iterable<[T1]>
 function zip<T1, T2>(i1: Iterable<T1>, i2: Iterable<T2>): Iterable<[T1 | undefined, T2 | undefined]>
 function zip<T1, T2, T3>(i1: Iterable<T1>, i2: Iterable<T2>, i3: Iterable<T3>): Iterable<[T1 | undefined, T2 | undefined, T3 | undefined]>
+function zip<TAll>(...iterables: Iterable<TAll>[]): Iterable<(TAll | undefined)[]>
 
 function zip<T>(
   ...iterables: Iterable<T>[]

@@ -28,4 +28,5 @@ t('iterable must be iterable', t => {
 
 t('callback must be a function', t => {
   t.throws(() => filter('abc', NaN))
+  t.throws(() => filter('abc', {}))
 })

@@ -4,5 +4,5 @@ export = function sum(
   iterable: Iterable<number>
 ): number {
 
-  return reduce<number, number>(iterable, (a, b) => a + Number(b), 0)
+  return reduce(iterable, (a: number, b) => a + Number(b), 0)
 }

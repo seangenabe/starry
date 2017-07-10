@@ -1,6 +1,7 @@
 function setEquals<T1>(iterable: Iterable<T1>): boolean
 function setEquals<T1, T2>(i1: Iterable<T1>, i2: Iterable<T2>): boolean
 function setEquals<T1, T2, T3>(i1: Iterable<T1>, i2: Iterable<T2>, i3: Iterable<T3>): boolean
+function setEquals<TAll>(...iterables: Iterable<TAll>[]): boolean
 
 function setEquals<T>(
   ...iterables: Iterable<T>[]
