@@ -23,8 +23,20 @@ t(t => {
 t('iterable must be iterable', t => {
   t.throws(() => [...map(NaN, x => x)])
   t.throws(() => [...map({ [Symbol.iterator]: null }, x => x)])
+  t.throws(() => [...map({})])
 })
 
 t('callback must be a function', t => {
-  t.throws(() => map('abc', NaN))
+  t.throws(() => [...map('abc', NaN)])
+  t.throws(() => [...map('abc', {})])
+})
+
+t('default callback', t => {
+  const r1 = [...map([1, 2])]
+  t.deepEqual(r1, [1, 2])
+})
+
+t('default iterable', t => {
+  const r1 = [...map()]
+  t.deepEqual(r1, [])
 })
