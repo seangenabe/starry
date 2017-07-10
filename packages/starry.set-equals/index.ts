@@ -12,7 +12,7 @@ function setEquals<T>(
   }
 
   if (iterables.length === 1) {
-    if (typeof iterables[Symbol.iterator] !== 'function') {
+    if (typeof iterables[0][Symbol.iterator] !== 'function') {
       throw new TypeError("Argument `iterables[0]` is not iterable.")
     }
     return true
