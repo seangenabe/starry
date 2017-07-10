@@ -1,7 +1,7 @@
 const last = require('.')
-const t = require('ava')
+const test = require('ava')
 
-t('last value of an iterator', t => {
+test('last value of an iterator', t => {
   let result = last((function*() {
     yield 5
     yield 6
@@ -10,10 +10,18 @@ t('last value of an iterator', t => {
   t.is(result, 7)
 })
 
-t('last value of an array', t => {
+test('last value of an array', t => {
   t.is(last(Uint32Array.from([1, 2, 3])), 3)
 })
 
-t('last value of an empty array', t => {
+test('last value of an empty array', t => {
   t.is(last(Uint32Array.from([])), undefined)
+})
+
+test('array', t => {
+  t.is(last([]), undefined)
+})
+
+test('empty arg', t => {
+  t.is(last(), undefined)
 })
