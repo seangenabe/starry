@@ -14,5 +14,3 @@ Promise.race([].map(async function() { ... }))
 ```
 
 But with iterable support. ☺
-
-Shameless plug: Use with [delayer](https://www.npmjs.com/package/delayer) for timed promises!
