@@ -184,7 +184,12 @@ ${this.doc_md}`
       const s = this.props.scripts as { [key: string]: string }
       s.tsc = 'tsc'
 
-      const giContent = ['index.d.ts', 'index.js', 'index.js.map'].join(EOL)
+      const giContent = [
+        'index.d.ts',
+        'index.js',
+        'index.js.map',
+        'tsconfig.json'
+      ].join(EOL) + EOL
 
       await Promise.all([
         // Write tsconfig.json
