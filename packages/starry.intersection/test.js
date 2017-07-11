@@ -12,6 +12,8 @@ t(t => {
   t.deepEqual(r4, [])
   const r5 = [...intersection([2, 2], [2, 2, 2])]
   t.deepEqual(r5, [2])
+  const r6 = [...intersection(new Set([1, 2]), new Set([2, 2, 3]))]
+  t.deepEqual(r6, [2])
 })
 
 function* nums() {
