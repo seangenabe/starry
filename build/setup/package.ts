@@ -139,8 +139,6 @@ class Package {
   async readme_md() {
     let shields: [string, string, string][] = [
       ['npm', encode`npm/v/${this.require_id}`, encode`https://www.npmjs.com/package/${this.require_id}`],
-      ['Dependency Status', encode`david/${this.require_id}`, encode`https://david-dm.org/${this.require_id}`],
-      ['devDependency Status', encode`david/dev/${this.require_id}`, encode`https://david-dm.org/${this.require_id}#info=devDependencies`],
       ['node', encode`node/v/${this.require_id}`, 'https://nodejs.org/en/download/']
     ]
     let shields2: [string, string, string][] = [
@@ -161,7 +159,7 @@ ${renderShields(shields2)}
 
 ${this.doc_md}`
     await FS.writeFile(`${this.require_path}/readme.md`, normalizeEOLEOF(content))
-  }
+  } // readme_md()
 
   async npmignore() {
     // These files are not actually required in the published version.
@@ -206,7 +204,7 @@ ${this.doc_md}`
         FS.writeFile(`${this.require_path}/.gitignore`, giContent)
       ])
     }
-  }
+  } // typescript()
 
 } // class PackageSetup
 
