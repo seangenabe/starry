@@ -25,6 +25,10 @@ t('map size', t => {
   t.is(size(new Map([['a', 1], ['b', 2]])), 2)
 })
 
+t('string size', t => {
+  t.is(size('hello'), 5)
+})
+
 t('empty arg', t => {
   t.is(size(), 0)
 })
