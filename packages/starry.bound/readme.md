@@ -1,6 +1,6 @@
 Member of the starry suite—modular functions for iterable objects.
 
-[![npm](https://img.shields.io/npm/v/starry.bound.svg?style=flat-square)](https://www.npmjs.com/package/starry.bound) [![Dependency Status](https://img.shields.io/david/starry.bound.svg?style=flat-square)](https://david-dm.org/starry.bound) [![devDependency Status](https://img.shields.io/david/dev/starry.bound.svg?style=flat-square)](https://david-dm.org/starry.bound#info=devDependencies) [![node](https://img.shields.io/node/v/starry.bound.svg?style=flat-square)](https://nodejs.org/en/download/)
+[![npm](https://img.shields.io/npm/v/starry.bound.svg?style=flat-square)](https://www.npmjs.com/package/starry.bound) [![node](https://img.shields.io/node/v/starry.bound.svg?style=flat-square)](https://nodejs.org/en/download/)
 
 ## Status
 

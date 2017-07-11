@@ -2,6 +2,8 @@
 
 ## any
 
+[![npm](https://img.shields.io/npm/v/starry.any.svg?style=flat-square)](https://www.npmjs.com/package/starry.any)
+
 `any(iterable)`
 
 Returns whether the iterable has any elements (yields anything).
@@ -12,6 +14,8 @@ Parameters:
 Returns: `boolean`
 
 ## asyncAll
+
+[![npm](https://img.shields.io/npm/v/starry.async-all.svg?style=flat-square)](https://www.npmjs.com/package/starry.async-all)
 
 `asyncAll(iterable, asyncAction)`
 
@@ -32,6 +36,8 @@ But with iterable support. ☺
 
 ## asyncRace
 
+[![npm](https://img.shields.io/npm/v/starry.async-race.svg?style=flat-square)](https://www.npmjs.com/package/starry.async-race)
+
 `asyncRace(iterable, asyncAction)`
 
 Returns a promise that resolves with the first, of the return values of `asyncAction` called upon each element of `iterable`, which resolved.
@@ -49,9 +55,9 @@ Promise.race([].map(async function() { ... }))
 
 But with iterable support. ☺
 
-Shameless plug: Use with [delayer](https://www.npmjs.com/package/delayer) for timed promises!
-
 ## bound
+
+[![npm](https://img.shields.io/npm/v/starry.bound.svg?style=flat-square)](https://www.npmjs.com/package/starry.bound)
 
 `bound(fn)`
 
@@ -64,6 +70,8 @@ Returns: `(this: TObject, ...args: TArgs[]) => TOut`
 
 ## concat
 
+[![npm](https://img.shields.io/npm/v/starry.concat.svg?style=flat-square)](https://www.npmjs.com/package/starry.concat)
+
 `concat(...iterables)`
 
 Returns an iterable that returns the elements of each iterable passed.
@@ -74,6 +82,8 @@ Parameters:
 Returns: `Iterable<T>`
 
 ## delimit
+
+[![npm](https://img.shields.io/npm/v/starry.delimit.svg?style=flat-square)](https://www.npmjs.com/package/starry.delimit)
 
 `delimit(iterable, delimiter)`
 
@@ -86,6 +96,8 @@ Parameters:
 Returns: `Iterable<T|U>`
 
 ## every
+
+[![npm](https://img.shields.io/npm/v/starry.every.svg?style=flat-square)](https://www.npmjs.com/package/starry.every)
 
 `every(iterable, predicate = x => x)`
 
@@ -101,6 +113,8 @@ Returns: `boolean`
 
 ## filter
 
+[![npm](https://img.shields.io/npm/v/starry.filter.svg?style=flat-square)](https://www.npmjs.com/package/starry.filter)
+
 `filter(iterable, predicate = x => x)`
 
 Returns a new iterable that only contains the elements from `iterable` that satisfies `predicate`.
@@ -112,6 +126,8 @@ Parameters:
 Returns: `Iterable<T>`
 
 ## find
+
+[![npm](https://img.shields.io/npm/v/starry.find.svg?style=flat-square)](https://www.npmjs.com/package/starry.find)
 
 `find(iterable, predicate)`
 
@@ -127,6 +143,8 @@ Returns: `T | undefined`
 
 ## first
 
+[![npm](https://img.shields.io/npm/v/starry.first.svg?style=flat-square)](https://www.npmjs.com/package/starry.first)
+
 `first(iterable)`
 
 Returns the first element of an iterable.
@@ -139,6 +157,8 @@ Parameters:
 Returns: `T | undefined`
 
 ## generatorToIterable
+
+[![npm](https://img.shields.io/npm/v/starry.generator-to-iterable.svg?style=flat-square)](https://www.npmjs.com/package/starry.generator-to-iterable)
 
 `generatorToIterable(generatorFn)`
 
@@ -153,6 +173,8 @@ Returns: `Iterable<T>`
 
 ## includes
 
+[![npm](https://img.shields.io/npm/v/starry.includes.svg?style=flat-square)](https://www.npmjs.com/package/starry.includes)
+
 `includes(iterable, value)`
 
 Returns whether the value can be found in the iterable. Equality is determined using `SameValueZero`.
@@ -165,6 +187,8 @@ Returns: `boolean`
 
 ## intersection
 
+[![npm](https://img.shields.io/npm/v/starry.intersection.svg?style=flat-square)](https://www.npmjs.com/package/starry.intersection)
+
 `intersection(...iterables)`
 
 Returns an iterable that only includes the elements that are common in all of the input iterables. Equality is determined using `SameValueZero`.
@@ -176,6 +200,8 @@ Returns: `Iterable<T>`
 
 ## iteratorToIterable
 
+[![npm](https://img.shields.io/npm/v/starry.iterator-to-iterable.svg?style=flat-square)](https://www.npmjs.com/package/starry.iterator-to-iterable)
+
 `iteratorToIterable(iterator)`
 
 Iterates through the remaining items of the specified `Iterator` object as though it is an `Iterable` object.
@@ -186,6 +212,8 @@ Parameters:
 Returns: `Iterable<T>`
 
 ## last
+
+[![npm](https://img.shields.io/npm/v/starry.last.svg?style=flat-square)](https://www.npmjs.com/package/starry.last)
 
 `last(iterable)`
 
@@ -199,6 +227,8 @@ Parameters:
 Returns: `T|undefined`
 
 ## map
+
+[![npm](https://img.shields.io/npm/v/starry.map.svg?style=flat-square)](https://www.npmjs.com/package/starry.map)
 
 `map(iterable, callback = x => x)`
 
@@ -214,6 +244,8 @@ Parameters:
 Returns: `Iterable<U>`
 
 ## reduce
+
+[![npm](https://img.shields.io/npm/v/starry.reduce.svg?style=flat-square)](https://www.npmjs.com/package/starry.reduce)
 
 `reduce(iterable, accumulator, initialValue)`
 
@@ -231,6 +263,8 @@ Specific types are intentionally omitted to avoid confusion. Basically this work
 
 ## setEquals
 
+[![npm](https://img.shields.io/npm/v/starry.set-equals.svg?style=flat-square)](https://www.npmjs.com/package/starry.set-equals)
+
 `setEquals(...iterables)`
 
 Returns whether the given sets hold set equality with each other. If a given input is not an instance of `Set`, it is converted into one.
@@ -242,6 +276,8 @@ Returns: `boolean`
 
 ## size
 
+[![npm](https://img.shields.io/npm/v/starry.size.svg?style=flat-square)](https://www.npmjs.com/package/starry.size)
+
 `size(iterable)`
 
 Returns the number of elements in the iterable.
@@ -252,6 +288,8 @@ Parameters:
 Returns: `number`
 
 ## skip
+
+[![npm](https://img.shields.io/npm/v/starry.skip.svg?style=flat-square)](https://www.npmjs.com/package/starry.skip)
 
 `skip(iterable, count=1)`
 
@@ -268,6 +306,8 @@ Throws:
 
 ## some
 
+[![npm](https://img.shields.io/npm/v/starry.some.svg?style=flat-square)](https://www.npmjs.com/package/starry.some)
+
 `some(iterable, predicate = x => x)`
 
 Returns whether any element of `iterable` satisfies `predicate`.
@@ -280,6 +320,8 @@ Returns: `Boolean`
 
 ## sum
 
+[![npm](https://img.shields.io/npm/v/starry.sum.svg?style=flat-square)](https://www.npmjs.com/package/starry.sum)
+
 `sum(iterable)`
 
 Adds the elements of `iterable`.
@@ -290,6 +332,8 @@ Parameters:
 Returns: `number`
 
 ## take
+
+[![npm](https://img.shields.io/npm/v/starry.take.svg?style=flat-square)](https://www.npmjs.com/package/starry.take)
 
 `take(iterable, count = 1)`
 
@@ -305,6 +349,8 @@ Throws:
 * `TypeError` - when `count` is not a finite number.
 
 ## zip
+
+[![npm](https://img.shields.io/npm/v/starry.zip.svg?style=flat-square)](https://www.npmjs.com/package/starry.zip)
 
 `zip(...iterables)`
 
