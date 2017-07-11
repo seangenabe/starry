@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "module": "commonjs",
-    "alwaysStrict": true,
-    "declaration": true,
-    "strictNullChecks": true,
-    "target": "ES2017"
-  }
-}
