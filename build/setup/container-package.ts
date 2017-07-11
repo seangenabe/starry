@@ -7,6 +7,9 @@ import _FS = require('mz/fs')
 const FS = _FS as any
 import PublicDocItem = require('./public-doc-item')
 
+/**
+ * Encapsulates changes made on the container package `packages/starry`.
+ */
 class ContainerPackage {
 
   packages: PackageInfo[]

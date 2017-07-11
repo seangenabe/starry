@@ -14,7 +14,9 @@ import { EOL } from 'os'
 import { debuglog } from 'util'
 const log = debuglog('setup')
 
-// Defines methods on how to manipulate each sub-package.
+/**
+ * Defines methods on how to manipulate each sub-package.
+ */
 class Package {
 
   private package_json_path: string
@@ -171,14 +173,17 @@ ${this.doc_md}`
     let files = await FS.readdir(`${this.require_path}`)
     if (files.some(file => Path.extname(file) === '.ts')) {
       const tsconfigJson = {
-        "compilerOptions": {
-          "module": "commonjs",
-          "alwaysStrict": true,
-          "declaration": true,
-          "strictNullChecks": true,
-          "target": "ES2017",
-          "sourceMap": true
-        }
+        compilerOptions: {
+          module: "commonjs",
+          alwaysStrict: true,
+          declaration: true,
+          strictNullChecks: true,
+          target: "ES2017",
+          sourceMap: true
+        },
+        include: [
+          '*.ts'
+        ]
       }
 
       const s = this.props.scripts as { [key: string]: string }

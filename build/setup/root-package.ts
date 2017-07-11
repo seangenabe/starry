@@ -4,6 +4,9 @@ import _FS = require('mz/fs')
 const FS = _FS as any
 import normalizeEOLEOF = require('./normalize-eol-eof')
 
+/**
+ * Represents the root of the monorepo. Encapsulates changes made to files at the monorepo level.
+ */
 class RootPackage {
 
   static readonly path: string = `${__dirname}/../..`

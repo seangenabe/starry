@@ -7,6 +7,9 @@ import _FS = require('mz/fs')
 const FS = _FS as any
 import loudRejection = require('loud-rejection')
 
+/**
+ * The main runner.
+ */
 class SetupRunner {
 
   root: RootPackage
@@ -72,7 +75,7 @@ class SetupRunner {
     await x.run()
   }
 
-} // SetupRunner
+} // class SetupRunner
 
 loudRejection()
 ;(async () => {
