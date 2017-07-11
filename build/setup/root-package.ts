@@ -3,6 +3,8 @@ import PackageInfo = require('./package-info')
 import _FS = require('mz/fs')
 const FS = _FS as any
 import normalizeEOLEOF = require('./normalize-eol-eof')
+import renderShields = require('./render-shields')
+import encode = require('encody')
 
 /**
  * Represents the root of the monorepo. Encapsulates changes made to files at the monorepo level.
@@ -23,11 +25,15 @@ class RootPackage {
   }
 
   async api_md(): Promise<void> {
-    const docs: { fn_name: string, doc_md: string }[] =
-      this.packages.filter(p => !p.is_private)
+    const packages: PackageInfo[] = this.packages.filter(p => !p.is_private)
 
-    const docsString = docs.map(({ fn_name, doc_md }) => {
-      return `\n## ${fn_name}\n\n${doc_md}`
+    const docsString = packages.map(({ fn_name, doc_md, require_id }) => {
+      const shieldsStr = renderShields([[
+        'npm',
+        encode`npm/v/${require_id}`,
+        encode`https://www.npmjs.com/package/${require_id}`
+      ]])
+      return `\n## ${fn_name}\n\n${shieldsStr}\n\n${doc_md}`
     }).join('')
     const content = `# API\n${docsString}`
     await FS.writeFile(
@@ -35,6 +41,7 @@ class RootPackage {
       normalizeEOLEOF(content)
     )
   }
-}
+
+} // RootPackage
 
 export = RootPackage
