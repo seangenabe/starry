@@ -3,6 +3,6 @@
 Returns the number of elements in the iterable.
 
 Parameters:
-* iterable - `Iterable`
+* iterable - `Iterable<T>`
 
-Returns: `Number`
+Returns: `number`

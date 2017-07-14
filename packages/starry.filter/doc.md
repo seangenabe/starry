@@ -4,6 +4,6 @@ Returns a new iterable that only contains the elements from `iterable` that sati
 
 Parameters:
 * iterable: `Iterable<T>`
-* predicate: `Function<T, Boolean>`
+* predicate: `(T) => boolean`. Default: `x => x`
 
 Returns: `Iterable<T>`

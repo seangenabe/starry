@@ -18,19 +18,24 @@
   ],
   "scripts": {
     "ava": "ava",
-    "build": "npm run setup && lerna bootstrap",
+    "build": "npm run setup && lerna bootstrap && npm run tsc",
     "lerna-bootstrap": "lerna bootstrap",
-    "setup": "babel-node build/setup && cp ./readme.md ./packages/starry/",
+    "presetup": "cd build/setup && tsc",
+    "setup": "node build/setup",
+    "postsetup": "cp ./readme.md ./packages/starry/",
+    "pretest": "npm run setup && npm run tsc",
     "test": "nyc ava",
-    "nyc:html": "nyc report --reporter=html",
+    "report": "nyc report --reporter=html",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "pub": "npm run build && lerna publish",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "tsc": "lerna run tsc"
   },
   "devDependencies": {
+    "@types/node": "^8.0.10",
     "ava": "^0.18.0",
-    "babel-cli": "^6.7.5",
-    "babel-plugin-transform-async-to-generator": "^6.7.4",
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
     "coveralls": "^2.11.14",
     "encody": "^1.0.0",
     "eslint": "^3.13.0",
@@ -39,9 +44,12 @@
     "lodash.assign": "^4.2.0",
     "lodash.camelcase": "latest",
     "lodash.includes": "^4.1.2",
+    "lodash.merge": "^4.6.0",
+    "loud-rejection": "^1.6.0",
     "mz": "^2.6.0",
     "nyc": "^11.0.1",
-    "sort-package-json": "^1.4.0"
+    "sort-package-json": "^1.4.0",
+    "typescript": "^2.4.1"
   },
   "ava": {
     "files": [

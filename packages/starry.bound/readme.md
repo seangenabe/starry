@@ -1,6 +1,6 @@
 Member of the starry suite—modular functions for iterable objects.
 
-[![npm](https://img.shields.io/npm/v/starry.bound.svg?style=flat-square)](https://www.npmjs.com/package/starry.bound) [![Dependency Status](https://img.shields.io/david/starry.bound.svg?style=flat-square)](https://david-dm.org/starry.bound) [![devDependency Status](https://img.shields.io/david/dev/starry.bound.svg?style=flat-square)](https://david-dm.org/starry.bound#info=devDependencies) [![node](https://img.shields.io/node/v/starry.bound.svg?style=flat-square)](https://nodejs.org/en/download/)
+[![npm](https://img.shields.io/npm/v/starry.bound.svg?style=flat-square)](https://www.npmjs.com/package/starry.bound) [![node](https://img.shields.io/node/v/starry.bound.svg?style=flat-square)](https://nodejs.org/en/download/)
 
 ## Status
 
@@ -15,7 +15,7 @@ Applies to the whole suite.
 Returns a function that calls the input function with the first argument being the output function's context.
 
 Parameters:
-* fn: `Function`
+* fn: `(object: TObject, ...args: TArgs[]) => TOut`
 
-Returns: `Function`
+Returns: `(this: TObject, ...args: TArgs[]) => TOut`
 

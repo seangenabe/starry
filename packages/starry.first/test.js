@@ -1,7 +1,7 @@
 const first = require('.')
-const t = require('ava')
+const test = require('ava')
 
-t(t => {
+test(t => {
   let result = first((function* nums() {
     yield 1
     t.fail()
@@ -9,4 +9,8 @@ t(t => {
   })())
   t.is(result, 1)
   t.is(first([4, 5]), 4)
+})
+
+test(t => {
+  t.is(first(), undefined)
 })

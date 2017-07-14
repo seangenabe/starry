@@ -3,11 +3,11 @@
 Applies an accumulator function over an iterable.
 
 Parameters:
-* iterable: `Iterable<TIn>`
-* accumulator: `Function<TOut|TIn, TIn, TOut|Tin>` - An accumulator function over the iterable.
-  * previous: `TOut|TIn` - The accumulate or the initial value.
-  * current: `TIn` - The current item of the iterable.
-  Must return: `TOut|TIn` - The new accumulate.
-* initialValue: `TOut` - Optional via argument length. The initial accumulator value.
+* iterable: `Iterable<T>`
+* accumulator: `(previousValue, currentValue)` - An accumulator function over the iterable.
+  * previousValue - The accumulate or the initial value.
+  * current - The current item of the iterable.
+  Must return - The new accumulate.
+* initialValue - Optional via argument length. The initial accumulator value.
 
-Returns: `TOut|Tin`
+Specific types are intentionally omitted to avoid confusion. Basically this works like `Array.prototype.reduce`.

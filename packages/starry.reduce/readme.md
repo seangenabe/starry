@@ -1,6 +1,6 @@
 Member of the starry suite—modular functions for iterable objects.
 
-[![npm](https://img.shields.io/npm/v/starry.reduce.svg?style=flat-square)](https://www.npmjs.com/package/starry.reduce) [![Dependency Status](https://img.shields.io/david/starry.reduce.svg?style=flat-square)](https://david-dm.org/starry.reduce) [![devDependency Status](https://img.shields.io/david/dev/starry.reduce.svg?style=flat-square)](https://david-dm.org/starry.reduce#info=devDependencies) [![node](https://img.shields.io/node/v/starry.reduce.svg?style=flat-square)](https://nodejs.org/en/download/)
+[![npm](https://img.shields.io/npm/v/starry.reduce.svg?style=flat-square)](https://www.npmjs.com/package/starry.reduce) [![node](https://img.shields.io/node/v/starry.reduce.svg?style=flat-square)](https://nodejs.org/en/download/)
 
 ## Status
 
@@ -15,12 +15,12 @@ Applies to the whole suite.
 Applies an accumulator function over an iterable.
 
 Parameters:
-* iterable: `Iterable<TIn>`
-* accumulator: `Function<TOut|TIn, TIn, TOut|Tin>` - An accumulator function over the iterable.
-  * previous: `TOut|TIn` - The accumulate or the initial value.
-  * current: `TIn` - The current item of the iterable.
-  Must return: `TOut|TIn` - The new accumulate.
-* initialValue: `TOut` - Optional via argument length. The initial accumulator value.
+* iterable: `Iterable<T>`
+* accumulator: `(previousValue, currentValue)` - An accumulator function over the iterable.
+  * previousValue - The accumulate or the initial value.
+  * current - The current item of the iterable.
+  Must return - The new accumulate.
+* initialValue - Optional via argument length. The initial accumulator value.
 
-Returns: `TOut|Tin`
+Specific types are intentionally omitted to avoid confusion. Basically this works like `Array.prototype.reduce`.
 

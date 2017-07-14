@@ -7,6 +7,10 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/.nyc_output": true,
-    "**/coverage/starry*": true
-  }
+    "**/coverage/starry*": true,
+    "build/setup/*.js": true,
+    "build/setup/*.js.map": true,
+    "build/setup/*.d.ts": true
+  },
+  "auto-close-tag.enableAutoCloseTag": false
 }

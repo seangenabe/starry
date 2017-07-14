@@ -11,14 +11,14 @@ This will run the build script at `build/setup.js` and then do `lerna bootstrap`
 The build script contains code that modifies all of the packages under the `packages` directory:
 
 * The main package `starry` is set up.
-  * The base `/API.md` is compiled.
   * `index.js` is compiled to include all submodules.
   * `package.json` is compiled to include all submodules as dependencies.
   * Copy the base `/readme.md` to `starry`.
 * For each individual submodule:
   * `readme.md` is compiled. This process includes transcluding `doc.md` into it.
   * `package.json` is compiled from `package-src.json`.
-  * `.npmignore` is set.
+  * etc.
+* Build `API.md`.
 
 ## Test
 

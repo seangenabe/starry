@@ -6,6 +6,6 @@ Returns whether every element in the iterable satisfies the predicate.
 
 Parameters:
 * iterable: `Iterable<T>`
-* predicate: `Function<T, Boolean>`. Default: `x => x`
+* predicate: `(T) => boolean`. Default: `x => x`
 
-Returns: `Boolean`
+Returns: `boolean`

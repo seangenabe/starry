@@ -3,6 +3,6 @@
 Adds the elements of `iterable`.
 
 Parameters:
-* iterable - `Iterable<Number>`
+* iterable - `Iterable<number>`
 
-Returns: `Number`
+Returns: `number`

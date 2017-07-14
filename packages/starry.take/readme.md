@@ -1,6 +1,6 @@
 Member of the starry suite—modular functions for iterable objects.
 
-[![npm](https://img.shields.io/npm/v/starry.take.svg?style=flat-square)](https://www.npmjs.com/package/starry.take) [![Dependency Status](https://img.shields.io/david/starry.take.svg?style=flat-square)](https://david-dm.org/starry.take) [![devDependency Status](https://img.shields.io/david/dev/starry.take.svg?style=flat-square)](https://david-dm.org/starry.take#info=devDependencies) [![node](https://img.shields.io/node/v/starry.take.svg?style=flat-square)](https://nodejs.org/en/download/)
+[![npm](https://img.shields.io/npm/v/starry.take.svg?style=flat-square)](https://www.npmjs.com/package/starry.take) [![node](https://img.shields.io/node/v/starry.take.svg?style=flat-square)](https://nodejs.org/en/download/)
 
 ## Status
 
@@ -16,7 +16,7 @@ Returns `count` number of elements from the beginning of the iterable.
 
 Parameters:
 * iterable - `Iterable<T>`
-* count - `Number`. Default: `1`
+* count - `number`. Default: `1`
 
 Returns: `Iterable<T>`
 

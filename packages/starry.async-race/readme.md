@@ -1,6 +1,6 @@
 Member of the starry suite—modular functions for iterable objects.
 
-[![npm](https://img.shields.io/npm/v/starry.async-race.svg?style=flat-square)](https://www.npmjs.com/package/starry.async-race) [![Dependency Status](https://img.shields.io/david/starry.async-race.svg?style=flat-square)](https://david-dm.org/starry.async-race) [![devDependency Status](https://img.shields.io/david/dev/starry.async-race.svg?style=flat-square)](https://david-dm.org/starry.async-race#info=devDependencies) [![node](https://img.shields.io/node/v/starry.async-race.svg?style=flat-square)](https://nodejs.org/en/download/)
+[![npm](https://img.shields.io/npm/v/starry.async-race.svg?style=flat-square)](https://www.npmjs.com/package/starry.async-race) [![node](https://img.shields.io/node/v/starry.async-race.svg?style=flat-square)](https://nodejs.org/en/download/)
 
 ## Status
 
@@ -15,10 +15,10 @@ Applies to the whole suite.
 Returns a promise that resolves with the first, of the return values of `asyncAction` called upon each element of `iterable`, which resolved.
 
 Parameters:
-* iterable: `Iterable<TIn>`
-* asyncAction: `Function<TIn, Promise<TOut> | TOut>`
+* iterable: `Iterable<T>`
+* asyncAction: `(T) => PromiseLike<U>`
 
-Returns: `Promise<TOut>`
+Returns: `Promise<U>`
 
 A handy shortcut for:
 ```javascript
@@ -26,6 +26,4 @@ Promise.race([].map(async function() { ... }))
 ```
 
 But with iterable support. ☺
-
-Shameless plug: Use with [delayer](https://www.npmjs.com/package/delayer) for timed promises!
 

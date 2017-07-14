@@ -1,6 +1,6 @@
 Member of the starry suite—modular functions for iterable objects.
 
-[![npm](https://img.shields.io/npm/v/starry.last.svg?style=flat-square)](https://www.npmjs.com/package/starry.last) [![Dependency Status](https://img.shields.io/david/starry.last.svg?style=flat-square)](https://david-dm.org/starry.last) [![devDependency Status](https://img.shields.io/david/dev/starry.last.svg?style=flat-square)](https://david-dm.org/starry.last#info=devDependencies) [![node](https://img.shields.io/node/v/starry.last.svg?style=flat-square)](https://nodejs.org/en/download/)
+[![npm](https://img.shields.io/npm/v/starry.last.svg?style=flat-square)](https://www.npmjs.com/package/starry.last) [![node](https://img.shields.io/node/v/starry.last.svg?style=flat-square)](https://nodejs.org/en/download/)
 
 ## Status
 
@@ -14,8 +14,10 @@ Applies to the whole suite.
 
 Returns the last element of iterable.
 
+Returns `undefined` if the iterable has no elements.
+
 Parameters:
 * iterable - `Iterable<T>`
 
-Returns: `T`
+Returns: `T|undefined`
 

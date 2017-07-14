@@ -3,6 +3,6 @@
 Returns whether the iterable has any elements (yields anything).
 
 Parameters:
-* iterable: `Iterable`
+* iterable: `Iterable<T>`
 
-Returns: `Boolean`
+Returns: `boolean`

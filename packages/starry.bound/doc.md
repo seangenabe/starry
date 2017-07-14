@@ -3,6 +3,6 @@
 Returns a function that calls the input function with the first argument being the output function's context.
 
 Parameters:
-* fn: `Function`
+* fn: `(object: TObject, ...args: TArgs[]) => TOut`
 
-Returns: `Function`
+Returns: `(this: TObject, ...args: TArgs[]) => TOut`

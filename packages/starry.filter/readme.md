@@ -1,6 +1,6 @@
 Member of the starry suite—modular functions for iterable objects.
 
-[![npm](https://img.shields.io/npm/v/starry.filter.svg?style=flat-square)](https://www.npmjs.com/package/starry.filter) [![Dependency Status](https://img.shields.io/david/starry.filter.svg?style=flat-square)](https://david-dm.org/starry.filter) [![devDependency Status](https://img.shields.io/david/dev/starry.filter.svg?style=flat-square)](https://david-dm.org/starry.filter#info=devDependencies) [![node](https://img.shields.io/node/v/starry.filter.svg?style=flat-square)](https://nodejs.org/en/download/)
+[![npm](https://img.shields.io/npm/v/starry.filter.svg?style=flat-square)](https://www.npmjs.com/package/starry.filter) [![node](https://img.shields.io/node/v/starry.filter.svg?style=flat-square)](https://nodejs.org/en/download/)
 
 ## Status
 
@@ -16,7 +16,7 @@ Returns a new iterable that only contains the elements from `iterable` that sati
 
 Parameters:
 * iterable: `Iterable<T>`
-* predicate: `Function<T, Boolean>`
+* predicate: `(T) => boolean`. Default: `x => x`
 
 Returns: `Iterable<T>`
 

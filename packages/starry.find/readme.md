@@ -1,6 +1,6 @@
 Member of the starry suite—modular functions for iterable objects.
 
-[![npm](https://img.shields.io/npm/v/starry.find.svg?style=flat-square)](https://www.npmjs.com/package/starry.find) [![Dependency Status](https://img.shields.io/david/starry.find.svg?style=flat-square)](https://david-dm.org/starry.find) [![devDependency Status](https://img.shields.io/david/dev/starry.find.svg?style=flat-square)](https://david-dm.org/starry.find#info=devDependencies) [![node](https://img.shields.io/node/v/starry.find.svg?style=flat-square)](https://nodejs.org/en/download/)
+[![npm](https://img.shields.io/npm/v/starry.find.svg?style=flat-square)](https://www.npmjs.com/package/starry.find) [![node](https://img.shields.io/node/v/starry.find.svg?style=flat-square)](https://nodejs.org/en/download/)
 
 ## Status
 
@@ -14,9 +14,11 @@ Applies to the whole suite.
 
 Returns the first element in the iterable that satisfies the predicate.
 
+Returns `undefined` if no element satisfies the predicate.
+
 Parameters:
 * iterable: `Iterable<T>`
-* predicate: `Function<T, Boolean>`
+* predicate: `(T) => boolean`
 
-Returns: `T`
+Returns: `T | undefined`
 

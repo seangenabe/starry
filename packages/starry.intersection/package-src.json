@@ -3,6 +3,7 @@
     "starry.every",
     "starry.filter",
     "starry.includes",
-    "starry.generator-to-iterable"
+    "starry.generator-to-iterable",
+    "starry._array-types"
   ]
 }

@@ -1,6 +1,6 @@
 Member of the starry suite—modular functions for iterable objects.
 
-[![npm](https://img.shields.io/npm/v/starry.includes.svg?style=flat-square)](https://www.npmjs.com/package/starry.includes) [![Dependency Status](https://img.shields.io/david/starry.includes.svg?style=flat-square)](https://david-dm.org/starry.includes) [![devDependency Status](https://img.shields.io/david/dev/starry.includes.svg?style=flat-square)](https://david-dm.org/starry.includes#info=devDependencies) [![node](https://img.shields.io/node/v/starry.includes.svg?style=flat-square)](https://nodejs.org/en/download/)
+[![npm](https://img.shields.io/npm/v/starry.includes.svg?style=flat-square)](https://www.npmjs.com/package/starry.includes) [![node](https://img.shields.io/node/v/starry.includes.svg?style=flat-square)](https://nodejs.org/en/download/)
 
 ## Status
 
@@ -18,5 +18,5 @@ Parameters:
 * iterable - `Iterable<T>`
 * value - `T`
 
-Returns: `Boolean`
+Returns: `boolean`
 
