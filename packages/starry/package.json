@@ -1,6 +1,6 @@
 {
   "name": "starry",
-  "version": "2.0.0-0",
+  "version": "2.0.0-1",
   "description": "Modular functions for iterable objects.",
   "license": "MIT",
   "main": "./index.js",
@@ -17,7 +17,7 @@
     "starry.first": "^2.0.0-0",
     "starry.generator-to-iterable": "^2.0.0-0",
     "starry.includes": "^2.0.0-0",
-    "starry.intersection": "^2.0.0-0",
+    "starry.intersection": "^2.0.0-1",
     "starry.iterator-to-iterable": "^2.0.0-0",
     "starry.last": "^2.0.0-0",
     "starry.map": "^2.0.0-0",
