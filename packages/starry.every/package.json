@@ -1,6 +1,6 @@
 {
   "name": "starry.every",
-  "version": "1.6.1",
+  "version": "2.0.0-0",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
@@ -16,7 +16,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "starry.map": "^1.6.1"
+    "starry.map": "^2.0.0-0"
   },
   "engines": {
     "node": ">=6.0.0"
