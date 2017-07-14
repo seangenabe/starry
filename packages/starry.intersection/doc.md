@@ -1,8 +1,1 @@
-`intersection(...iterables)`
-
-Returns an iterable that only includes the elements that are common in all of the input iterables. Equality is determined using `SameValueZero`.
-
-Parameters:
-* ...iterables: `Iterable<T>[]`
-
-Returns: `Iterable<T>`
+`intersection(...iterables)` is deprecated since v2.0.0-1. Please use [`lodash.intersection`](https://www.npmjs.com/package/lodash.intersection) instead.
