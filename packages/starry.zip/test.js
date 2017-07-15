@@ -12,7 +12,7 @@ const pos = {
 
 const even = {
   *[Symbol.iterator]() {
-    for (let i = 2; i < 20; i++) {
+    for (let i = 2; i < 20; i += 2) {
       yield i
     }
     throw new Error("Pulled too many items.")
