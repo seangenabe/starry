@@ -189,14 +189,7 @@ Returns: `boolean`
 
 [![npm](https://img.shields.io/npm/v/starry.intersection.svg?style=flat-square)](https://www.npmjs.com/package/starry.intersection)
 
-`intersection(...iterables)`
-
-Returns an iterable that only includes the elements that are common in all of the input iterables. Equality is determined using `SameValueZero`.
-
-Parameters:
-* ...iterables: `Iterable<T>[]`
-
-Returns: `Iterable<T>`
+`intersection(...iterables)` is deprecated since v2.0.0-1. Please use [`lodash.intersection`](https://www.npmjs.com/package/lodash.intersection) instead.
 
 ## iteratorToIterable
 
