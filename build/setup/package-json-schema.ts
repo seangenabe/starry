@@ -11,6 +11,7 @@ interface PackageJson {
   scripts?: { [scriptKey: string]: string }
   dependencies?: { [dep: string]: string }
   devDependencies?: { [dep: string]: string }
+  ava: object
 }
 
 export = PackageJson

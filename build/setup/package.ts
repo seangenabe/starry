@@ -90,10 +90,16 @@ class Package {
 
     package_json.scripts = {}
 
+    const rootDevDeps =
+      RootPackage.pkg.devDependencies as { [key: string]: string }
+
     package_json.devDependencies = {
-      typescript: (
-        RootPackage.pkg.devDependencies as { [key: string]: string }
-       ).typescript
+      typescript: rootDevDeps.typescript,
+      ava: rootDevDeps.ava
+    }
+
+    package_json.ava = {
+      files: [ 'test.js' ]
     }
 
     // merge package-src.json
