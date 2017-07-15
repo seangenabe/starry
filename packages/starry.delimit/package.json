@@ -1,6 +1,6 @@
 {
   "name": "starry.delimit",
-  "version": "2.0.0-0",
+  "version": "2.0.0",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
@@ -18,7 +18,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "starry.generator-to-iterable": "^2.0.0-0"
+    "starry.generator-to-iterable": "^2.0.0"
   },
   "devDependencies": {
     "ava": "^0.18.0",
