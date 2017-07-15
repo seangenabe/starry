@@ -1,8 +1,15 @@
 const test = require('ava')
 const generatorToIterable = require('.')
 
+function* positiveIntegers() {
+  for (let i = 1; i < 20; i++) {
+    yield i
+  }
+  throw new Error("Pulled too many items.")
+}
+
 test("environment test -- generators won't save state", t => {
-  let res = wholes()
+  let res = positiveIntegers()
   let iterator1 = res[Symbol.iterator]()
   t.deepEqual(iterator1.next(), { done: false, value: 1 })
   t.deepEqual(iterator1.next(), { done: false, value: 2 })
@@ -14,7 +21,7 @@ test("environment test -- generators won't save state", t => {
 })
 
 test('should save original iterable state', t => {
-  let res = generatorToIterable(wholes)
+  let res = generatorToIterable(positiveIntegers)
   let iterator1 = res[Symbol.iterator]()
   t.deepEqual(iterator1.next(), { done: false, value: 1 })
   t.deepEqual(iterator1.next(), { done: false, value: 2 })
@@ -24,9 +31,3 @@ test('should save original iterable state', t => {
   t.deepEqual(iterator2.next(), { done: false, value: 2 })
   t.deepEqual(iterator2.next(), { done: false, value: 3 })
 })
-
-function* wholes() {
-  for (let i = 1; i < 100; i++) {
-    yield i
-  }
-}

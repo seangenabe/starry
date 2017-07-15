@@ -88,7 +88,9 @@ class Package {
     // Set repository
     package_json.repository = RootPackage.pkg.repository
 
-    package_json.scripts = {}
+    package_json.scripts = {
+      test: 'ava'
+    }
 
     const rootDevDeps =
       RootPackage.pkg.devDependencies as { [key: string]: string }
@@ -210,7 +212,10 @@ ${this.doc_md}`
       }
 
       const s = this.props.scripts as { [key: string]: string }
-      s.tsc = 'tsc'
+      Object.assign(s, {
+        tsc: 'tsc',
+        pretest: 'npm run tsc'
+      })
 
       const giContent = [
         'index.d.ts',

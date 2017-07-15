@@ -12,7 +12,9 @@
   "license": "MIT",
   "main": "./index.js",
   "repository": "seangenabe/starry",
-  "scripts": {},
+  "scripts": {
+    "test": "ava"
+  },
   "devDependencies": {
     "ava": "^0.18.0",
     "typescript": "^2.4.1"
