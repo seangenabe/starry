@@ -50,7 +50,7 @@ class ContainerPackage {
         }
       }
       catch (err) {
-        version = '0'
+        version = '0.0.0'
       }
       dependencies[require_id] = `^${version}`
 
