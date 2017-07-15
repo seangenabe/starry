@@ -90,6 +90,12 @@ class Package {
 
     package_json.scripts = {}
 
+    package_json.devDependencies = {
+      typescript: (
+        RootPackage.pkg.devDependencies as { [key: string]: string }
+       ).typescript
+    }
+
     // merge package-src.json
     let package_src_json: PackageSrcJson
     try {

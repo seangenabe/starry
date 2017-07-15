@@ -15,6 +15,9 @@
   "scripts": {
     "tsc": "tsc"
   },
+  "devDependencies": {
+    "typescript": "^2.4.1"
+  },
   "engines": {
     "node": ">=6.0.0"
   }

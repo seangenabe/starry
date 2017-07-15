@@ -22,6 +22,9 @@
     "starry.generator-to-iterable": "^2.0.0-0",
     "starry.includes": "^2.0.0-0"
   },
+  "devDependencies": {
+    "typescript": "^2.4.1"
+  },
   "engines": {
     "node": ">=6.0.0"
   }

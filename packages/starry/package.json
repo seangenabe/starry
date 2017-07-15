@@ -9,7 +9,7 @@
     "starry.async-all": "^2.0.0-0",
     "starry.async-race": "^2.0.0-0",
     "starry.bound": "^2.0.0-0",
-    "starry.chunk": "^0",
+    "starry.chunk": "^0.0.0",
     "starry.concat": "^2.0.0-0",
     "starry.delimit": "^2.0.0-0",
     "starry.every": "^2.0.0-0",
