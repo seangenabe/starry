@@ -11,8 +11,13 @@ import renderShields = require('./render-shields')
 import Path = require('path')
 import RootPackage = require('./root-package')
 import { EOL } from 'os'
-import { debuglog } from 'util'
-const log = debuglog('setup')
+import { inspect } from 'util'
+import chalk = require('chalk')
+
+function log(s) {
+  s = chalk`{magenta package} ${s}`
+  console.error(s)
+}
 
 /**
  * Defines methods on how to manipulate each sub-package.
@@ -38,6 +43,11 @@ class Package {
   }) {
 
     Object.assign(this, opts)
+  }
+
+  log(msg, ...params) {
+    msg = chalk`{green ${this.require_id}} ${msg}`
+    log(msg, ...params)
   }
 
   async run() {
@@ -89,19 +99,22 @@ class Package {
       delete package_src_json._dependencies
       let newDeps: { [key: string]: string } = {}
       for (let depString of _dependencies) {
+        const depPkgJsonPath = `${RootPackage.path}/packages/${depString}/package.json`
         try {
           let dep_package_json: PackageJson =
-            require(`${RootPackage.path}/packages/${depString}/package.json`)
+            require(depPkgJsonPath)
 
           if (dep_package_json.version) {
             newDeps[depString] = `^${dep_package_json.version}`
           }
         }
         catch (err) {
+          this.log(`invalid package: ${depString}`)
           // invalid package; skip
         }
       }
       if (Object.keys(newDeps).length) {
+        package_src_json.dependencies = package_src_json.dependencies || {}
         Object.assign(package_src_json.dependencies, newDeps)
       }
     }

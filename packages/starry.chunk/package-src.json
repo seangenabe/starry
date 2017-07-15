@@ -1,0 +1,5 @@
+{
+  "_dependencies": [
+    "starry.generator-to-iterable"
+  ]
+}

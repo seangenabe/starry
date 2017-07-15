@@ -5,6 +5,12 @@ const FS = _FS as any
 import normalizeEOLEOF = require('./normalize-eol-eof')
 import renderShields = require('./render-shields')
 import encode = require('encody')
+import chalk = require('chalk')
+
+function log(msg) {
+  msg = chalk`{magenta root package} ${msg}`
+  console.error(msg)
+}
 
 /**
  * Represents the root of the monorepo. Encapsulates changes made to files at the monorepo level.

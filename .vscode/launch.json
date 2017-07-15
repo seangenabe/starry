@@ -12,6 +12,13 @@
       "args":[
         "${file}"
       ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Setup",
+      "program": "${workspaceRoot}/build/setup/index.js",
+      "preLaunchTask": "presetup"
     }
   ]
 }

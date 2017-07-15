@@ -1,0 +1,24 @@
+{
+  "name": "starry.chunk",
+  "version": "0.0.0",
+  "description": "Member of the starry suite—modular functions for iterable objects.",
+  "keywords": [
+    "iterable",
+    "iteration",
+    "iterator",
+    "starry-modularized"
+  ],
+  "homepage": "https://github.com/seangenabe/starry",
+  "license": "MIT",
+  "main": "./index.js",
+  "repository": "seangenabe/starry",
+  "scripts": {
+    "tsc": "tsc"
+  },
+  "dependencies": {
+    "starry.generator-to-iterable": "^2.0.0-0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}
