@@ -37,20 +37,10 @@ test('infinite iterable', t => {
   const r = chunk(positiveIntegers, 2)
 
   const i = r[Symbol.iterator]()
-  {
-    const x1 = i.next()
-    t.false(x1.done)
-    t.deepEqual(x1.value, [1, 2])
-
-    const x2 = i.next()
-    t.false(x2.done)
-    t.deepEqual(x2.value, [3, 4])
-  }
+  t.deepEqual(i.next(), { done: false, value: [1, 2] })
+  t.deepEqual(i.next(), { done: false, value: [3, 4] })
 
   const i2 = r[Symbol.iterator]()
-  {
-    const x1 = i2.next()
-    t.false(x1.done)
-    t.deepEqual(x1.value, [1, 2])
-  }
+  t.deepEqual(i2.next(), { done: false, value: [1, 2] })
+  t.deepEqual(i2.next(), { done: false, value: [3, 4] })
 })
