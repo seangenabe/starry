@@ -1,6 +1,6 @@
 {
   "name": "starry.any",
-  "version": "2.0.0",
+  "version": "3.0.0-0",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
