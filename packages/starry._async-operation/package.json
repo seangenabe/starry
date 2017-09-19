@@ -16,7 +16,7 @@
     "test": "ava"
   },
   "devDependencies": {
-    "ava": "^0.18.0",
+    "ava": "^0.22.0",
     "typescript": "^2.4.1"
   },
   "engines": {

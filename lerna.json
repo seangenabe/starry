@@ -1,5 +1,6 @@
 {
   "lerna": "2.2.0",
+  "version": "3.0.0-2",
   "packages": [
     "packages/*"
   ],
@@ -9,6 +10,5 @@
         "packages/starry.*/test.js"
       ]
     }
-  },
-  "version": "0.0.0"
+  }
 }
