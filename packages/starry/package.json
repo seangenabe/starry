@@ -31,6 +31,7 @@
     "starry.some": "^3.0.0-1",
     "starry.sum": "^3.0.0-1",
     "starry.take": "^3.0.0-1",
+    "starry.uniq": "^0.0.0",
     "starry.zip": "^3.0.0-1"
   }
 }

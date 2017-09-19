@@ -506,6 +506,25 @@ Returns: `Iterable<T>`
 Throws:
 * `TypeError` - when `count` is not a finite number.
 
+## uniq
+
+[![npm](https://img.shields.io/npm/v/starry.uniq.svg?style=flat-square)](https://www.npmjs.com/package/starry.uniq)
+
+```typescript
+function uniq<T = any, TKey = any>(
+  iterable: Iterable<T> = [],
+  keySelector: (item: T) => TKey = x => x as T & TKey
+  ): Iterable<T>
+```
+
+Returns distinct elements from an iterable.
+
+Parameters: 
+* iterable - `Iterable<T>`
+* keySelector -  `(item: T) => TKey`: An optional selector with which uniqueness is determined. Default: `x => x`.
+
+Returns: `Iterable<T>`
+
 ## zip
 
 [![npm](https://img.shields.io/npm/v/starry.zip.svg?style=flat-square)](https://www.npmjs.com/package/starry.zip)
