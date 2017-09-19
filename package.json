@@ -34,8 +34,6 @@
   "devDependencies": {
     "@types/node": "^8.0.10",
     "ava": "^0.18.0",
-    "babel-cli": "^6.24.1",
-    "babel-plugin-transform-async-to-generator": "^6.24.1",
     "chalk": "^2.0.1",
     "coveralls": "^2.11.14",
     "encody": "^1.0.0",
