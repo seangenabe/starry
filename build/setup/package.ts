@@ -189,8 +189,10 @@ ${this.doc_md}`
   } // readme_md()
 
   async npmignore() {
-    // These files are not actually required in the published version.
-    const content = ['doc.md', 'package-src.json'].join('\n')
+    // These files are not actually required in the published version:
+    // doc.md and package_src.json.
+    // Exclude index.ts; they confuse tsc when they exist in published packages.
+    const content = ['doc.md', 'package-src.json', 'index.ts'].join('\n')
     await FS.writeFile(`${this.require_path}/.npmignore`, content)
   }
 
