@@ -16,6 +16,7 @@
     "starry.filter": "^3.0.0-1",
     "starry.find": "^3.0.0-1",
     "starry.first": "^3.0.0-1",
+    "starry.flatten": "^0.0.0",
     "starry.generator-to-iterable": "^3.0.0-1",
     "starry.group-by": "^3.0.0-1",
     "starry.includes": "^3.0.0-1",

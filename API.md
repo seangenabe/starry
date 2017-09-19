@@ -219,6 +219,23 @@ Parameters:
 
 Returns: `T | undefined`
 
+## flatten
+
+[![npm](https://img.shields.io/npm/v/starry.flatten.svg?style=flat-square)](https://www.npmjs.com/package/starry.flatten)
+
+```typescript
+function flatten<T = any>(
+  iterable: Iterable<Iterable<T>> = []
+  ): Iterable<T>
+```
+
+Returns an iterable that iterates through the input flattened a single level.
+
+Parameters: 
+  * iterable: `Iterable<Iterable<T>>`
+
+Returns: `Iterable<T>`
+
 ## generatorToIterable
 
 [![npm](https://img.shields.io/npm/v/starry.generator-to-iterable.svg?style=flat-square)](https://www.npmjs.com/package/starry.generator-to-iterable)
