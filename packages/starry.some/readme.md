@@ -10,7 +10,12 @@ Applies to the whole suite.
 
 ## Usage
 
-`some(iterable, predicate = x => x)`
+```typescript
+function some<T = any>(
+  iterable: Iterable<T>,
+  predicate: (item: T) => boolean = x => x as T & boolean
+  ): boolean
+```
 
 Returns whether any element of `iterable` satisfies `predicate`.
 

@@ -1,2 +1,2 @@
-declare function intersection<T>(...iterables: Iterable<T>[]): Iterable<T>;
+declare function intersection<T = any>(...iterables: Iterable<T>[]): Iterable<T>;
 export = intersection;

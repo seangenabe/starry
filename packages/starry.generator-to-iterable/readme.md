@@ -10,7 +10,11 @@ Applies to the whole suite.
 
 ## Usage
 
-`generatorToIterable(generatorFn)`
+```typescript
+function generatorToIterable<T = any>(
+    generatorFn: () => Iterator<T>
+  ): Iterable<T>
+```
 
 Wraps a generator function, or any function that returns an iterator, into an iterable such that `#[Symbol.iterator]()` runs the function.
 

@@ -1,2 +1,2 @@
-declare function size<T>(iterable: Iterable<T>): number;
+declare function size<T = any>(iterable: Iterable<T>): number;
 export = size;

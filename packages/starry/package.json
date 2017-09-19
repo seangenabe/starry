@@ -17,6 +17,7 @@
     "starry.find": "^2.0.0",
     "starry.first": "^2.0.0",
     "starry.generator-to-iterable": "^2.0.0",
+    "starry.group-by": "^0.0.0",
     "starry.includes": "^2.0.0",
     "starry.intersection": "^2.0.0",
     "starry.iterator-to-iterable": "^2.0.0",

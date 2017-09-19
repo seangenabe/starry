@@ -1,2 +1,2 @@
-declare const _default: <T>(iterable: Iterable<T>, value: T) => boolean;
+declare const _default: <T = any>(iterable: Iterable<T>, value: T) => boolean;
 export = _default;

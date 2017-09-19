@@ -10,7 +10,9 @@ Applies to the whole suite.
 
 ## Usage
 
-`_setTypes`
+```typescript
+const _setTypes: Set<SetConstructor | WeakSetConstructor>
+```
 
 A set containing the set types (`Set`, `WeakSet`).
 

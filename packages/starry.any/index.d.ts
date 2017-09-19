@@ -1,2 +1,2 @@
-declare function any<T>(iterable: Iterable<T>): boolean;
+declare function any<T>(iterable?: Iterable<T>): boolean;
 export = any;

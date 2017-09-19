@@ -19,7 +19,7 @@ function groupBy<TItem = any, TKey = any, TValue = any>(
   for (const item of iterable) {
     const key = keySelector(item)
     if (map.has(key)) {
-      map.get(key).push(valueSelector(item))
+      (map.get(key) as TValue[]).push(valueSelector(item))
     }
     else {
       map.set(key, [valueSelector(item)])

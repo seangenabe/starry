@@ -4,7 +4,9 @@
 
 [![npm](https://img.shields.io/npm/v/starry.any.svg?style=flat-square)](https://www.npmjs.com/package/starry.any)
 
-`any(iterable)`
+```typescript
+function any<T>(iterable: Iterable<T> = []): boolean
+```
 
 Returns whether the iterable has any elements (yields anything).
 
@@ -17,15 +19,20 @@ Returns: `boolean`
 
 [![npm](https://img.shields.io/npm/v/starry.async-all.svg?style=flat-square)](https://www.npmjs.com/package/starry.async-all)
 
-`asyncAll(iterable, asyncAction)`
+```typescript
+function asyncAll<T = any, U = any>(
+  iterable: Iterable<T>, 
+  asyncAction: (item: T) => PromiseLike<U>
+  ): Promise<U[]>
+```
 
 Returns a promise that resolves with an array representing the resolved values of the return value of `asyncAction` called upon each element of `iterable`.
 
 Parameters:
-* iterable: `Iterable<T>`
-* asyncAction: `(T) => PromiseLike<U>`
+* iterable: `Iterable<T>` - An iterable collection
+* asyncAction: `(item: T) => PromiseLike<U>` - A thenable called with each item
 
-Returns: `Promise<U>`
+Returns: `Promise<U[]>`
 
 A handy shortcut for:
 ```javascript
@@ -38,13 +45,18 @@ But with iterable support. ☺
 
 [![npm](https://img.shields.io/npm/v/starry.async-race.svg?style=flat-square)](https://www.npmjs.com/package/starry.async-race)
 
-`asyncRace(iterable, asyncAction)`
+```typescript
+function asyncRace<T = any, U = any>(
+  iterable: Iterable<T>, 
+  asyncAction: (item: T) => PromiseLike<U>
+  )
+```
 
 Returns a promise that resolves with the first, of the return values of `asyncAction` called upon each element of `iterable`, which resolved.
 
 Parameters:
-* iterable: `Iterable<T>`
-* asyncAction: `(T) => PromiseLike<U>`
+* iterable: `Iterable<T>` - An iterable collection
+* asyncAction: `(T) => PromiseLike<U>` - A thenable called with each item
 
 Returns: `Promise<U>`
 
@@ -59,7 +71,11 @@ But with iterable support. ☺
 
 [![npm](https://img.shields.io/npm/v/starry.bound.svg?style=flat-square)](https://www.npmjs.com/package/starry.bound)
 
-`bound(fn)`
+```typescript
+function bound<TObject = any, TArgs = any, TOut = any>(
+  fn: (object: TObject, ...args: TArgs[]) => TOut
+  ): (this: TObject, ...args: TArgs[]) => TOut
+```
 
 Returns a function that calls the input function with the first argument being the output function's context.
 
@@ -72,7 +88,12 @@ Returns: `(this: TObject, ...args: TArgs[]) => TOut`
 
 [![npm](https://img.shields.io/npm/v/starry.chunk.svg?style=flat-square)](https://www.npmjs.com/package/starry.chunk)
 
-`chunk(iterable, size = 1)`
+```typescript
+function chunk<T = any>(
+  iterable: Iterable<T>,
+  size: number = 1
+  ): Iterable<T[]>
+```
 
 Returns an iterable that yields groups of elements as a group of size `size` is received from the iterable `iterable`.
 
@@ -88,7 +109,11 @@ Returns: `Iterable<T[]>`
 
 [![npm](https://img.shields.io/npm/v/starry.concat.svg?style=flat-square)](https://www.npmjs.com/package/starry.concat)
 
-`concat(...iterables)`
+```typescript
+function concat<T = any>(
+  ...iterables: Iterable<T>[]
+  ): Iterable<T>
+```
 
 Returns an iterable that returns the elements of each iterable passed.
 
@@ -101,7 +126,12 @@ Returns: `Iterable<T>`
 
 [![npm](https://img.shields.io/npm/v/starry.delimit.svg?style=flat-square)](https://www.npmjs.com/package/starry.delimit)
 
-`delimit(iterable, delimiter)`
+```typescript
+function delimit<T = any, U = any>(
+  iterable: Iterable<T>,
+  delimiter: U
+  ): Iterable<T | U>
+```
 
 Separates each element in the iterable with a delimiter. Returns a new iterable with the values separated by the delimiter.
 
@@ -109,13 +139,18 @@ Parameters:
 * iterable: `Iterable<T>`
 * delimiter: `U`
 
-Returns: `Iterable<T|U>`
+Returns: `Iterable<T | U>`
 
 ## every
 
 [![npm](https://img.shields.io/npm/v/starry.every.svg?style=flat-square)](https://www.npmjs.com/package/starry.every)
 
-`every(iterable, predicate = x => x)`
+```typescript
+function every<T = any>(
+  iterable: Iterable<T>,
+  predicate: (item: T) => boolean = x => x as T & boolean
+  ): boolean
+```
 
 Returns whether every element in the iterable satisfies the predicate.
 
@@ -131,7 +166,12 @@ Returns: `boolean`
 
 [![npm](https://img.shields.io/npm/v/starry.filter.svg?style=flat-square)](https://www.npmjs.com/package/starry.filter)
 
-`filter(iterable, predicate = x => x)`
+```typescript
+function filter<T = any>(
+  iterable: Iterable<T>,
+  predicate: (item: T) => boolean = x => x as any
+  ): Iterable<T>
+```
 
 Returns a new iterable that only contains the elements from `iterable` that satisfies `predicate`.
 
@@ -145,7 +185,12 @@ Returns: `Iterable<T>`
 
 [![npm](https://img.shields.io/npm/v/starry.find.svg?style=flat-square)](https://www.npmjs.com/package/starry.find)
 
-`find(iterable, predicate)`
+```typescript
+function find<T = any>(
+  iterable: Iterable<T>,
+  predicate: (item: T) => boolean
+  )
+```
 
 Returns the first element in the iterable that satisfies the predicate.
 
@@ -161,7 +206,9 @@ Returns: `T | undefined`
 
 [![npm](https://img.shields.io/npm/v/starry.first.svg?style=flat-square)](https://www.npmjs.com/package/starry.first)
 
-`first(iterable)`
+```typescript
+function first<T = any>(iterable: Iterable<T> = []): T | undefined 
+```
 
 Returns the first element of an iterable.
 
@@ -176,7 +223,11 @@ Returns: `T | undefined`
 
 [![npm](https://img.shields.io/npm/v/starry.generator-to-iterable.svg?style=flat-square)](https://www.npmjs.com/package/starry.generator-to-iterable)
 
-`generatorToIterable(generatorFn)`
+```typescript
+function generatorToIterable<T = any>(
+    generatorFn: () => Iterator<T>
+  ): Iterable<T>
+```
 
 Wraps a generator function, or any function that returns an iterator, into an iterable such that `#[Symbol.iterator]()` runs the function.
 
@@ -187,11 +238,37 @@ Parameters:
 
 Returns: `Iterable<T>`
 
+## groupBy
+
+[![npm](https://img.shields.io/npm/v/starry.group-by.svg?style=flat-square)](https://www.npmjs.com/package/starry.group-by)
+
+```typescript
+function groupBy<TItem = any, TKey = any, TValue = any>(
+  iterable: Iterable<TItem>,
+  keySelector: (item: TItem) => TKey = x => x as TItem & TKey,
+  valueSelector: (item: TItem) => Tvalue = x => x as TItem & TValue
+): Map<TKey, TValue[]>
+```
+
+Groups the elements of an iterable into a map.
+
+Parameters:
+* iterable - `Iterable<TItem>`
+* keySelector - `(item: TItem) => TKey`: A function to extract the key for each element. Default: `x => x`
+* valueSelector - `(item: TItem) => TValue`: A function to map each element into the output grouping. Default: `x => x`
+
+Returns: `Map<TKey, TValue>`
+
 ## includes
 
 [![npm](https://img.shields.io/npm/v/starry.includes.svg?style=flat-square)](https://www.npmjs.com/package/starry.includes)
 
-`includes(iterable, value)`
+```typescript
+function includes<T = any>(
+  iterable: Iterable<T>,
+  value: T  
+  ): boolean
+```
 
 Returns whether the value can be found in the iterable. Equality is determined using `SameValueZero`.
 
@@ -205,26 +282,43 @@ Returns: `boolean`
 
 [![npm](https://img.shields.io/npm/v/starry.intersection.svg?style=flat-square)](https://www.npmjs.com/package/starry.intersection)
 
-`intersection(...iterables)` is deprecated since v2.0.0-1. Please use [`lodash.intersection`](https://www.npmjs.com/package/lodash.intersection) instead.
+```typescript
+function intersection<T = any>(
+    ...iterables: Iterable<T>[]
+  ): Iterable<T>
+```
+
+Returns the set intersection of the input iterables.
+
+Parameters: 
+* ...iterables - `Iterable<T>[]`
+
+Returns: `Iterable<T>`
 
 ## iteratorToIterable
 
 [![npm](https://img.shields.io/npm/v/starry.iterator-to-iterable.svg?style=flat-square)](https://www.npmjs.com/package/starry.iterator-to-iterable)
 
-`iteratorToIterable(iterator)`
+```typescript
+function iteratorToIterable<T = any>(
+  iterator: Iterator<T>
+  ): IterableIterator<T>
+```
 
 Iterates through the remaining items of the specified `Iterator` object as though it is an `Iterable` object.
 
 Parameters:
 * iterator - `Iterator<T>`
 
-Returns: `Iterable<T>`
+Returns: `IterableIterator<T>`
 
 ## last
 
 [![npm](https://img.shields.io/npm/v/starry.last.svg?style=flat-square)](https://www.npmjs.com/package/starry.last)
 
-`last(iterable)`
+```typescript
+function last<T = any>(iterable: Iterable<T> = []) : T | undefined
+```
 
 Returns the last element of iterable.
 
@@ -233,13 +327,18 @@ Returns `undefined` if the iterable has no elements.
 Parameters:
 * iterable - `Iterable<T>`
 
-Returns: `T|undefined`
+Returns: `T | undefined`
 
 ## map
 
 [![npm](https://img.shields.io/npm/v/starry.map.svg?style=flat-square)](https://www.npmjs.com/package/starry.map)
 
-`map(iterable, callback = x => x)`
+```typescript
+function map<T = any, U = any>(
+  iterable: Iterable<T> = [],
+  callback: (element: T, iterable: Iterable<T>) => U = x => x as T & U
+  ): Iterable<U>
+```
 
 Returns a new iterable that is the result of calling `callback` over each element of the input iterable.
 
@@ -256,7 +355,17 @@ Returns: `Iterable<U>`
 
 [![npm](https://img.shields.io/npm/v/starry.reduce.svg?style=flat-square)](https://www.npmjs.com/package/starry.reduce)
 
-`reduce(iterable, accumulator, initialValue)`
+```typescript
+function reduce<T = any>(
+  iterable: Iterable<T>, 
+  accumulator: (previousValue: T, currentValue: T) => T
+  ): T
+function reduce<T = any, U = any>(
+  iterable: Iterable<T>,
+  accumulator: (previousValue: U, currentValue: T) => U,
+  initialValue: U
+  ): U
+```
 
 Applies an accumulator function over an iterable.
 
@@ -268,13 +377,15 @@ Parameters:
   Must return - The new accumulate.
 * initialValue - Optional via argument length. The initial accumulator value.
 
-Specific types are intentionally omitted to avoid confusion. Basically this works like `Array.prototype.reduce`.
+This works like `Array.prototype.reduce`.
 
 ## setEquals
 
 [![npm](https://img.shields.io/npm/v/starry.set-equals.svg?style=flat-square)](https://www.npmjs.com/package/starry.set-equals)
 
-`setEquals(...iterables)`
+```typescript
+function setEquals<TAll = any>(...iterables: Iterable<TAll>[]): boolean
+```
 
 Returns whether the given sets hold set equality with each other. If a given input is not an instance of `Set`, it is converted into one.
 
@@ -287,7 +398,9 @@ Returns: `boolean`
 
 [![npm](https://img.shields.io/npm/v/starry.size.svg?style=flat-square)](https://www.npmjs.com/package/starry.size)
 
-`size(iterable)`
+```typescript
+function size<T: any>(iterable: Iterable<T>): number
+```
 
 Returns the number of elements in the iterable.
 
@@ -300,7 +413,12 @@ Returns: `number`
 
 [![npm](https://img.shields.io/npm/v/starry.skip.svg?style=flat-square)](https://www.npmjs.com/package/starry.skip)
 
-`skip(iterable, count=1)`
+```typescript
+function skip<T: any>(
+  iterable: Iterable<T>,
+  count: number = 1
+  ): Iterable<T>
+```
 
 Skips `count` number of elements from the iterable.
 
@@ -317,7 +435,12 @@ Throws:
 
 [![npm](https://img.shields.io/npm/v/starry.some.svg?style=flat-square)](https://www.npmjs.com/package/starry.some)
 
-`some(iterable, predicate = x => x)`
+```typescript
+function some<T = any>(
+  iterable: Iterable<T>,
+  predicate: (item: T) => boolean = x => x as T & boolean
+  ): boolean
+```
 
 Returns whether any element of `iterable` satisfies `predicate`.
 
@@ -331,7 +454,11 @@ Returns: `Boolean`
 
 [![npm](https://img.shields.io/npm/v/starry.sum.svg?style=flat-square)](https://www.npmjs.com/package/starry.sum)
 
-`sum(iterable)`
+```typescript
+function sum(
+  iterable: Iterable<number>  
+  ): number
+```
 
 Adds the elements of `iterable`.
 
@@ -344,7 +471,12 @@ Returns: `number`
 
 [![npm](https://img.shields.io/npm/v/starry.take.svg?style=flat-square)](https://www.npmjs.com/package/starry.take)
 
-`take(iterable, count = 1)`
+```typescript
+function take<T = any>(
+  iterable: Iterable<T>,
+  count: number = 1
+  ): Iterable<T>
+```
 
 Returns `count` number of elements from the beginning of the iterable.
 
@@ -361,14 +493,18 @@ Throws:
 
 [![npm](https://img.shields.io/npm/v/starry.zip.svg?style=flat-square)](https://www.npmjs.com/package/starry.zip)
 
-`zip(...iterables)`
+```typescript
+function zip<TAll>(
+  ...iterables: Iterable<TAll>[]
+  ): Iterable<(TAll | undefined)[]>
+```
 
 Returns an iterable that yields grouped elements, the first of which contains the first elements of the input iterables, the second of which contains the second elements of the given iterables, and so on.
 
 If the iterables do not have the same number of elements, elements from shorter iterables are filled with `undefined` when they are exhausted. (Consistent with `lodash.zip`)
 
 Parameters:
-* ...iterables: `Array<Iterable>`
+* ...iterables: `Iterable<TAll>[]`
 
-Returns: `Iterable<Array>`
+Returns: `Iterable<(TAll | undefined)[]>`
 

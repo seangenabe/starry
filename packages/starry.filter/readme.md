@@ -10,7 +10,12 @@ Applies to the whole suite.
 
 ## Usage
 
-`filter(iterable, predicate = x => x)`
+```typescript
+function filter<T = any>(
+  iterable: Iterable<T>,
+  predicate: (item: T) => boolean = x => x as any
+  ): Iterable<T>
+```
 
 Returns a new iterable that only contains the elements from `iterable` that satisfies `predicate`.
 

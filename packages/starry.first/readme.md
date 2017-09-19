@@ -10,7 +10,9 @@ Applies to the whole suite.
 
 ## Usage
 
-`first(iterable)`
+```typescript
+function first<T = any>(iterable: Iterable<T> = []): T | undefined 
+```
 
 Returns the first element of an iterable.
 

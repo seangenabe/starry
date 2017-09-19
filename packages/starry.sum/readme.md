@@ -10,7 +10,11 @@ Applies to the whole suite.
 
 ## Usage
 
-`sum(iterable)`
+```typescript
+function sum(
+  iterable: Iterable<number>  
+  ): number
+```
 
 Adds the elements of `iterable`.
 

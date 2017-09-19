@@ -10,7 +10,12 @@ Applies to the whole suite.
 
 ## Usage
 
-`every(iterable, predicate = x => x)`
+```typescript
+function every<T = any>(
+  iterable: Iterable<T>,
+  predicate: (item: T) => boolean = x => x as T & boolean
+  ): boolean
+```
 
 Returns whether every element in the iterable satisfies the predicate.
 

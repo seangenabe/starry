@@ -1,2 +1,2 @@
-declare const _default: <T>(iterable?: Iterable<T>) => T | undefined;
+declare const _default: <T = any>(iterable?: Iterable<T>) => T | undefined;
 export = _default;

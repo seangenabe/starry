@@ -10,7 +10,9 @@ Applies to the whole suite.
 
 ## Usage
 
-`size(iterable)`
+```typescript
+function size<T: any>(iterable: Iterable<T>): number
+```
 
 Returns the number of elements in the iterable.
 
