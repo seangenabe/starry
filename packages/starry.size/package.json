@@ -1,6 +1,6 @@
 {
   "name": "starry.size",
-  "version": "3.0.0-1",
+  "version": "3.0.0",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
@@ -18,7 +18,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "starry._array-types": "^3.0.0-1"
+    "starry._array-types": "^3.0.0"
   },
   "devDependencies": {
     "ava": "^0.22.0",

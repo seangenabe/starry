@@ -1,6 +1,6 @@
 {
   "name": "starry.flatten",
-  "version": "3.0.0-2",
+  "version": "3.0.0",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
@@ -18,7 +18,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "starry.generator-to-iterable": "^3.0.0-1"
+    "starry.generator-to-iterable": "^3.0.0"
   },
   "devDependencies": {
     "ava": "^0.22.0",
