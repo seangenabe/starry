@@ -1,7 +1,7 @@
 ```typescript
 function every<T = any>(
   iterable: Iterable<T>,
-  predicate: (item: T) => boolean = x => x as any
+  predicate: (item: T) => boolean = x => x as T & boolean
   ): boolean
 ```
 
