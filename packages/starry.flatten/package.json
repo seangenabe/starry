@@ -1,6 +1,6 @@
 {
   "name": "starry.flatten",
-  "version": "0.0.0",
+  "version": "3.0.0-2",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
