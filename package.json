@@ -24,6 +24,7 @@
     "setup": "node build/setup",
     "postsetup": "cp ./readme.md ./packages/starry/",
     "pretest": "npm run setup && npm run tsc",
+    "nyc-ava": "nyc ava",
     "test": "nyc ava",
     "report": "nyc report --reporter=html",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
@@ -57,7 +58,7 @@
   },
   "nyc": {
     "exclude": [
-      "**/node_modules",
+      "**/node_modules/",
       "packages/*/test.js"
     ]
   }

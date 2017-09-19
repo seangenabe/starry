@@ -22,3 +22,9 @@ test('value selector', t => {
   t.deepEqual(r1.get('a'), ['a', 'b'])
   t.deepEqual(r1.get('b'), ['a'])
 })
+
+test('default key selector', t => {
+  const r1 = groupBy([1, 1, NaN, NaN])
+  t.deepEqual(r1.get(1), [1, 1])
+  t.deepEqual(r1.get(NaN), [NaN, NaN])
+})

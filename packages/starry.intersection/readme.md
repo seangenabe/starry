@@ -22,4 +22,3 @@ Parameters:
 * ...iterables - `Iterable<T>[]`
 
 Returns: `Iterable<T>`
-
