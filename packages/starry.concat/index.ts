@@ -1,6 +1,6 @@
 import generatorToIterable = require('starry.generator-to-iterable')
 
-export = function concat<T>(
+export = function concat<T = any>(
   ...iterables: Iterable<T>[]
 ): Iterable<T> {
 

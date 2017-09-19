@@ -1,8 +1,8 @@
 import map = require('starry.map')
 
-export = function some<T>(
+export = function some<T = any>(
   iterable: Iterable<T>,
-  predicate: (T) => boolean = x => x as boolean
+  predicate: (item: T) => boolean = x => x as any
 ): boolean {
 
   for (let element of map(iterable, predicate)) {

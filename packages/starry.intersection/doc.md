@@ -1,1 +1,12 @@
-`intersection(...iterables)` is deprecated since v2.0.0-1. Please use [`lodash.intersection`](https://www.npmjs.com/package/lodash.intersection) instead.
+```typescript
+function intersection<T = any>(
+    ...iterables: Iterable<T>[]
+  ): Iterable<T>
+```
+
+Returns the set intersection of the input iterables.
+
+Parameters: 
+* ...iterables - `Iterable<T>[]`
+
+Returns: `Iterable<T>`

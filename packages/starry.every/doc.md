@@ -1,4 +1,9 @@
-`every(iterable, predicate = x => x)`
+```typescript
+function every<T = any>(
+  iterable: Iterable<T>,
+  predicate: (item: T) => boolean = x => x as any
+  ): boolean
+```
 
 Returns whether every element in the iterable satisfies the predicate.
 

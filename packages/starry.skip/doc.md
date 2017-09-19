@@ -1,4 +1,9 @@
-`skip(iterable, count=1)`
+```typescript
+function skip<T: any>(
+  iterable: Iterable<T>,
+  count: number = 1
+  ): Iterable<T>
+```
 
 Skips `count` number of elements from the iterable.
 

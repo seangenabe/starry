@@ -1,4 +1,6 @@
-`size(iterable)`
+```typescript
+function size<T: any>(iterable: Iterable<T>): number
+```
 
 Returns the number of elements in the iterable.
 

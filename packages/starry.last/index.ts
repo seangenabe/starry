@@ -1,9 +1,7 @@
 import arrayTypes = require('starry._array-types')
 import { ArrayLikeConstructor, ArrayLike } from 'starry._array-types'
 
-function last<T>(iterable: Iterable<T>): T | undefined
-
-function last<T>(
+function last<T = any>(
   iterable: Iterable<T> = []
 ): T | undefined {
 

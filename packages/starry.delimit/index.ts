@@ -1,6 +1,6 @@
 import generatorToIterable = require('starry.generator-to-iterable')
 
-export = function delimit<T, U>(
+export = function delimit<T = any, U = any>(
   iterable: Iterable<T>, delimiter: U
 ): Iterable<T | U> {
 

@@ -1,4 +1,4 @@
-export = function first<T>(
+export = function first<T = any>(
   iterable: Iterable<T> = []
 ): T | undefined {
 

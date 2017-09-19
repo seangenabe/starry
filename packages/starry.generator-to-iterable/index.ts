@@ -1,4 +1,4 @@
-export = function generatorToIterable<T>(
+export = function generatorToIterable<T = any>(
   generatorFn: () => Iterator<T>
 ): Iterable<T> {
 

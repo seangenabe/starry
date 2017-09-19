@@ -1,8 +1,8 @@
 import map = require('starry.map')
 
-export = function every<T>(
+function every<T = any>(
   iterable: Iterable<T>,
-  predicate: (T) => boolean = x => x
+  predicate: ((item: T) => boolean) = x => x as any
 ): boolean {
 
   for (let element of map(iterable, predicate)) {
@@ -12,3 +12,5 @@ export = function every<T>(
   }
   return true
 }
+
+export = every

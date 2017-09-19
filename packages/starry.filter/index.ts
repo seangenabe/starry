@@ -1,8 +1,8 @@
 import generatorToIterable = require('starry.generator-to-iterable')
 
-export = function filter<T>(
+export = function filter<T = any>(
   iterable: Iterable<T>,
-  predicate: (T) => boolean = x => x
+  predicate: (item: T) => boolean = x => x as any
 ): Iterable<T> {
   if (typeof predicate !== 'function') {
     throw new TypeError("Argument `predicate` is not a function.")

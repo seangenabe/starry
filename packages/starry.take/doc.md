@@ -1,4 +1,9 @@
-`take(iterable, count = 1)`
+```typescript
+function take<T = any>(
+  iterable: Iterable<T>,
+  count: number = 1
+  ): Iterable<T>
+```
 
 Returns `count` number of elements from the beginning of the iterable.
 

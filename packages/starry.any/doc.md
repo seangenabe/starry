@@ -1,4 +1,6 @@
-`any(iterable)`
+```typescript
+function any<T>(iterable: Iterable<T> = []): boolean
+```
 
 Returns whether the iterable has any elements (yields anything).
 

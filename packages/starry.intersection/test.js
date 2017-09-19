@@ -35,6 +35,8 @@ test('basic', t => {
   t.deepEqual(r3, [2, 3])
   const r4 = [...intersection('abc', 'def', 'ghi')]
   t.deepEqual(r4, [])
+  const r5 = [...intersection('aaaa')]
+  t.deepEqual(r5, ['a'])
 })
 
 test('empty input', t => {

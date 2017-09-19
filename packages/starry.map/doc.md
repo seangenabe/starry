@@ -1,4 +1,9 @@
-`map(iterable, callback = x => x)`
+```typescript
+function map<T = any, U = any>(
+  iterable: Iterable<T> = [],
+  callback: (element: T, iterable: Iterable<T>) => U = x => x as T & U
+  ): Iterable<U>
+```
 
 Returns a new iterable that is the result of calling `callback` over each element of the input iterable.
 

@@ -5,7 +5,7 @@ import { SetType } from 'starry._set-types'
 import sameValueZero = require('starry._same-value-zero')
 import some = require('starry.some')
 
-export = function includes<T>(
+export = function includes<T = any>(
   iterable: Iterable<T>,
   value: T
 ): boolean {

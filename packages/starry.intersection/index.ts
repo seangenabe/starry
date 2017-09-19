@@ -5,7 +5,7 @@ import includes = require('starry.includes')
 import arrayTypes = require('starry._array-types')
 import { ArrayLikeConstructor } from 'starry._array-types'
 
-function intersection<T>(
+function intersection<T = any>(
   ...iterables: Iterable<T>[]
 ): Iterable<T> {
 

@@ -1,8 +1,10 @@
 import generatorToIterable = require('starry.generator-to-iterable')
 
-function chunk<T>(iterable: Iterable<T>, size: number): Iterable<T[]>
-
-function chunk<T>(iterable: Iterable<T>, size: number = 1): Iterable<T[]> {
+function chunk<T = any>(
+  iterable: Iterable<T>,
+  size: number = 1
+  ): Iterable<T[]>
+{
   if (!Number.isFinite(size)) {
     throw new TypeError("Argument `size` must be a finite number.")
   }

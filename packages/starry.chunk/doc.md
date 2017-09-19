@@ -1,4 +1,9 @@
-`chunk(iterable, size = 1)`
+```typescript
+function chunk<T = any>(
+  iterable: Iterable<T>,
+  size: number = 1
+  ): Iterable<T[]>
+```
 
 Returns an iterable that yields groups of elements as a group of size `size` is received from the iterable `iterable`.
 

@@ -1,9 +1,9 @@
 import filter = require('starry.filter')
 import first = require('starry.first')
 
-export = function find<T>(
+export = function find<T = any>(
   iterable: Iterable<T>,
-  predicate: (T) => boolean
+  predicate: (item: T) => boolean
 ): T | undefined {
   return first(filter(iterable, predicate))
 }

@@ -1,7 +1,7 @@
 import arrayTypes = require('starry._array-types')
 import { ArrayLike, ArrayLikeConstructor } from 'starry._array-types'
 
-function size<T>(iterable: Iterable<T>): number
+function size<T = any>(iterable: Iterable<T>): number
 
 function size<T, K, V>(
   iterable: Iterable<T> | Map<K, V> | string = []

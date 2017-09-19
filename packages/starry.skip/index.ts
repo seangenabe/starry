@@ -3,7 +3,7 @@ import generatorToIterable = require('starry.generator-to-iterable')
 import iteratorToIterable = require('starry.iterator-to-iterable')
 import take = require('starry.take')
 
-export = function skip<T>(
+export = function skip<T = any>(
   iterable: Iterable<T>,
   count: number = 1
 ): Iterable<T> {

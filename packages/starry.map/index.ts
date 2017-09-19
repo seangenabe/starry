@@ -1,8 +1,8 @@
 import generatorToIterable = require('starry.generator-to-iterable')
 
-export = function map<T, U>(
+export = function map<T = any, U = any>(
   iterable: Iterable<T> = [],
-  callback: ((element: T, iterable: Iterable<T>) => U) = x => x as T & U
+  callback: (element: T, iterable: Iterable<T>) => U = x => x as T & U
 ): Iterable<U> {
 
   if (typeof callback !== 'function') {
