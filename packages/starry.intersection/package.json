@@ -1,6 +1,6 @@
 {
   "name": "starry.intersection",
-  "version": "3.0.0-0",
+  "version": "3.0.0-1",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
@@ -18,11 +18,11 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "starry._array-types": "^3.0.0-0",
-    "starry.every": "^3.0.0-0",
-    "starry.filter": "^3.0.0-0",
-    "starry.generator-to-iterable": "^3.0.0-0",
-    "starry.includes": "^3.0.0-0"
+    "starry._array-types": "^3.0.0-1",
+    "starry.every": "^3.0.0-1",
+    "starry.filter": "^3.0.0-1",
+    "starry.generator-to-iterable": "^3.0.0-1",
+    "starry.includes": "^3.0.0-1"
   },
   "devDependencies": {
     "ava": "^0.18.0",

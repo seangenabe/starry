@@ -1,6 +1,6 @@
 {
   "name": "starry.includes",
-  "version": "3.0.0-0",
+  "version": "3.0.0-1",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
@@ -18,10 +18,10 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "starry._array-types": "^3.0.0-0",
-    "starry._same-value-zero": "^3.0.0-0",
-    "starry._set-types": "^3.0.0-0",
-    "starry.some": "^3.0.0-0"
+    "starry._array-types": "^3.0.0-1",
+    "starry._same-value-zero": "^3.0.0-1",
+    "starry._set-types": "^3.0.0-1",
+    "starry.some": "^3.0.0-1"
   },
   "devDependencies": {
     "ava": "^0.18.0",

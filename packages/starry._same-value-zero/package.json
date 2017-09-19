@@ -1,6 +1,6 @@
 {
   "name": "starry._same-value-zero",
-  "version": "3.0.0-0",
+  "version": "3.0.0-1",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",

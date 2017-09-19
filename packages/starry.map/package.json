@@ -1,6 +1,6 @@
 {
   "name": "starry.map",
-  "version": "3.0.0-0",
+  "version": "3.0.0-1",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
@@ -18,7 +18,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "starry.generator-to-iterable": "^3.0.0-0"
+    "starry.generator-to-iterable": "^3.0.0-1"
   },
   "devDependencies": {
     "ava": "^0.18.0",
