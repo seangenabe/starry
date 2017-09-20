@@ -1,6 +1,6 @@
 {
   "name": "starry",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "description": "Modular functions for iterable objects.",
   "license": "MIT",
   "main": "./index.js",
@@ -25,14 +25,14 @@
     "starry.last": "^3.0.0",
     "starry.map": "^3.0.0",
     "starry.reduce": "^3.0.0",
-    "starry.reverse": "^0.0.0",
+    "starry.reverse": "^3.1.0",
     "starry.set-equals": "^3.0.0",
     "starry.size": "^3.0.0",
     "starry.skip": "^3.0.0",
     "starry.some": "^3.0.0",
     "starry.sum": "^3.0.0",
     "starry.take": "^3.0.0",
-    "starry.uniq": "^3.0.2",
+    "starry.uniq": "^3.1.0",
     "starry.zip": "^3.0.0"
   }
 }
