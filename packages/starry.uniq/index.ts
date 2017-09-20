@@ -1,6 +1,15 @@
 import generatorToIterable = require('starry.generator-to-iterable')
 
-export = function uniq<T = any, TKey = any>(
+function uniq<T = any>(
+  iterable: Iterable<T>
+  ): Iterable<T>
+
+function uniq<T = any, TKey = any>(
+  iterable: Iterable<T>,
+  keySelector: (item: T) => TKey
+  ): Iterable<T>
+
+function uniq<T = any, TKey = any>(
   iterable: Iterable<T> = [],
   keySelector: (item: T) => TKey = x => x as T & TKey
   ): Iterable<T>
@@ -19,3 +28,5 @@ export = function uniq<T = any, TKey = any>(
     }
   })
 }
+
+export = uniq
