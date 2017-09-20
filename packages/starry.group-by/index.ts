@@ -1,14 +1,14 @@
 
 function groupBy<TItem = any, TKey = any>(
   iterable: Iterable<TItem>,
-  keySelector: (item: TItem) => TKey
-): Map<TKey, TItem>
+  keySelector?: (item: TItem) => TKey
+): Map<TKey, TItem[]>
 
 function groupBy<TItem = any, TKey = any, TValue = any>(
   iterable: Iterable<TItem>,
-  keySelector: (item: TItem) => TKey,
-  valueSelector: (item: TItem) => TValue
-): Map<TKey, TValue>
+  keySelector?: (item: TItem) => TKey,
+  valueSelector?: (item: TItem) => TValue
+): Map<TKey, TValue[]>
 
 function groupBy<TItem = any, TKey = any, TValue = any>(
   iterable: Iterable<TItem>,
