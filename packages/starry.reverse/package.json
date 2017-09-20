@@ -1,0 +1,36 @@
+{
+  "name": "starry.reverse",
+  "version": "0.0.0",
+  "description": "Member of the starry suite—modular functions for iterable objects.",
+  "keywords": [
+    "iterable",
+    "iteration",
+    "iterator",
+    "starry-modularized"
+  ],
+  "homepage": "https://github.com/seangenabe/starry",
+  "license": "MIT",
+  "main": "./index.js",
+  "repository": "seangenabe/starry",
+  "scripts": {
+    "pretest": "npm run tsc",
+    "test": "ava",
+    "tsc": "tsc"
+  },
+  "dependencies": {
+    "starry._array-types": "^3.0.0",
+    "starry.generator-to-iterable": "^3.0.0"
+  },
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "typescript": "^2.4.1"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "ava": {
+    "files": [
+      "test.js"
+    ]
+  }
+}

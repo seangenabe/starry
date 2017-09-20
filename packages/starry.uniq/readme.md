@@ -12,7 +12,7 @@ Applies to the whole suite.
 
 ```typescript
 function uniq<T = any, TKey = any>(
-  iterable: Iterable<T> = [],
+  iterable: Iterable<T>,
   keySelector: (item: T) => TKey = x => x as T & TKey
   ): Iterable<T>
 ```

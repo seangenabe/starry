@@ -396,6 +396,25 @@ Parameters:
 
 This works like `Array.prototype.reduce`.
 
+## reverse
+
+[![npm](https://img.shields.io/npm/v/starry.reverse.svg?style=flat-square)](https://www.npmjs.com/package/starry.reverse)
+
+```typescript
+function reverse<T>(
+  iterable: Iterable<T>
+  ): Iterable<T>
+```
+
+Iterates through the elements of an iterable in reverse order.
+
+Unlike `Array.prototype.reverse`, this does not mutate the input argument.
+
+Parameters:
+* iterable: `Iterable<T>`
+
+Returns: `Iterable<T>`
+
 ## setEquals
 
 [![npm](https://img.shields.io/npm/v/starry.set-equals.svg?style=flat-square)](https://www.npmjs.com/package/starry.set-equals)
@@ -512,7 +531,7 @@ Throws:
 
 ```typescript
 function uniq<T = any, TKey = any>(
-  iterable: Iterable<T> = [],
+  iterable: Iterable<T>,
   keySelector: (item: T) => TKey = x => x as T & TKey
   ): Iterable<T>
 ```
