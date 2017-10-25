@@ -36,7 +36,7 @@
     "@types/node": "^8.0.10",
     "ava": "^0.22.0",
     "chalk": "^2.0.1",
-    "coveralls": "^2.11.14",
+    "coveralls": "^3.0.0",
     "encody": "^1.0.0",
     "eslint": "^3.13.0",
     "eslint-config-mirage": "^2.1.0",
