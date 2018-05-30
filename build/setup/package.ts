@@ -14,9 +14,8 @@ import { EOL } from 'os'
 import { inspect } from 'util'
 import chalk = require('chalk')
 
-function log(s) {
-  s = chalk`{magenta package} ${s}`
-  console.error(s)
+function log(...s) {
+  console.error(chalk`{magenta package}`, ...s)
 }
 
 /**
