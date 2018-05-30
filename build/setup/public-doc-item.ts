@@ -1,6 +1,6 @@
-interface PublicDocItem {
+interface IPublicDocItem {
   fn_name: string
   doc_md: string
 }
 
-export = PublicDocItem
+export default IPublicDocItem

@@ -1,11 +1,9 @@
 import camelCase = require('lodash.camelcase')
-import RootPackage = require('./root-package')
-import PackageInfo = require('./package-info')
-import Package = require('./package')
-import ContainerPackage = require('./container-package')
+import ContainerPackage from './container-package'
 import _FS = require('mz/fs')
 const FS = _FS as any
 import loudRejection = require('loud-rejection')
+import RootPackage from './root-package';
 
 /**
  * The main runner.

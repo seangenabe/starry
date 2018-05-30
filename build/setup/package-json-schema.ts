@@ -1,4 +1,4 @@
-interface PackageJson {
+interface IPackageJson {
   name: string,
   version: string
   main?: string
@@ -14,4 +14,4 @@ interface PackageJson {
   ava: object
 }
 
-export = PackageJson
+export default IPackageJson

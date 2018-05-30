@@ -1,11 +1,11 @@
-import PackageJson = require('./package-json-schema')
-import PackageInfo = require('./package-info')
 import _FS = require('mz/fs')
 const FS = _FS as any
-import normalizeEOLEOF = require('./normalize-eol-eof')
-import renderShields = require('./render-shields')
 import encode = require('encody')
 import chalk = require('chalk')
+import IPackageJson from './package-json-schema';
+import PackageInfo from './package-info';
+import renderShields from './render-shields';
+import normalizeEOLEOF from './normalize-eol-eof';
 
 function log(msg) {
   msg = chalk`{magenta root package} ${msg}`
@@ -19,7 +19,7 @@ class RootPackage {
 
   static readonly path: string = `${__dirname}/../..`
   static readonly pkgPath: string = require.resolve(`${RootPackage.path}/package`)
-  static readonly pkg: PackageJson = require(RootPackage.pkgPath)
+  static readonly pkg: IPackageJson = require(RootPackage.pkgPath)
   packages: PackageInfo[]
 
   constructor(opts: { packages: PackageInfo[] }) {
@@ -50,4 +50,4 @@ class RootPackage {
 
 } // RootPackage
 
-export = RootPackage
+export default RootPackage

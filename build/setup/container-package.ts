@@ -1,11 +1,11 @@
-import PackageInfo = require('./package-info')
-import PackageJson = require('./package-json-schema')
-import outputJSON = require('./output-json')
 import { EOL } from 'os'
-import normalizeEOLEOF = require('./normalize-eol-eof')
 import _FS = require('mz/fs')
+import PackageInfo from './package-info';
+import IPackageJson from './package-json-schema';
+import IPublicDocItem from './public-doc-item';
+import outputJSON from './output-json';
+import normalizeEOLEOF from './normalize-eol-eof';
 const FS = _FS as any
-import PublicDocItem = require('./public-doc-item')
 
 /**
  * Encapsulates changes made on the container package `packages/starry`.
@@ -15,7 +15,7 @@ class ContainerPackage {
   packages: PackageInfo[]
   rootPath: string
   pkgPath: string
-  pkg: PackageJson
+  pkg: IPackageJson
 
   constructor(opts: { packages: PackageInfo[], rootPath: string }) {
     Object.assign(this, opts)
@@ -26,7 +26,7 @@ class ContainerPackage {
   async run() {
     const dependencies: { [key: string]: string } = {}
     const indexExports: [string, string][] = []
-    const publicDocs: PublicDocItem[] = []
+    const publicDocs: IPublicDocItem[] = []
 
     for (const info of this.packages) {
       const {
@@ -82,4 +82,4 @@ class ContainerPackage {
 
 } // class ContainerPackage
 
-export = ContainerPackage
+export default ContainerPackage

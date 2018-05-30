@@ -19,4 +19,4 @@ class PackageInfo {
   doc_md_path: string
 }
 
-export = PackageInfo
+export default PackageInfo

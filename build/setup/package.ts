@@ -1,18 +1,18 @@
 const memberOfThe = `Member of the starry suite—modular functions for iterable objects.`
-import normalizeEOLEOF = require('./normalize-eol-eof')
 import sortPackageJson = require('sort-package-json')
-import PackageJson = require('./package-json-schema')
 import merge = require('lodash.merge')
 import _FS = require('mz/fs')
 const FS = _FS as any
-import outputJSON = require('./output-json')
 import encode = require('encody')
-import renderShields = require('./render-shields')
 import Path = require('path')
-import RootPackage = require('./root-package')
 import { EOL } from 'os'
 import { inspect } from 'util'
 import chalk = require('chalk')
+import RootPackage from './root-package';
+import IPackageJson from './package-json-schema';
+import outputJSON from './output-json';
+import renderShields from './render-shields';
+import normalizeEOLEOF from './normalize-eol-eof';
 
 function log(...s) {
   console.error(chalk`{magenta package}`, ...s)
@@ -30,7 +30,7 @@ class Package {
   private doc_md: string
   private root: RootPackage
 
-  private props: Partial<PackageJson> = { scripts: {} }
+  private props: Partial<IPackageJson> = { scripts: {} }
 
   constructor(opts: {
     package_json_path: string,
@@ -61,7 +61,7 @@ class Package {
   }
 
   async packageJson() {
-    let package_json: Partial<PackageJson> = {}
+    let package_json: Partial<IPackageJson> = {}
 
     // `name` must be equal to the directory name.
     package_json.name = this.require_id
@@ -114,7 +114,7 @@ class Package {
       for (let depString of _dependencies) {
         const depPkgJsonPath = `${RootPackage.path}/packages/${depString}/package.json`
         try {
-          let dep_package_json: PackageJson =
+          let dep_package_json: IPackageJson =
             require(depPkgJsonPath)
 
           if (dep_package_json.version) {
@@ -239,8 +239,8 @@ ${this.doc_md}`
 
 } // class PackageSetup
 
-type PackageSrcJson = Partial<PackageJson> & {
+type PackageSrcJson = Partial<IPackageJson> & {
   _dependencies?: string[]
 }
 
-export = Package
+export default Package
