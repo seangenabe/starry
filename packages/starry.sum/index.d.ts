@@ -1,2 +1,2 @@
-declare const _default: (iterable: Iterable<number>) => number;
-export = _default;
+export declare function sum(iterable: Iterable<number>): number;
+export default sum;

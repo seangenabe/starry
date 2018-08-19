@@ -1,4 +1,4 @@
-import map = require('starry.map')
+import { map } from 'starry.map'
 
 export = function asyncAll<T = any, U = any>(
   iterable: Iterable<T>,
