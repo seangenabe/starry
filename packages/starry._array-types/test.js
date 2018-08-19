@@ -1,8 +1,10 @@
-const arrayTypes = require('.')
-const t = require('ava')
-
-t(t => {
-  for (let type of arrayTypes) {
-    t.is(typeof type.prototype.forEach, 'function')
-  }
-})
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const _1 = require(".");
+const ava_1 = require("ava");
+ava_1.default('check array types', t => {
+    for (let arrayType of _1.arrayTypes) {
+        t.true(typeof arrayType.prototype.slice === 'function');
+    }
+});
+//# sourceMappingURL=test.js.map
