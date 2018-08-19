@@ -1,12 +1,12 @@
-const test = require('ava')
-const chunk = require('.')
+import { chunk } from '.'
+import test from 'ava'
 
 const positiveIntegers = {
   *[Symbol.iterator]() {
     for (let i = 1; i < 20; i++) {
       yield i
     }
-    throw new Error("Pulled too many items.")
+    throw new Error('Pulled too many items.')
   }
 }
 
@@ -25,7 +25,7 @@ test('basic', t => {
 })
 
 test('error', t => {
-  t.throws(() => chunk([], "string"))
+  t.throws(() => chunk([], 'string' as any)) // intentional
   t.throws(() => chunk([], NaN))
   t.throws(() => chunk([], -Infinity))
   t.throws(() => chunk([], Infinity))

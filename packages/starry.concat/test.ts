@@ -1,5 +1,5 @@
-const test = require('ava')
-const concat = require('.')
+import { concat } from '.'
+import test from 'ava'
 
 test('concat some iterables', t => {
   let arr = [...concat([1, 2, 3], [2, 5, 6])]

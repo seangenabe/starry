@@ -5,7 +5,7 @@ import { generatorToIterable } from 'starry.generator-to-iterable'
  * @param iterable The iterable.
  * @param delimiter The delimiter.
  */
-export default function delimit<T = any, U = any>(
+export function delimit<T = any, U = any>(
   iterable: Iterable<T>,
   delimiter: U
 ): Iterable<T | U> {
@@ -21,3 +21,4 @@ export default function delimit<T = any, U = any>(
     }
   })
 }
+export default delimit

@@ -1,4 +1,4 @@
-import generatorToIterable from 'starry.generator-to-iterable'
+import { generatorToIterable } from 'starry.generator-to-iterable'
 
 /**
  * Returns an iterable that yields groups of elements
