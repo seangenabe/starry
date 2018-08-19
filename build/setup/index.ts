@@ -3,27 +3,28 @@ import ContainerPackage from './container-package'
 import _FS = require('mz/fs')
 const FS = _FS as any
 import loudRejection = require('loud-rejection')
-import RootPackage from './root-package';
+import RootPackage from './root-package'
+import PackageInfo from './package-info'
+import Package from './package'
 
 /**
  * The main runner.
  */
 class SetupRunner {
-
   root: RootPackage
 
-  constructor() {
-  }
+  constructor() {}
 
   async run() {
     // Get all packages
-    let packagePaths: string[] =
-      await FS.readdir(`${__dirname}/../../packages`)
+    let packagePaths: string[] = await FS.readdir(`${__dirname}/../../packages`)
 
     // Exclude "container" package (`starry`)
     packagePaths = packagePaths.filter(x => x !== 'starry')
 
-    const packages = await Promise.all(packagePaths.map(p => this.extractPackageInfo(p)))
+    const packages = await Promise.all(
+      packagePaths.map(p => this.extractPackageInfo(p))
+    )
 
     this.root = new RootPackage({ packages })
 
@@ -58,11 +59,13 @@ class SetupRunner {
   }
 
   async setupIndividualPackages(packages: PackageInfo[]): Promise<void> {
-    await Promise.all(packages.map(pkg => {
-      const opts = Object.assign({ root: this.root }, pkg)
-      const x = new Package(opts)
-      return x.run()
-    }))
+    await Promise.all(
+      packages.map(pkg => {
+        const opts = Object.assign({ root: this.root }, pkg)
+        const x = new Package(opts)
+        return x.run()
+      })
+    )
   }
 
   async setupContainerPackage(packages: PackageInfo[]): Promise<void> {
@@ -72,15 +75,13 @@ class SetupRunner {
     })
     await x.run()
   }
-
 } // class SetupRunner
 
 loudRejection()
 ;(async () => {
   try {
     await new SetupRunner().run()
-  }
-  catch (err) {
+  } catch (err) {
     console.error(err.stack)
     process.exit(1)
   }

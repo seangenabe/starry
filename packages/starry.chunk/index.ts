@@ -1,15 +1,23 @@
-import generatorToIterable = require('starry.generator-to-iterable')
+import generatorToIterable from 'starry.generator-to-iterable'
 
-function chunk<T = any>(
+/**
+ * Returns an iterable that yields groups of elements
+ * as a group of size `size` is received from the iterable `iterable`.
+ *
+ * If the iterable ends with an insufficient number of elements required
+ * to fill a group, that final group is yielded.
+ * @param iterable The iterable.
+ * @param size The size of each group.
+ */
+export function chunk<T = any>(
   iterable: Iterable<T>,
   size: number = 1
-  ): Iterable<T[]>
-{
+): Iterable<T[]> {
   if (!Number.isFinite(size)) {
-    throw new TypeError("Argument `size` must be a finite number.")
+    throw new TypeError('Argument `size` must be a finite number.')
   }
   if (size < 1) {
-    throw new Error("Argument `size` must be greater than or equal to 1.")
+    throw new Error('Argument `size` must be greater than or equal to 1.')
   }
   return generatorToIterable(function* chunkGenerator() {
     const source: Iterator<T> = iterable[Symbol.iterator]()
@@ -27,5 +35,3 @@ function chunk<T = any>(
     }
   })
 }
-
-export = chunk

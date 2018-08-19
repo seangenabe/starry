@@ -1,23 +1,10 @@
-import generatorToIterable = require('starry.generator-to-iterable')
-import arrayTypes = require('starry._array-types')
-import { ArrayLikeConstructor, ArrayLike } from 'starry._array-types'
+import { generatorToIterable } from 'starry.generator-to-iterable'
 
-function reverse<T>(
-  iterable: Iterable<T>
-  ): Iterable<T>
+export function reverse<T>(iterable: Iterable<T>): Iterable<T>
 
-function reverse<T>(
-  iterable: Iterable<T> = []
-  ): Iterable<T>
-{
+export function reverse<T>(iterable: Iterable<T> = []): Iterable<T> {
   return generatorToIterable(function* reverseGenerator() {
-    let source: ArrayLike
-    if (!arrayTypes.has(iterable.constructor as ArrayLikeConstructor)) {
-      source = [...iterable]
-    }
-    else {
-      source = iterable as ArrayLike
-    }
+    const source = [...iterable]
     const len = source.length
     for (let i = len - 1; i >= 0; i--) {
       yield source[i]
@@ -25,4 +12,4 @@ function reverse<T>(
   })
 }
 
-export = reverse
+export default reverse

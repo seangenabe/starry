@@ -1,14 +1,11 @@
-import every = require('starry.every')
-import filter = require('starry.filter')
-import generatorToIterable = require('starry.generator-to-iterable')
-import includes = require('starry.includes')
-import arrayTypes = require('starry._array-types')
+import { every } from 'starry.every'
+import { filter } from 'starry.filter'
+import { generatorToIterable } from 'starry.generator-to-iterable'
+import { includes } from 'starry.includes'
+import { arrayTypes } from 'starry._array-types'
 import { ArrayLikeConstructor } from 'starry._array-types'
 
-function intersection<T = any>(
-  ...iterables: Iterable<T>[]
-): Iterable<T> {
-
+function intersection<T = any>(...iterables: Iterable<T>[]): Iterable<T> {
   if (!iterables.length) {
     return []
   }

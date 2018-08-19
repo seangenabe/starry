@@ -18,7 +18,6 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "starry._array-types": "^3.0.0",
     "starry.generator-to-iterable": "^3.0.0"
   },
   "devDependencies": {

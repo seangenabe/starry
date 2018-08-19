@@ -1,11 +1,20 @@
-import generatorToIterable = require('starry.generator-to-iterable')
+import { generatorToIterable } from 'starry.generator-to-iterable'
 
-function zip<T1>(iterable: Iterable<T1>): Iterable<[T1]>
-function zip<T1, T2>(i1: Iterable<T1>, i2: Iterable<T2>): Iterable<[T1 | undefined, T2 | undefined]>
-function zip<T1, T2, T3>(i1: Iterable<T1>, i2: Iterable<T2>, i3: Iterable<T3>): Iterable<[T1 | undefined, T2 | undefined, T3 | undefined]>
-function zip<TAll>(...iterables: Iterable<TAll>[]): Iterable<(TAll | undefined)[]>
+export function zip<T1>(iterable: Iterable<T1>): Iterable<[T1]>
+export function zip<T1, T2>(
+  i1: Iterable<T1>,
+  i2: Iterable<T2>
+): Iterable<[T1 | undefined, T2 | undefined]>
+export function zip<T1, T2, T3>(
+  i1: Iterable<T1>,
+  i2: Iterable<T2>,
+  i3: Iterable<T3>
+): Iterable<[T1 | undefined, T2 | undefined, T3 | undefined]>
+export function zip<TAll>(
+  ...iterables: Iterable<TAll>[]
+): Iterable<(TAll | undefined)[]>
 
-function zip<T>(
+export function zip<T>(
   ...iterables: Iterable<T>[]
 ): Iterable<(T | undefined)[]> {
   const iterators = iterables.map(c => c[Symbol.iterator]())
@@ -21,8 +30,7 @@ function zip<T>(
         const { done, value } = iterator.next()
         if (done) {
           iteratorEnded[i] = true
-        }
-        else {
+        } else {
           allDone = false
         }
         return { done, value }
@@ -34,4 +42,4 @@ function zip<T>(
     } while (true)
   })
 }
-export = zip
+export default zip

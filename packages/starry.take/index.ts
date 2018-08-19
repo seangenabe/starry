@@ -1,13 +1,11 @@
-import arrayTypes = require('starry._array-types')
-import generatorToIterable = require('starry.generator-to-iterable')
+import { generatorToIterable } from 'starry.generator-to-iterable'
 
-export = function take<T = any>(
+export function take<T = any>(
   iterable: Iterable<T>,
   count: number = 1
 ): Iterable<T> {
-
   if (!Number.isFinite(count)) {
-    throw new TypeError("Argument `count` is not a finite number.")
+    throw new TypeError('Argument `count` is not a finite number.')
   }
 
   if (count <= 0) {

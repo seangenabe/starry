@@ -1,10 +1,7 @@
-import arrayTypes = require('starry._array-types')
+import { arrayTypes } from 'starry._array-types'
 import { ArrayLikeConstructor, ArrayLike } from 'starry._array-types'
 
-function last<T = any>(
-  iterable: Iterable<T> = []
-): T | undefined {
-
+export function last<T = any>(iterable: Iterable<T> = []): T | undefined {
   if (arrayTypes.has(iterable.constructor as ArrayLikeConstructor)) {
     let len = (iterable as ArrayLike).length
     if (len === 0) {
@@ -19,4 +16,4 @@ function last<T = any>(
   return item
 }
 
-export = last
+export default last

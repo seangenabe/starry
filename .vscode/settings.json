@@ -12,5 +12,8 @@
     "build/setup/*.js.map": true,
     "build/setup/*.d.ts": true
   },
-  "auto-close-tag.enableAutoCloseTag": false
+  "auto-close-tag.enableAutoCloseTag": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "editor.formatOnSave": true
 }

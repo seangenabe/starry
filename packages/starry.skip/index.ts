@@ -1,15 +1,13 @@
-import arrayTypes = require('starry._array-types')
-import generatorToIterable = require('starry.generator-to-iterable')
-import iteratorToIterable = require('starry.iterator-to-iterable')
-import take = require('starry.take')
+import { generatorToIterable } from 'starry.generator-to-iterable'
+import { iteratorToIterable } from 'starry.iterator-to-iterable'
+import { take } from 'starry.take'
 
-export = function skip<T = any>(
+export function skip<T = any>(
   iterable: Iterable<T>,
   count: number = 1
 ): Iterable<T> {
-
   if (!Number.isFinite(count)) {
-    throw new Error("Argument `count` must be finite.")
+    throw new Error('Argument `count` must be finite.')
   }
   if (count <= 0) {
     return iterable
@@ -29,3 +27,5 @@ export = function skip<T = any>(
     yield* iterableWrap
   })
 }
+
+export default skip

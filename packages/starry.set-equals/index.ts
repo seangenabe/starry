@@ -1,19 +1,11 @@
-function setEquals<T1 = any>(iterable: Iterable<T1>): boolean
-function setEquals<T1 = any, T2 = any>(i1: Iterable<T1>, i2: Iterable<T2>): boolean
-function setEquals<T1 = any, T2 = any, T3 = any>(i1: Iterable<T1>, i2: Iterable<T2>, i3: Iterable<T3>): boolean
-function setEquals<TAll = any>(...iterables: Iterable<TAll>[]): boolean
-
-function setEquals<T>(
-  ...iterables: Iterable<T>[]
-): boolean {
-
+export function setEquals<T>(...iterables: Iterable<T>[]): boolean {
   if (iterables.length === 0) {
     return true
   }
 
   if (iterables.length === 1) {
     if (typeof iterables[0][Symbol.iterator] !== 'function') {
-      throw new TypeError("Argument `iterables[0]` is not iterable.")
+      throw new TypeError('Argument `iterables[0]` is not iterable.')
     }
     return true
   }
@@ -25,8 +17,7 @@ function setEquals<T>(
     for (let other of rest) {
       if (other.has(x)) {
         other.delete(x)
-      }
-      else {
+      } else {
         return false
       }
     }
@@ -35,4 +26,4 @@ function setEquals<T>(
   return rest.every(other => other.size === 0)
 }
 
-export = setEquals
+export default setEquals

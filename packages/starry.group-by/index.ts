@@ -1,16 +1,10 @@
-
-function groupBy<TItem = any, TKey = any>(
-  iterable: Iterable<TItem>,
-  keySelector?: (item: TItem) => TKey
-): Map<TKey, TItem[]>
-
-function groupBy<TItem = any, TKey = any, TValue = any>(
-  iterable: Iterable<TItem>,
-  keySelector?: (item: TItem) => TKey,
-  valueSelector?: (item: TItem) => TValue
-): Map<TKey, TValue[]>
-
-function groupBy<TItem = any, TKey = any, TValue = any>(
+/**
+ * Groups the elements of an iterable into a map.
+ * @param iterable The iterable.
+ * @param keySelector A function to determine the key to assign to each item.
+ * @param valueSelector A function to map each item into the output value.
+ */
+export function groupBy<TItem = any, TKey = any, TValue = any>(
   iterable: Iterable<TItem>,
   keySelector: (item: TItem) => TKey = x => x as TItem & TKey,
   valueSelector: (item: TItem) => TValue = x => x as TItem & TValue
@@ -19,13 +13,12 @@ function groupBy<TItem = any, TKey = any, TValue = any>(
   for (const item of iterable) {
     const key = keySelector(item)
     if (map.has(key)) {
-      (map.get(key) as TValue[]).push(valueSelector(item))
-    }
-    else {
+      ;(map.get(key) as TValue[]).push(valueSelector(item))
+    } else {
       map.set(key, [valueSelector(item)])
     }
   }
   return map
 }
 
-export = groupBy
+export default groupBy

@@ -1,14 +1,13 @@
-import arrayTypes = require('starry._array-types')
-import { ArrayLike, ArrayLikeConstructor } from 'starry._array-types'
-import setTypes = require('starry._set-types')
-import { SetType } from 'starry._set-types'
-import sameValueZero = require('starry._same-value-zero')
-import some = require('starry.some')
+import {
+  ArrayLike,
+  ArrayLikeConstructor,
+  arrayTypes
+} from 'starry._array-types'
+import { setTypes, SetType } from 'starry._set-types'
+import { sameValueZero } from 'starry._same-value-zero'
+import { some } from 'starry.some'
 
-export = function includes<T = any>(
-  iterable: Iterable<T>,
-  value: T
-): boolean {
+export function includes<T = any>(iterable: Iterable<T>, value: T): boolean {
   let C = iterable.constructor
   if (arrayTypes.has(C as ArrayLikeConstructor)) {
     let a = (iterable as ArrayLike) as ArrayLikeWithInc
@@ -19,6 +18,8 @@ export = function includes<T = any>(
   }
   return some(iterable, element => sameValueZero(element, value))
 }
+
+export default includes
 
 interface ArrayLikeWithInc {
   includes(searchElement: number | any, fromIndex?: number): boolean

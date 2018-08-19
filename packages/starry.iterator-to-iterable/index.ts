@@ -1,9 +1,8 @@
-export = function iteratorToIterable<T = any>(
-    iterator: Iterator<T>
-  ): IterableIterator<T> {
-
+export function iteratorToIterable<T = any>(
+  iterator: Iterator<T>
+): IterableIterator<T> {
   if (iterator == null || typeof iterator.next !== 'function') {
-    throw new TypeError("Argument `iterator` is not an iterator.")
+    throw new TypeError('Argument `iterator` is not an iterator.')
   }
   let obj: IterableIterator<T> = {
     [Symbol.iterator]() {
@@ -15,3 +14,5 @@ export = function iteratorToIterable<T = any>(
   }
   return obj
 }
+
+export default iteratorToIterable
