@@ -8,11 +8,11 @@ import Path = require('path')
 import { EOL } from 'os'
 import { inspect } from 'util'
 import chalk = require('chalk')
-import RootPackage from './root-package';
-import IPackageJson from './package-json-schema';
-import outputJSON from './output-json';
-import renderShields from './render-shields';
-import normalizeEOLEOF from './normalize-eol-eof';
+import RootPackage from './root-package'
+import IPackageJson from './package-json-schema'
+import outputJSON from './output-json'
+import renderShields from './render-shields'
+import normalizeEOLEOF from './normalize-eol-eof'
 
 function log(...s) {
   console.error(chalk`{magenta package}`, ...s)
@@ -22,7 +22,6 @@ function log(...s) {
  * Defines methods on how to manipulate each sub-package.
  */
 class Package {
-
   private package_json_path: string
   private package_src_json_path: string
   private require_id: string
@@ -33,14 +32,13 @@ class Package {
   private props: Partial<IPackageJson> = { scripts: {} }
 
   constructor(opts: {
-    package_json_path: string,
-    package_src_json_path: string,
-    require_id: string,
-    require_path: string,
+    package_json_path: string
+    package_src_json_path: string
+    require_id: string
+    require_path: string
     doc_md: string
     root: RootPackage
   }) {
-
     Object.assign(this, opts)
   }
 
@@ -81,8 +79,9 @@ class Package {
     package_json.engines = RootPackage.pkg.engines
 
     // Set keywords
-    package_json.keywords =
-      ['starry-modularized'].concat(RootPackage.pkg.keywords || [])
+    package_json.keywords = ['starry-modularized'].concat(
+      RootPackage.pkg.keywords || []
+    )
 
     // Set repository
     package_json.repository = RootPackage.pkg.repository
@@ -91,8 +90,9 @@ class Package {
       test: 'ava'
     }
 
-    const rootDevDeps =
-      RootPackage.pkg.devDependencies as { [key: string]: string }
+    const rootDevDeps = RootPackage.pkg.devDependencies as {
+      [key: string]: string
+    }
 
     package_json.devDependencies = {
       typescript: rootDevDeps.typescript,
@@ -100,7 +100,7 @@ class Package {
     }
 
     package_json.ava = {
-      files: [ 'test.js' ]
+      files: ['test.js']
     }
 
     // merge package-src.json
@@ -112,16 +112,16 @@ class Package {
       delete package_src_json._dependencies
       let newDeps: { [key: string]: string } = {}
       for (let depString of _dependencies) {
-        const depPkgJsonPath = `${RootPackage.path}/packages/${depString}/package.json`
+        const depPkgJsonPath = `${
+          RootPackage.path
+        }/packages/${depString}/package.json`
         try {
-          let dep_package_json: IPackageJson =
-            require(depPkgJsonPath)
+          let dep_package_json: IPackageJson = require(depPkgJsonPath)
 
           if (dep_package_json.version) {
             newDeps[depString] = `^${dep_package_json.version}`
           }
-        }
-        catch (err) {
+        } catch (err) {
           this.log(`invalid package: ${depString}`)
           // invalid package; skip
         }
@@ -130,16 +130,14 @@ class Package {
         package_src_json.dependencies = package_src_json.dependencies || {}
         Object.assign(package_src_json.dependencies, newDeps)
       }
-    }
-    catch (err) {
+    } catch (err) {
       package_src_json = {}
     }
 
     let existing_package_json = {}
     try {
       existing_package_json = require(this.package_json_path)
-    }
-    catch (err) {
+    } catch (err) {
       // package.json does not exist yet.
     }
 
@@ -155,21 +153,33 @@ class Package {
     package_json = sortPackageJson(package_json)
 
     // Commit package.json
-    await FS.writeFile(
-      this.package_json_path,
-      outputJSON(package_json),
-      'utf8'
-    )
+    await FS.writeFile(this.package_json_path, outputJSON(package_json), 'utf8')
   } // packageJson
 
   async readme_md() {
     let shields: [string, string, string][] = [
-      ['npm', encode`npm/v/${this.require_id}`, encode`https://www.npmjs.com/package/${this.require_id}`],
-      ['node', encode`node/v/${this.require_id}`, 'https://nodejs.org/en/download/']
+      [
+        'npm',
+        encode`npm/v/${this.require_id}`,
+        encode`https://www.npmjs.com/package/${this.require_id}`
+      ],
+      [
+        'node',
+        encode`node/v/${this.require_id}`,
+        'https://nodejs.org/en/download/'
+      ]
     ]
     let shields2: [string, string, string][] = [
-      ['Build Status', `travis/${RootPackage.pkg.repository}`, `https://travis-ci.org/${RootPackage.pkg.repository}`],
-      ['Coverage Status', `coveralls/${RootPackage.pkg.repository}`, `https://coveralls.io/github/${RootPackage.pkg.repository}`]
+      [
+        'Build Status',
+        `travis/${RootPackage.pkg.repository}`,
+        `https://travis-ci.org/${RootPackage.pkg.repository}`
+      ],
+      [
+        'Coverage Status',
+        `coveralls/${RootPackage.pkg.repository}`,
+        `https://coveralls.io/github/${RootPackage.pkg.repository}`
+      ]
     ]
     let content = `${memberOfThe}
 
@@ -184,14 +194,17 @@ ${renderShields(shields2)}
 ## Usage
 
 ${this.doc_md}`
-    await FS.writeFile(`${this.require_path}/readme.md`, normalizeEOLEOF(content))
+    await FS.writeFile(
+      `${this.require_path}/readme.md`,
+      normalizeEOLEOF(content)
+    )
   } // readme_md()
 
   async npmignore() {
     // These files are not actually required in the published version:
     // doc.md and package_src.json.
     // Exclude index.ts; they confuse tsc when they exist in published packages.
-    const content = ['doc.md', 'package-src.json', 'index.ts'].join('\n')
+    const content = ['doc.md', 'package-src.json', '*.ts', '!*.d.ts'].join('\n')
     await FS.writeFile(`${this.require_path}/.npmignore`, content)
   }
 
@@ -200,16 +213,14 @@ ${this.doc_md}`
     if (files.some(file => Path.extname(file) === '.ts')) {
       const tsconfigJson = {
         compilerOptions: {
-          module: "commonjs",
+          module: 'commonjs',
           alwaysStrict: true,
           declaration: true,
           strictNullChecks: true,
-          target: "ES2017",
+          target: 'ES2017',
           sourceMap: true
         },
-        include: [
-          '*.ts'
-        ]
+        include: ['*.ts']
       }
 
       const s = this.props.scripts as { [key: string]: string }
@@ -218,12 +229,10 @@ ${this.doc_md}`
         pretest: 'npm run tsc'
       })
 
-      const giContent = [
-        'index.d.ts',
-        'index.js',
-        'index.js.map',
-        'tsconfig.json'
-      ].join(EOL) + EOL
+      const gitContent =
+        ['*.d.ts', '*.js', '*.js.map', 'tsconfig.json', '.npmignore'].join(
+          EOL
+        ) + EOL
 
       await Promise.all([
         // Write tsconfig.json
@@ -232,11 +241,10 @@ ${this.doc_md}`
           JSON.stringify(tsconfigJson, null, 2)
         ),
         // Write .gitignore
-        FS.writeFile(`${this.require_path}/.gitignore`, giContent)
+        FS.writeFile(`${this.require_path}/.gitignore`, gitContent)
       ])
     }
   } // typescript()
-
 } // class PackageSetup
 
 type PackageSrcJson = Partial<IPackageJson> & {
