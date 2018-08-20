@@ -33,7 +33,6 @@ class Package {
 
   constructor(opts: {
     package_json_path: string
-    package_src_json_path: string
     require_id: string
     require_path: string
     doc_md: string
@@ -103,37 +102,6 @@ class Package {
       files: ['test.js']
     }
 
-    // merge package-src.json
-    let package_src_json: PackageSrcJson
-    try {
-      package_src_json = require(this.package_src_json_path)
-      // Merge dependencies
-      let { _dependencies = [] } = package_src_json
-      delete package_src_json._dependencies
-      let newDeps: { [key: string]: string } = {}
-      for (let depString of _dependencies) {
-        const depPkgJsonPath = `${
-          RootPackage.path
-        }/packages/${depString}/package.json`
-        try {
-          let dep_package_json: IPackageJson = require(depPkgJsonPath)
-
-          if (dep_package_json.version) {
-            newDeps[depString] = `^${dep_package_json.version}`
-          }
-        } catch (err) {
-          this.log(`invalid package: ${depString}`)
-          // invalid package; skip
-        }
-      }
-      if (Object.keys(newDeps).length) {
-        package_src_json.dependencies = package_src_json.dependencies || {}
-        Object.assign(package_src_json.dependencies, newDeps)
-      }
-    } catch (err) {
-      package_src_json = {}
-    }
-
     let existing_package_json = {}
     try {
       existing_package_json = require(this.package_json_path)
@@ -145,8 +113,7 @@ class Package {
       { version: '0.0.0' },
       this.props,
       existing_package_json,
-      package_json,
-      package_src_json
+      package_json
     )
 
     // package.json consistency FTW!
