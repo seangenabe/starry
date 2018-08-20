@@ -17,9 +17,6 @@
     "test": "ava",
     "tsc": "tsc"
   },
-  "dependencies": {
-    "starry._array-types": "^3.0.0"
-  },
   "devDependencies": {
     "ava": "^0.22.0",
     "typescript": "^2.4.1"

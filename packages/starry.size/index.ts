@@ -1,21 +1,15 @@
-import { arrayTypes } from 'starry._array-types'
-import { ArrayLike, ArrayLikeConstructor } from 'starry._array-types'
+import isArrayLike = require('lodash.isarraylike')
+import _size = require('lodash.size')
 
-export function size<T = any>(iterable: Iterable<T>): number
-
-export function size<T, K, V>(
-  iterable: Iterable<T> | Map<K, V> | string = []
-): number {
-  let C = iterable.constructor as ArrayLikeConstructor
-  if (arrayTypes.has(C)) {
-    return (iterable as ArrayLike).length
+export function size(iterable: Iterable<any>): number {
+  if (iterable == null) {
+    return 0
   }
-  if (iterable.constructor === Set || iterable.constructor === Map) {
-    return (iterable as Map<K, V> | Set<T>).size
+  if (isArrayLike(iterable) || typeof iterable === 'string') {
+    return _size(iterable)
   }
-
-  if (typeof iterable === 'string') {
-    return iterable.length
+  if (iterable instanceof Set || iterable instanceof Map) {
+    return iterable.size
   }
 
   let ret = 0
