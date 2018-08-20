@@ -33,12 +33,12 @@
     "tsc": "lerna run tsc"
   },
   "devDependencies": {
-    "@types/node": "^8.0.10",
+    "@types/node": "^10.0.3",
     "ava": "^0.22.0",
     "chalk": "^2.0.1",
-    "coveralls": "^2.11.14",
+    "coveralls": "^3.0.0",
     "encody": "^1.0.0",
-    "eslint": "^3.13.0",
+    "eslint": "^4.1.0",
     "eslint-config-mirage": "^2.1.0",
     "lerna": "^3.1.1",
     "lodash.assign": "^4.2.0",
@@ -47,7 +47,7 @@
     "lodash.merge": "^4.6.0",
     "loud-rejection": "^1.6.0",
     "mz": "^2.6.0",
-    "nyc": "^11.0.1",
+    "nyc": "^12.0.1",
     "sort-package-json": "^1.4.0",
     "typescript": "^2.9.2"
   },
