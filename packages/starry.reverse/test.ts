@@ -1,8 +1,8 @@
-const test = require('ava')
-const reverse = require('.')
+import { reverse } from '.'
+import test from 'ava'
 
 test('blank', t => {
-  const r1 = [...reverse()]
+  const r1 = [...(reverse as any)()]
   t.deepEqual(r1, [])
 })
 

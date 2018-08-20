@@ -1,5 +1,5 @@
-const test = require('ava')
-const reduce = require('.')
+import { reduce } from '.'
+import test from 'ava'
 
 test('reduce without accumulator', t => {
   t.is(reduce([1, 2, 3, 4, 5], (x, y) => x + y), 15)
@@ -11,7 +11,7 @@ test('reduce with accumulator', t => {
 })
 
 test('accumulator must be a function', t => {
-  t.throws(() => reduce('abc', NaN))
+  t.throws(() => reduce('abc', NaN as any))
 })
 
 test('reduce empty', t => {

@@ -1,9 +1,9 @@
 import { arrayTypes } from 'starry._array-types'
 import { ArrayLike, ArrayLikeConstructor } from 'starry._array-types'
 
-function size<T = any>(iterable: Iterable<T>): number
+export function size<T = any>(iterable: Iterable<T>): number
 
-function size<T, K, V>(
+export function size<T, K, V>(
   iterable: Iterable<T> | Map<K, V> | string = []
 ): number {
   let C = iterable.constructor as ArrayLikeConstructor
@@ -19,9 +19,10 @@ function size<T, K, V>(
   }
 
   let ret = 0
-  for (let element of iterable) {
+  for (let _ of iterable) {
     ret++
   }
   return ret
 }
-export = size
+
+export default size

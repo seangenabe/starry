@@ -1,5 +1,5 @@
-const test = require('ava')
-const groupBy = require('.')
+import { groupBy } from '.'
+import test from 'ava'
 
 function* words() {
   yield 'aa'

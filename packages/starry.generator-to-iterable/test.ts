@@ -1,11 +1,11 @@
-const test = require('ava')
-const generatorToIterable = require('.')
+import { generatorToIterable } from '.'
+import test from 'ava'
 
 function* positiveIntegers() {
   for (let i = 1; i < 20; i++) {
     yield i
   }
-  throw new Error("Pulled too many items.")
+  throw new Error('Pulled too many items.')
 }
 
 test("environment test -- generators won't save state", t => {

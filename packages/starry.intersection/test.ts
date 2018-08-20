@@ -1,5 +1,5 @@
-const intersection = require('.')
-const test = require('ava')
+import { intersection } from '.'
+import test from 'ava'
 
 const nums = {
   *[Symbol.iterator]() {

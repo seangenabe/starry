@@ -1,8 +1,7 @@
-const iteratorToIterable = require('.')
-const test = require('ava')
+import { iteratorToIterable } from '.'
+import test from 'ava'
 
 test('basic', t => {
-
   let iterator = new IncrementMaster()
 
   let iterable = iteratorToIterable(iterator)
@@ -13,9 +12,9 @@ test('basic', t => {
   t.deepEqual(i.next(), { done: false, value: 0 })
   t.deepEqual(i.next(), { done: false, value: 1 })
   t.deepEqual(i.next(), { done: false, value: 2 })
-  t.deepEqual(i.next(), { done: true }, "check iterator done once")
-  t.deepEqual(i.next(), { done: true }, "check iterator done twice")
-  t.is(iterator.value, 3, "check input iterator value")
+  t.deepEqual(i.next(), { done: true }, 'check iterator done once')
+  t.deepEqual(i.next(), { done: true }, 'check iterator done twice')
+  t.is(iterator.value, 3, 'check input iterator value')
 })
 
 test('rest', t => {
@@ -26,7 +25,7 @@ test('rest', t => {
 })
 
 test('throw if iterator is not an iterator', t => {
-  t.throws(() => iteratorToIterable({ next: null }))
+  t.throws(() => iteratorToIterable({ next: null } as any))
 })
 
 test('return iterator.next when next is called', t => {
@@ -36,21 +35,18 @@ test('return iterator.next when next is called', t => {
 })
 
 test('error', t => {
-  t.throws(() => [...iteratorToIterable(NaN)], TypeError)
-  t.throws(() => [...iteratorToIterable()], TypeError)
-  t.throws(() => [...iteratorToIterable(undefined)], TypeError)
-  t.throws(() => [...iteratorToIterable(null)], TypeError)
+  t.throws(() => [...iteratorToIterable(NaN as any)], TypeError)
+  t.throws(() => [...(iteratorToIterable as any)()], TypeError)
+  t.throws(() => [...iteratorToIterable(undefined as any)], TypeError)
+  t.throws(() => [...iteratorToIterable(null as any)], TypeError)
 })
 
-class IncrementMaster {
-
-  constructor() {
-    this.value = 0
-  }
+class IncrementMaster implements Iterator<number> {
+  public value = 0
 
   next() {
     if (this.value === 3) {
-      return { done: true }
+      return { done: true } as any
     }
     return {
       done: false,

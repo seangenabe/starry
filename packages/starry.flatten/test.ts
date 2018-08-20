@@ -1,5 +1,5 @@
-const test = require('ava')
-const flatten = require('.')
+import { flatten } from '.'
+import test from 'ava'
 
 test('blank', t => {
   t.deepEqual([...flatten()], [])

@@ -1,5 +1,5 @@
-const size = require('.')
-const t = require('ava')
+import { size } from '.'
+import test from 'ava'
 
 function* letters() {
   yield 'a'
@@ -7,28 +7,28 @@ function* letters() {
   yield 'c'
 }
 
-t('generator size', t => {
+test('generator size', t => {
   let result = size(letters())
   t.is(result, 3)
 })
 
-t('array size', t => {
+test('array size', t => {
   t.is(size([]), 0)
   t.is(size(['a', 'b', 'c']), 3)
 })
 
-t('set size', t => {
+test('set size', t => {
   t.is(size(new Set(['a', 'b', 'c'])), 3)
 })
 
-t('map size', t => {
+test('map size', t => {
   t.is(size(new Map([['a', 1], ['b', 2]])), 2)
 })
 
-t('string size', t => {
+test('string size', t => {
   t.is(size('hello'), 5)
 })
 
-t('empty arg', t => {
-  t.is(size(), 0)
+test('empty arg', t => {
+  t.is((size as any)(), 0)
 })

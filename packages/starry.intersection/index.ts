@@ -5,7 +5,9 @@ import { includes } from 'starry.includes'
 import { arrayTypes } from 'starry._array-types'
 import { ArrayLikeConstructor } from 'starry._array-types'
 
-function intersection<T = any>(...iterables: Iterable<T>[]): Iterable<T> {
+export function intersection<T = any>(
+  ...iterables: Iterable<T>[]
+): Iterable<T> {
   if (!iterables.length) {
     return []
   }
@@ -26,4 +28,4 @@ function intersection<T = any>(...iterables: Iterable<T>[]): Iterable<T> {
   })
 }
 
-export = intersection
+export default intersection

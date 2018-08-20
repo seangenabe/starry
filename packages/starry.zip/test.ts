@@ -1,12 +1,12 @@
-const test = require('ava')
-const zip = require('.')
+import { zip } from '.'
+import test from 'ava'
 
 const pos = {
   *[Symbol.iterator]() {
     for (let i = 1; i < 20; i++) {
       yield i
     }
-    throw new Error("Pulled too many items.")
+    throw new Error('Pulled too many items.')
   }
 }
 
@@ -15,7 +15,7 @@ const even = {
     for (let i = 2; i < 20; i += 2) {
       yield i
     }
-    throw new Error("Pulled too many items.")
+    throw new Error('Pulled too many items.')
   }
 }
 

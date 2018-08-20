@@ -1,5 +1,5 @@
-const test = require('ava')
-const uniq = require('.')
+import { uniq } from '.'
+import test from 'ava'
 
 function* a() {
   yield 1
@@ -15,7 +15,7 @@ function* b() {
 }
 
 test('blank', t => {
-  const r1 = [...uniq()]
+  const r1 = [...(uniq as any)()]
   t.deepEqual(r1, [])
 })
 

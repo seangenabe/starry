@@ -1,5 +1,5 @@
-const test = require('ava')
-const setEquals = require('.')
+import { setEquals } from '.'
+import test from 'ava'
 
 test('truthy', t => {
   const tests = [
@@ -24,7 +24,7 @@ test('falsy', t => {
 })
 
 test('errors', t => {
-  t.throws(() => setEquals(NaN))
-  t.throws(() => setEquals(NaN, NaN))
-  t.throws(() => setEquals({}))
+  t.throws(() => setEquals(NaN as any))
+  t.throws(() => setEquals(NaN as any, NaN as any))
+  t.throws(() => setEquals({} as any))
 })

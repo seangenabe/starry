@@ -1,11 +1,11 @@
-const find = require('.')
-const t = require('ava')
+import { find } from '.'
+import test from 'ava'
 
-t('empty array', t => {
-  t.is(find([]), undefined)
+test('empty array', t => {
+  t.is((find as any)([]), undefined)
 })
 
-t('find with predicate', t => {
+test('find with predicate', t => {
   let arr = [7, 8, 6, 70]
   t.is(find(arr, x => x % 2 === 0), 8)
   t.is(find(arr, x => x % 2 === 1), 7)

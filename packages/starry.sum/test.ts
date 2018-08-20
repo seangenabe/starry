@@ -1,5 +1,5 @@
-const sum = require('.')
-const test = require('ava')
+import { sum } from '.'
+import test from 'ava'
 
 test('empty iterable', t => {
   t.is(sum([]), 0)

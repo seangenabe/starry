@@ -1,12 +1,14 @@
-const last = require('.')
-const test = require('ava')
+import { last } from '.'
+import test from 'ava'
 
 test('last value of an iterator', t => {
-  let result = last((function*() {
-    yield 5
-    yield 6
-    yield 7
-  })())
+  let result = last(
+    (function*() {
+      yield 5
+      yield 6
+      yield 7
+    })()
+  )
   t.is(result, 7)
 })
 
