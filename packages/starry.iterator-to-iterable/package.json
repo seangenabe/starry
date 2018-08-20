@@ -13,10 +13,11 @@
   "main": "./index.js",
   "repository": "seangenabe/starry",
   "scripts": {
-    "pretest": "npm run tsc",
+    "pretest": "tsc",
     "test": "ava",
     "tsc": "tsc"
   },
+  "dependencies": {},
   "devDependencies": {
     "ava": "^0.22.0",
     "typescript": "^2.4.1"

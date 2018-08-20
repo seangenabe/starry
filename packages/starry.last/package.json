@@ -14,7 +14,7 @@
   "repository": "seangenabe/starry",
   "scripts": {
     "bench": "tsc && node bench",
-    "pretest": "npm run tsc",
+    "pretest": "tsc",
     "test": "ava",
     "tsc": "tsc"
   },

@@ -13,10 +13,11 @@
   "main": "./index.js",
   "repository": "seangenabe/starry",
   "scripts": {
-    "pretest": "npm run tsc",
+    "pretest": "tsc",
     "test": "ava",
     "tsc": "tsc"
   },
+  "dependencies": {},
   "devDependencies": {
     "@types/lodash.isarraylike": "^4.2.4",
     "@types/lodash.size": "^4.2.4",

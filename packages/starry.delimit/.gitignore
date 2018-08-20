@@ -2,3 +2,4 @@
 *.js
 *.js.map
 tsconfig.json
+.npmignore

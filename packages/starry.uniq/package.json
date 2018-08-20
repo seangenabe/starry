@@ -13,7 +13,7 @@
   "main": "./index.js",
   "repository": "seangenabe/starry",
   "scripts": {
-    "pretest": "npm run tsc",
+    "pretest": "tsc",
     "test": "ava",
     "tsc": "tsc"
   },

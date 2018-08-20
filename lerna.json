@@ -8,6 +8,9 @@
       "ignoreChanges": [
         "packages/starry.*/test.js"
       ]
+    },
+    "bootstrap": {
+      "hoist": true
     }
   }
 }

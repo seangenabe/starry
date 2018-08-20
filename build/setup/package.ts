@@ -23,11 +23,9 @@ function log(...s) {
  */
 class Package {
   private package_json_path: string
-  private package_src_json_path: string
   private require_id: string
   private require_path: string
   private doc_md: string
-  private root: RootPackage
 
   private props: Partial<IPackageJson> = { scripts: {} }
 
@@ -36,7 +34,6 @@ class Package {
     require_id: string
     require_path: string
     doc_md: string
-    root: RootPackage
   }) {
     Object.assign(this, opts)
   }
@@ -86,16 +83,9 @@ class Package {
     package_json.repository = RootPackage.pkg.repository
 
     package_json.scripts = {
-      test: 'ava'
-    }
-
-    const rootDevDeps = RootPackage.pkg.devDependencies as {
-      [key: string]: string
-    }
-
-    package_json.devDependencies = {
-      typescript: rootDevDeps.typescript,
-      ava: rootDevDeps.ava
+      pretest: 'tsc',
+      test: 'ava',
+      tsc: 'tsc'
     }
 
     package_json.ava = {
@@ -115,6 +105,13 @@ class Package {
       existing_package_json,
       package_json
     )
+
+    if (
+      package_json.dependencies &&
+      'typescript' in package_json.dependencies
+    ) {
+      delete package_json.dependencies.typescript
+    }
 
     // package.json consistency FTW!
     package_json = sortPackageJson(package_json)
@@ -213,9 +210,5 @@ ${this.doc_md}`
     }
   } // typescript()
 } // class PackageSetup
-
-type PackageSrcJson = Partial<IPackageJson> & {
-  _dependencies?: string[]
-}
 
 export default Package

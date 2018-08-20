@@ -13,10 +13,10 @@
   "main": "./index.js",
   "repository": "seangenabe/starry",
   "scripts": {
+    "bench": "tsc && node bench",
     "pretest": "tsc",
     "test": "ava",
-    "tsc": "tsc",
-    "bench": "tsc && node bench"
+    "tsc": "tsc"
   },
   "dependencies": {
     "lodash.isarraylike": "^4.2.0",
