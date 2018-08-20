@@ -20,11 +20,13 @@
   },
   "dependencies": {
     "lodash.isarraylike": "^4.2.0",
+    "lodash.last": "^3.0.0",
     "starry._array-types": "^3.0.0"
   },
   "devDependencies": {
+    "@types/lodash.isarraylike": "^4.2.4",
+    "@types/lodash.last": "^3.0.4",
     "ava": "^0.22.0",
-    "lodash.last": "^3.0.0",
     "typescript": "^2.4.1"
   },
   "engines": {
