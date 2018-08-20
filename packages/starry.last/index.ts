@@ -1,13 +1,9 @@
-import { arrayTypes } from 'starry._array-types'
-import { ArrayLikeConstructor, ArrayLike } from 'starry._array-types'
+import isArrayLike = require('lodash.isarraylike')
+import last = require('lodash.last')
 
 export function last<T = any>(iterable: Iterable<T> = []): T | undefined {
-  if (arrayTypes.has(iterable.constructor as ArrayLikeConstructor)) {
-    let len = (iterable as ArrayLike).length
-    if (len === 0) {
-      return undefined
-    }
-    return iterable[len - 1]
+  if (isArrayLike(iterable)) {
+    return last(iterable)
   }
   let item
   for (item of iterable) {

@@ -13,15 +13,18 @@
   "main": "./index.js",
   "repository": "seangenabe/starry",
   "scripts": {
+    "bench": "tsc && node bench",
     "pretest": "npm run tsc",
     "test": "ava",
     "tsc": "tsc"
   },
   "dependencies": {
+    "lodash.isarraylike": "^4.2.0",
     "starry._array-types": "^3.0.0"
   },
   "devDependencies": {
     "ava": "^0.22.0",
+    "lodash.last": "^3.0.0",
     "typescript": "^2.4.1"
   },
   "engines": {
