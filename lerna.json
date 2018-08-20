@@ -1,12 +1,11 @@
 {
-  "lerna": "2.2.0",
   "version": "3.1.0",
   "packages": [
     "packages/*"
   ],
-  "commands": {
+  "command": {
     "publish": {
-      "ignore": [
+      "ignoreChanges": [
         "packages/starry.*/test.js"
       ]
     }
