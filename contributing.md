@@ -15,8 +15,8 @@ The build script contains code that modifies all of the packages under the `pack
   * `package.json` is compiled to include all submodules as dependencies.
   * Copy the base `/readme.md` to `starry`.
 * For each individual submodule:
-  * `readme.md` is compiled. This process includes transcluding `doc.md` into it.
-  * `package.json` is compiled from `package-src.json`.
+  * The files `.gitignore`, `.npmignore`, `tscconfig.json`, and `readme.md` are generated.
+  * `package.json` is edited.
   * etc.
 * Build `API.md`.
 
@@ -24,8 +24,6 @@ The build script contains code that modifies all of the packages under the `pack
 
 Test using `npm test`.
 
-Obviously, `npm run build` must be run before testing, but I opted not to include this in a `pretest` script to avoid unnecessarily running the setup script (which may take a long time) and `lerna bootstrap` (which might install external deps) every time.
-
 ## Publish
 
-Publish using `npm run pub` (`lerna publish --only-explicit-updates`).
+Publish using `npm run pub` (`npm run build && lerna publish`).
