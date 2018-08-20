@@ -1,7 +1,7 @@
 import isArrayLike = require('lodash.isarraylike')
 import _size = require('lodash.size')
 
-export function size(iterable: Iterable<any>): number {
+export function size(iterable: Iterable<any> | ArrayLike<any>): number {
   if (iterable == null) {
     return 0
   }

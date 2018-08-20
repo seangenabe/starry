@@ -18,6 +18,8 @@
     "tsc": "tsc"
   },
   "devDependencies": {
+    "@types/lodash.isarraylike": "^4.2.4",
+    "@types/lodash.size": "^4.2.4",
     "ava": "^0.22.0",
     "typescript": "^2.4.1"
   },
