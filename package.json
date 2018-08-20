@@ -19,7 +19,7 @@
   "scripts": {
     "ava": "lerna run tsc && ava",
     "build": "npm run setup && npm run lerna-bootstrap && npm run tsc",
-    "lerna-bootstrap": "lerna bootstrap --hoist typescript --hoist ava",
+    "lerna-bootstrap": "lerna bootstrap --hoist",
     "presetup": "cd build/setup && tsc",
     "setup": "node build/setup",
     "postsetup": "cp ./readme.md ./packages/starry/",
