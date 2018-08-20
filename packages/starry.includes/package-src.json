@@ -1,7 +1,5 @@
 {
   "_dependencies": [
-    "starry._array-types",
-    "starry._set-types",
     "starry._same-value-zero",
     "starry.some"
   ]
