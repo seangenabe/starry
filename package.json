@@ -29,7 +29,6 @@
     "report": "nyc report --reporter=html",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "pub": "npm run build && lerna publish",
-    "lint": "eslint .",
     "tsc": "lerna run tsc"
   },
   "devDependencies": {
@@ -38,8 +37,6 @@
     "chalk": "^2.0.1",
     "coveralls": "^3.0.0",
     "encody": "^1.0.0",
-    "eslint": "^4.1.0",
-    "eslint-config-mirage": "^2.1.0",
     "lerna": "^3.1.1",
     "lodash.assign": "^4.2.0",
     "lodash.camelcase": "latest",
