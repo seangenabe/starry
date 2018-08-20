@@ -13,17 +13,20 @@
   "main": "./index.js",
   "repository": "seangenabe/starry",
   "scripts": {
-    "pretest": "npm run tsc",
+    "pretest": "tsc",
     "test": "ava",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "bench": "tsc && node bench"
   },
   "dependencies": {
+    "lodash.isarraylike": "^4.2.0",
     "starry._array-types": "^3.0.0",
     "starry.generator-to-iterable": "^3.0.0",
     "starry.iterator-to-iterable": "^3.0.0",
     "starry.take": "^3.0.0"
   },
   "devDependencies": {
+    "@types/lodash.isarraylike": "^4.2.4",
     "ava": "^0.22.0",
     "typescript": "^2.4.1"
   },
