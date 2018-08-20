@@ -6,7 +6,6 @@ const FS = _FS as any
 import encode = require('encody')
 import Path = require('path')
 import { EOL } from 'os'
-import { inspect } from 'util'
 import chalk = require('chalk')
 import RootPackage from './root-package'
 import IPackageJson from './package-json-schema'
@@ -44,14 +43,9 @@ class Package {
   }
 
   async run() {
-    await Promise.all([
-      this.readme_md(),
-      this.npmignore(),
-      (async () => {
-        await this.typescript()
-        await this.packageJson()
-      })()
-    ])
+    await this.typescript()
+    const pkg: IPackageJson = await this.packageJson()
+    await Promise.all([this.readme_md(pkg), this.npmignore()])
   }
 
   async packageJson() {
@@ -106,21 +100,16 @@ class Package {
       package_json
     )
 
-    if (
-      package_json.dependencies &&
-      'typescript' in package_json.dependencies
-    ) {
-      delete package_json.dependencies.typescript
-    }
-
     // package.json consistency FTW!
     package_json = sortPackageJson(package_json)
 
     // Commit package.json
     await FS.writeFile(this.package_json_path, outputJSON(package_json), 'utf8')
+
+    return package_json as IPackageJson
   } // packageJson
 
-  async readme_md() {
+  async readme_md(pkg: IPackageJson) {
     let shields: [string, string, string][] = [
       [
         'npm',
