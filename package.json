@@ -17,15 +17,15 @@
     "iteration"
   ],
   "scripts": {
-    "ava": "ava",
+    "ava": "lerna run tsc && ava",
     "build": "npm run setup && npm run lerna-bootstrap && npm run tsc",
     "lerna-bootstrap": "lerna bootstrap --hoist typescript --hoist ava",
     "presetup": "cd build/setup && tsc",
     "setup": "node build/setup",
     "postsetup": "cp ./readme.md ./packages/starry/",
     "pretest": "npm run setup && npm run tsc",
-    "nyc-ava": "nyc ava",
-    "test": "nyc ava",
+    "nyc-ava": "lerna run tsc && nyc ava",
+    "test": "lerna run tsc && nyc ava",
     "report": "nyc report --reporter=html",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "pub": "npm run build && lerna publish",
@@ -49,7 +49,7 @@
     "mz": "^2.6.0",
     "nyc": "^11.0.1",
     "sort-package-json": "^1.4.0",
-    "typescript": "^2.4.1"
+    "typescript": "^2.9.2"
   },
   "ava": {
     "files": [

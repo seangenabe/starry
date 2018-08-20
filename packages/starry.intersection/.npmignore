@@ -1,0 +1,4 @@
+doc.md
+package-src.json
+*.ts
+!*.d.ts

@@ -1,30 +1,35 @@
 import { intersection } from '.'
-import test from 'ava'
+import test, { GenericTestContext, Context } from 'ava'
 
-const nums = {
+const createNums = () => ({
   *[Symbol.iterator]() {
     yield 1
     yield 2
     yield 3
   }
-}
+})
+const nums = createNums()
 
-{
-  const possibleArgs = [
-    [() => [1, 2, 3], 'array'],
-    [() => new Set([1, 2, 3]), 'set'],
-    [() => nums, 'iterable']
-  ]
-  for (let [possibleArgFn, type] of possibleArgs) {
-    test(`self-intersect test: ${type}`, t => {
-      for (let i = 2; i < 5; i++) {
-        const args = Array.from({ length: i }, possibleArgFn)
-        const r = [...intersection(...args)]
-        t.deepEqual(r, [...possibleArgFn()])
-      }
-    })
+const intersectionArr = <T>(...args: Iterable<T>[]) => [
+  ...intersection(...args)
+]
+
+const selfIntersectionTest = <T>(
+  t: GenericTestContext<Context<any>>,
+  iterFn: () => Iterable<T>
+) => {
+  for (let i = 2; i < 5; i++) {
+    const args = Array.from({ length: i }, iterFn)
+    const r = [...intersection(...args)]
+    t.deepEqual(r, [...iterFn()])
   }
 }
+
+test('self-intersect test: array', t =>
+  selfIntersectionTest(t, () => [1, 2, 3]))
+test('self-intersect test: set', t =>
+  selfIntersectionTest(t, () => new Set([1, 2, 3])))
+test('self-intersect test: iterable', t => selfIntersectionTest(t, createNums))
 
 test('basic', t => {
   const r1 = [...intersection(nums, [2, 3, 4])]

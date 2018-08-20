@@ -3,7 +3,7 @@ import test from 'ava'
 
 let s = 'abcd'
 
-const takeArr = (i, count?: number) => take(i, count)
+const takeArr = (i, count?: number) => [...take(i, count)]
 
 test('empty', t => t.deepEqual(takeArr([]), []))
 test('take 0 values', t => t.deepEqual(takeArr(s, 0), []))
