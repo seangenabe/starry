@@ -26,7 +26,7 @@
     "@types/lodash.isarraylike": "^4.2.4",
     "@types/lodash.last": "^3.0.4",
     "ava": "^0.22.0",
-    "typescript": "^2.4.1"
+    "typescript": "^3.0.1"
   },
   "engines": {
     "node": ">=6.0.0"
