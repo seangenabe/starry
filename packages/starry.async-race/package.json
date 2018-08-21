@@ -1,6 +1,6 @@
 {
   "name": "starry.async-race",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
