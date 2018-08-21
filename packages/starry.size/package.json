@@ -17,6 +17,10 @@
     "test": "ava",
     "tsc": "tsc"
   },
+  "dependencies": {
+    "lodash.isarraylike": "^4.2.0",
+    "lodash.size": "^4.2.0"
+  },
   "devDependencies": {
     "@types/lodash.isarraylike": "^4.2.4",
     "@types/lodash.size": "^4.2.4",

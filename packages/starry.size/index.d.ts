@@ -1,2 +1,2 @@
-export declare function size<T = any>(iterable: Iterable<T>): number;
+export declare function size(iterable: Iterable<any> | ArrayLike<any>): number;
 export default size;
