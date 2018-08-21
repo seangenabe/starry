@@ -28,5 +28,8 @@
     "files": [
       "test.js"
     ]
+  },
+  "dependencies": {
+    "starry.map": "^4.0.0"
   }
 }
