@@ -18,6 +18,7 @@
   ],
   "scripts": {
     "build": "npm run setup && lerna bootstrap && lerna run tsc",
+    "bootstrap": "lerna bootstrap",
     "presetup": "tsc --project build/setup",
     "setup": "node build/setup",
     "postsetup": "cp ./readme.md ./packages/starry/",

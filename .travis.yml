@@ -3,6 +3,6 @@ node_js:
   - "6"
   - "8"
 before_script:
-  - npm run lerna-bootstrap
+  - npm run bootstrap
 after_success:
   - npm run coveralls
