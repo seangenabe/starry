@@ -12,6 +12,8 @@ import IPackageJson from './package-json-schema'
 import outputJSON from './output-json'
 import renderShields from './render-shields'
 import normalizeEOLEOF from './normalize-eol-eof'
+import execa from 'execa'
+import { exec } from 'child_process'
 
 function log(...s) {
   console.error(chalk`{magenta package}`, ...s)
@@ -99,6 +101,27 @@ class Package {
       existing_package_json,
       package_json
     )
+
+    // Update Typescript version
+    if (
+      package_json.devDependencies &&
+      package_json.devDependencies.typescript &&
+      RootPackage.pkg.devDependencies &&
+      RootPackage.pkg.devDependencies.typescript
+    ) {
+      package_json.devDependencies.typescript =
+        RootPackage.pkg.devDependencies.typescript
+    }
+
+    // Update AVA version
+    if (
+      package_json.devDependencies &&
+      package_json.devDependencies.ava &&
+      RootPackage.pkg.devDependencies &&
+      RootPackage.pkg.devDependencies.ava
+    ) {
+      package_json.devDependencies.ava = RootPackage.pkg.devDependencies.ava
+    }
 
     // package.json consistency FTW!
     package_json = sortPackageJson(package_json)

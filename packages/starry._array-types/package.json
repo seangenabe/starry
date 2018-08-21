@@ -17,8 +17,11 @@
     "test": "ava",
     "tsc": "tsc"
   },
+  "dependencies": {
+    "ava": "^0.25.0"
+  },
   "devDependencies": {
-    "ava": "^0.22.0",
+    "ava": "^0.25.0",
     "typescript": "^3.0.1"
   },
   "engines": {

@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@types/lodash.isarraylike": "^4.2.4",
-    "ava": "^0.22.0",
+    "ava": "^0.25.0",
     "typescript": "^3.0.1"
   },
   "engines": {
