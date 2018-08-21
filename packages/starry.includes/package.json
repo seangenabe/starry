@@ -1,6 +1,6 @@
 {
   "name": "starry.includes",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Member of the starry suite—modular functions for iterable objects.",
   "keywords": [
     "iterable",
@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "lodash.isarraylike": "^4.2.0",
-    "starry._same-value-zero": "^3.0.0",
-    "starry.some": "^3.0.0"
+    "starry._same-value-zero": "^4.0.0",
+    "starry.some": "^4.0.0"
   },
   "devDependencies": {
     "@types/lodash.isarraylike": "^4.2.4",
